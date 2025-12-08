@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
+import LogoImg from "../public/img/bmc-logo.png";
 
 export default function ShopBriefContent() {
     const [open, setOpen] = useState(false);
@@ -23,13 +24,13 @@ export default function ShopBriefContent() {
                 <meta property="og:description" content="Shop new laptops, custom PCs, refurbished systems, gaming desktops, and accessories at Chennai’s trusted laptop store." />
                 <meta property="og:url" content="https://www.brilliantmemorycomputers.com/shop" />
                 <meta property="og:type" content="website" />
-                <meta property="og:image" content="https://www.brilliantmemorycomputers.com/images/shop-banner.jpg" />
+                <meta property="og:image" content= {`https://www.brilliantmemorycomputers.in/${LogoImg.src}`} />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Best Laptop Shop in Chennai | New Laptops, Custom PCs & Refurbished Systems" />
                 <meta name="twitter:description" content="Shop new laptops, custom PCs, refurbished systems, gaming desktops, and accessories at Chennai’s trusted laptop store." />
-                <meta name="twitter:image" content="https://www.brilliantmemorycomputers.com/images/shop-banner.jpg" />
+                <meta name="twitter:image" content= {`https://www.brilliantmemorycomputers.in/${LogoImg.src}`} />
 
                 {/* Local Business Schema */}
                 <script
@@ -39,7 +40,7 @@ export default function ShopBriefContent() {
                             "@context": "https://schema.org",
                             "@type": "ElectronicsStore",
                             "name": "Brilliant Memory Computers",
-                            "image": "https://www.brilliantmemorycomputers.com/images/logo.png",
+                            "image": `https://www.brilliantmemorycomputers.in/${LogoImg.src}`,
                             "url": "https://www.brilliantmemorycomputers.com/",
                             "telephone": "+91-7788996684",
                             "address": {
