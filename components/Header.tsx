@@ -21,7 +21,7 @@ export default function Header() {
     const { products } = useProducts();
     const [searchOpen, setSearchOpen] = useState(false);
 
-    const userName = user?.data?.name || "";
+    const userName = user?.data?.name || user?.data?.contact_number;
     const cartCount = cartItem?.data?.length || 0;
 
     useEffect(() => {

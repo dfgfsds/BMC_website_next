@@ -15,6 +15,7 @@ import AnimatedCursor from "@/components/AnimatedCursor";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Loading from "@/components/Loading";
 import { useRouter } from "next/router";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -60,6 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* <AnimatedCursor /> */}
         {isLoading && <Loading />}
         <Component {...pageProps} />
+        <FloatingCallButton />
         <FloatingWhatsApp />
       </Layout>
     </>

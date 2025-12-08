@@ -12,6 +12,7 @@ import { useVendor } from "@/context/VendorContext";
 import LoginModal from "@/components/model/LoginModel";
 import { useCartItem } from "@/context/CartItemContext";
 import Breadcrumb from "@/components/Breadcrumb";
+import { slugConvert } from "@/lib/utils";
 
 export default function ProductsPage() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -202,7 +203,7 @@ export default function ProductsPage() {
                   {/* Product Name */}
                   <h3 className="text-base font-medium text-gray-800 truncate px-4 mt-4 text-center">
                     <Link
-                      href={`/products/${product.id}`}
+                      href={`/products/${slugConvert(product.name)}`}
                       className="hover:text-blue-600 transition"
                     >
                       <p className="text-center font-medium truncate">{product.name}</p>

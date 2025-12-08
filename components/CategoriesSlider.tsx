@@ -31,7 +31,7 @@ export default function Categories() {
             {
                 breakpoint: 640, // below 640px
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },

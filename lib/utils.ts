@@ -44,3 +44,11 @@ export function generatePagination(currentPage: number, totalPages: number) {
     totalPages,
   ];
 }
+
+export function slugConvert(name: string) {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')         // Replace spaces with hyphens
+    .replace(/[^\w-]+/g, '');     // Remove non-word characters except hyphens
+}

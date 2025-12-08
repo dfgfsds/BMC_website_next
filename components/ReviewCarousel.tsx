@@ -8,18 +8,18 @@ import { Star } from 'lucide-react'
 const reviews = [
     {
         stars: 5,
-        text: `Having the distressing experience with some online shops before decided to say “THANK YOU” to all personnel of this store. You are not only friendly but deliver really good products in the shortest possible terms. In a word, I am absolutely happy with my purchase and the service. Everything was perfect!`,
-        name: 'Virginia Ubert',
+        text: `I purchased a high-performance laptop from Brilliant Memory Computers and the experience was fantastic. Their staff helped me choose the perfect configuration for my work in programming. Great pricing, genuine products, and super-fast delivery. Easily the best laptop shop in Chennai!`,
+        name: 'Rohit S. – Software Developer, TCS',
     },
     {
         stars: 5,
-        text: `Fast delivery and the product quality is amazing! Customer support was responsive and polite.`,
-        name: 'Jonathan Wells',
+        text: `I got my gaming PC built here, and the team exceeded my expectations. They suggested the right graphics card, cooling setup, and storage combination based on my games and streaming needs. The performance is insane! If you want a gaming PC build in Chennai, this is the place.`,
+        name: 'Arjun K. – Gamer & Streamer',
     },
     {
-        stars: 4,
-        text: `Good experience overall, would purchase again. A bit slow delivery but worth the wait.`,
-        name: 'Sandra Kim',
+        stars: 5,
+        text: `I bought a refurbished Lenovo laptop for my online classes. It looks brand-new and runs smoothly for everything I need. They also gave me a warranty, which gave me a lot of confidence. Very happy with the purchase!`,
+        name: 'Priya R. – College Student',
     },
 ]
 
@@ -43,7 +43,7 @@ export default function ReviewCarousel() {
                     >
                         <div className="flex gap-1 mb-4">
                             {[...Array(review.stars)].map((_, i) => (
-                                <Star key={i} className="w-5 h-5 text-white fill-white" />
+                                <Star key={i} className="w-5 h-5 text-[#FFD700] fill-[#FFD700]" />
                             ))}
                         </div>
                         <p className="mb-6 leading-relaxed">{review.text}</p>

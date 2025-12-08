@@ -11,6 +11,7 @@ import { UserProvider } from "@/context/UserContext";
 import ScrollToTop from "./ScrollToTop";
 import Loading from "./Loading";
 import { PolicyProvider } from "@/context/PolicyContext";
+import BottomNavBar from "./BottomNavBar";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -54,6 +55,7 @@ export default function Layout({ children }: LayoutProps) {
                                                 {/* <Loading /> */}
                                                 {children}
                                             </main>
+                                            <BottomNavBar />
                                             <Footer />
                                         </CartItemProvider>
                                     </UserProvider>

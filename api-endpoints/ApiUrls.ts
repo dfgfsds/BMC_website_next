@@ -1,5 +1,6 @@
-export const baseUrl = 'https://ecomapi.ftdigitalsolutions.org';
-// export const baseUrl = 'https://test-ecomapi.justvy.in';
+export const baseUrl = 'https://ecomapi.ftdigitalsolutions.org'; // LIVE LINK
+// export const baseUrl = 'https://test-ecomapi.justvy.in'; // TEST LINK
+// export const baseUrl = 'https://api-test.justvy.com'; // NEW DB LINK
 // const baseUrl ='http://82.29.161.36'
 
 const cartCreate = `${baseUrl}/api/carts/`;
@@ -7,7 +8,7 @@ const createUsers = `${baseUrl}/create_users/`;
 const addresses = `${baseUrl}/addresses/`;
 const cartItem = `${baseUrl}/api/cart_items/`;
 const cartItems = `${baseUrl}/api/cart_items/carts`;
-const cartItemsUpdate = `${baseUrl}/cart-item/update/`;
+const cartItemsUpdate = `${baseUrl}/cart-item/update/`; 
 const product = `${baseUrl}/api/products/`;
 const categories = `${baseUrl}/api/categories/`;
 const signIn = `${baseUrl}/user_login/`;

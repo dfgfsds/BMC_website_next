@@ -1,38 +1,48 @@
-"use client"; 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { getProductApi } from '../api-endpoints/products';
-import { useQuery } from '@tanstack/react-query';
-import { useVendor } from './VendorContext';
+"use client";
+import React, { createContext, useContext, useState, ReactNode } from "react";
+import { getProductApi } from "../api-endpoints/products";
+import { useQuery } from "@tanstack/react-query";
+import { useVendor } from "./VendorContext";
+
 interface ProductsContextType {
-  products: any;  // fixed here
+  products: { data: any[] };
   isAuthenticated: boolean;
-  isLoading:any
+  isLoading: boolean;
 }
 
+const ProductsContext = createContext<ProductsContextType | undefined>(
+  undefined
+);
 
-const ProductsContext = createContext<ProductsContextType | undefined>(undefined);
+export function ProductsProvider({ children }: { children: ReactNode }) {
+  const { vendorId } = useVendor();
 
-export function ProductsProvider({ children }: any) {
-      const { vendorId } = useVendor();
-  const { data,isLoading }: any = useQuery({
-    queryKey: ['getProductData',vendorId],
+  const { data, isLoading }: any = useQuery({
+    queryKey: ["getProductData", vendorId],
     queryFn: () => getProductApi(`?vendor_id=${vendorId}`),
-    enabled: !!vendorId
+    enabled: !!vendorId,
   });
 
-  const [products, setProducts] = useState<any[]>([]);
+
+  const [products, setProducts] = useState<{ data: any }>({ data: [] });
 
   React.useEffect(() => {
     if (data) {
-      setProducts(data);
+      // filter status === true
+      const activeProducts = Array.isArray(data?.data)
+        ? data?.data?.filter((item: any) => item?.status === true)
+        : [];
+      setProducts({ data: activeProducts });
     }
   }, [data]);
+
+
 
   return (
     <ProductsContext.Provider
       value={{
         products,
-        isAuthenticated: !!products.length,
+        isAuthenticated: products.data.length > 0,
         isLoading,
       }}
     >
@@ -44,7 +54,8 @@ export function ProductsProvider({ children }: any) {
 export function useProducts() {
   const context = useContext(ProductsContext);
   if (context === undefined) {
-    throw new Error('useProducts must be used within a ProductsProvider');
+    throw new Error("useProducts must be used within a ProductsProvider");
   }
   return context;
 }
+

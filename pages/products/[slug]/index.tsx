@@ -18,6 +18,7 @@ import LoginModal from '@/components/model/LoginModel';
 import { useCartItem } from '@/context/CartItemContext';
 import Breadcrumb from '@/components/Breadcrumb';
 import Link from 'next/link';
+import { slugConvert } from '@/lib/utils';
 
 const SingleProductPage = () => {
     const [getUserId, setUserId] = useState<string | null>(null);
@@ -35,7 +36,7 @@ const SingleProductPage = () => {
     const { vendorId } = useVendor();
     const queryClient = useQueryClient();
     const params = useParams();
-    const id = params?.id;
+    const slug = params?.slug;
 
     useEffect(() => {
         if (products?.data && product) {
@@ -56,8 +57,8 @@ const SingleProductPage = () => {
     }, []);
 
     useEffect(() => {
-        if (products?.data && id) {
-            const found = products.data.find((p: any) => String(p.id) === String(id));
+        if (products?.data && slug) {
+            const found = products.data.find((p: any) => slugConvert(p.name) === slug);
             if (found) {
                 const cartMatch = cartItem?.data?.find((item: any) => item?.product === found.id);
                 if (cartMatch) {
@@ -69,7 +70,7 @@ const SingleProductPage = () => {
                 setProduct(found);
             }
         }
-    }, [products, id, cartItem]);
+    }, [products, slug, cartItem]);
 
     const handleUpdateCart = async (id: any, type: any, qty: any) => {
         try {
@@ -130,7 +131,7 @@ const SingleProductPage = () => {
         }
         return product;
     });
-    
+
     return (
         <div className="max-w-6xl mx-auto px-4 py-6">
             <div className="container mx-auto px-4 py-6">
@@ -175,7 +176,8 @@ const SingleProductPage = () => {
                         )}
                     </div>
                     <p className="text-sm mt-2 text-green-600">In stock: {product.stock_quantity} items</p>
-                    <p className="mt-4 text-gray-600 leading-relaxed">{product.description}</p>
+                    {/* <p className="mt-4 text-gray-600 leading-relaxed">{product.description}</p> */}
+                    <div dangerouslySetInnerHTML={{ __html: product?.description }} className="quill-content text-gray-600 mt-2" />
 
                     {cartData ? (
                         <div className="flex items-center justify-start mt-4 space-x-4">
@@ -213,7 +215,7 @@ const SingleProductPage = () => {
                                 key={related.id}
                                 className="bg-white p-4 group relative border border-blue-100 rounded-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
                             >
-                                <Link href={`/products/${related.id}`}>
+                                <Link href={`/products/${slugConvert(related.name)}`}>
                                     <Image
                                         src={related.image_urls[0]}
                                         alt={related.name}
@@ -226,7 +228,7 @@ const SingleProductPage = () => {
 
                                 <h3 className="text-lg font-medium text-gray-800 truncate mt-3 text-center">
                                     <Link
-                                        href={`/products/${related.id}`}
+                                        href={`/products/${slugConvert(related.name)}`}
                                         className="hover:underline hover:text-blue-600 transition-colors"
                                     >
                                         {related.name}
