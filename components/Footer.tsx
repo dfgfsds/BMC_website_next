@@ -104,6 +104,9 @@ const Footer = () => {
                             <li>
                                 <Link href="/shipping-policy" className="hover:text-white transition-colors">Shipping Policy</Link>
                             </li>
+                            <li>
+                                <Link href="/blog" className="hover:text-white transition-colors">Blogs</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -118,14 +121,14 @@ const Footer = () => {
                             rel="noopener noreferrer"
                             className="text-blue-400 hover:underline"
                         >
-                            FTDS
+                            FT Digital Solutions (Agency)
                         </a>. All rights reserved.
                     </p>
                     <div className="flex space-x-6">
                         <a href="https://www.facebook.com/brilliantmemorycomputers/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-200">
                             <Facebook size={20} />
                         </a>
-                        <a href="https://www.instagram.com/brilliant_memorycomputers/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-200">
+                        <a href="https://www.instagram.com/brilliant_memory_computers/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-200">
                             <Instagram size={20} />
                         </a>
                         <a href="https://x.com/Bmc_computer" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition duration-200">

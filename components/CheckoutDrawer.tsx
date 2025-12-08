@@ -1,10 +1,10 @@
 'use client';
 
 import { patchUserSelectAddressAPi } from '@/api-endpoints/authendication';
-import { getAddressApi } from '@/api-endpoints/CartsApi';
+import { getAddressApi, getAppliedCouponDataApi, postApplyCouponApi } from '@/api-endpoints/CartsApi';
 import { InvalidateQueryFilters, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { MapPin, X } from 'lucide-react';
+import { Loader2, MapPin, X } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useVendor } from '@/context/VendorContext';
@@ -21,7 +21,7 @@ interface CheckoutSidebarProps {
 }
 
 const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => {
-   
+
 
     const [getUserName, setUserName] = useState<string | null>(null);
     const [getCartId, setCartId] = useState<string | null>(null);
@@ -34,8 +34,10 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
     const router = useRouter();
     const { vendorId } = useVendor()
     const { user } = useUser();
-    console.log("user", user);
-    
+    const [code, setCode] = useState('');
+    const [isChecking, setIsChecking] = useState(false);
+    const [error, setError] = useState('');
+
     const { refetchCart } = useCartItem();
 
     const [userId, setUserId] = useState<string | null>(null);
@@ -89,8 +91,38 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
     useEffect(() => {
         getDeliveryCharge()
     }, [paymentMethod])
+    // getAppliedCouponDataApi
+    const getAppliedCouponData: any = useQuery({
+        queryKey: ['getAppliedCouponDataData', userId],
+        queryFn: () => getAppliedCouponDataApi(`?user_id=${userId}`),
+        enabled: !!userId
+    })
 
     const RAZOR_PAY_KEY = 'rzp_live_zprl8eteDSWOEX';
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        setError('');
+        setIsChecking(true);
+
+        const payload = {
+            user_id: Number(userId),
+            coupon_code: code,
+            vendor_id: vendorId,
+            updated_by: getUserName || 'user'
+        };
+
+        try {
+            const updateApi = await postApplyCouponApi("", payload);
+            if (updateApi) {
+                getDeliveryCharge()
+            }
+        } catch (error: any) {
+            setError(error?.response?.data?.error || "Failed to apply coupon. Please try again.");
+        } finally {
+            setIsChecking(false);
+        }
+    };
 
     const placeOrder = async () => {
         try {
@@ -176,7 +208,7 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
         <>
             {/* Sidebar Drawer */}
             <div
-                className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-lg transform transition-transform duration-300 z-[10001] ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                className={`fixed overflow-x-scroll top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-lg transform transition-transform duration-300 z-[10001] ${isOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
             >
                 <div className="flex justify-between items-center p-4 border-b">
@@ -256,6 +288,52 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
                             <option value="cod">Cash on Delivery (COD)</option>
                         </select>
                     </div>
+
+                    {getAppliedCouponData?.data?.data?.applied_coupons?.length ? (
+                        <>
+                            <div className="bg-green-50 p-4 rounded-lg space-y-2 flex justify-between">
+                                <div className=''>
+                                    <p className="text-sm text-green-700 font-bold mb-2">
+                                        Applied Coupon: {getAppliedCouponData?.data?.data?.data[0]?.code}
+                                    </p>
+
+                                    <p className="text-sm text-green-700 font-bold">
+                                        Discount Amount: ₹{getAppliedCouponData?.data?.data?.applied_coupons[0]?.discount || 0}
+                                    </p>
+                                </div>
+                                <button
+                                    // onClick={handleRemoveCoupon}
+                                    className="text-[#a5291b] border-red-300 hover:bg-red-50"
+                                >
+                                    Remove Coupon
+                                </button>
+                            </div>
+                        </>
+                    ) : (
+                        <div>
+                            <h2 className="text-lg font-semibold mb-1">Coupon</h2>
+                            <div className="flex items-center gap-2 mb-2">
+                                <input
+                                    type="text"
+                                    placeholder="Discount code"
+                                    className="bg-white w-full p-2"
+                                    value={code}
+                                    onChange={(e: any) => setCode(e.target.value.toUpperCase())}
+                                />
+                                <button disabled={!code || isChecking} onClick={handleSubmit} className="whitespace-nowrap bg-blue-600 hover:bg-blue-700 p-2 rounded-md text-white font-bold ">
+
+                                    {isChecking ? (
+                                        <Loader2 className="h-4 w-4 animate-spin" />
+                                    ) : (
+                                        'Apply'
+                                    )}
+                                </button>
+                            </div>
+                            {error && (
+                                <p className="text-sm text-[#a5291b]">Coupon not found!</p>
+                            )}
+                        </div>
+                    )}
 
 
                     {/* Delivery Charge */}

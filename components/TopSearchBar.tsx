@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { slugConvert } from '@/lib/utils';
 
 interface Product {
     id: string | number;
@@ -77,7 +78,7 @@ const TopSearchBar: React.FC<Props> = ({ open, onClose, products,setSearchOpen }
                                 onClick={() => {
                                     setQuery('');
                                     onClose();
-                                    router.push(`/products/${item.id}`);
+                                    router.push(`/products/${slugConvert(item.name)}`);
                                 }}
                                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded"
                             >

@@ -13,6 +13,7 @@ import { useVendor } from '@/context/VendorContext';
 import LoginModal from './model/LoginModel';
 import Breadcrumb from './Breadcrumb';
 import { useCartItem } from '@/context/CartItemContext';
+import { slugConvert } from '@/lib/utils';
 
 export default function CategoriesBasedProduct() {
     const { id } = useParams();
@@ -120,7 +121,7 @@ export default function CategoriesBasedProduct() {
                         <div key={product?.id} className="px-2 my-2">
                             <div className="bg-white p-4 group relative border border-blue-100 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 rounded-md">
                                 <Link
-                                    href={`/products/${product.id}`}>
+                                    href={`/products/${slugConvert(product.name)}`}>
                                     <Image
                                         src={product?.image_urls[0]}
                                         alt={product?.name}
@@ -132,7 +133,7 @@ export default function CategoriesBasedProduct() {
                                 </Link>
                                 <h3 className="text-lg font-medium text-gray-800 truncate mt-3 text-center">
                                     <Link
-                                        href={`/products/${product.id}`}
+                                        href={`/products/${slugConvert(product.name)}`}
                                         className="hover:underline hover:text-blue-600 transition-colors"
                                     >
                                         {product.name}
