@@ -1,5 +1,5 @@
-// export const baseUrl = 'https://ecomapi.ftdigitalsolutions.org'; // LIVE LINK
-export const baseUrl = 'https://test-ecomapi.justvy.in'; // TEST LINK
+export const baseUrl = 'https://ecomapi.ftdigitalsolutions.org'; // LIVE LINK
+// export const baseUrl = 'https://test-ecomapi.justvy.in'; // TEST LINK
 // export const baseUrl = 'https://api-test.justvy.com'; // NEW DB LINK
 // const baseUrl ='http://82.29.161.36'
 
