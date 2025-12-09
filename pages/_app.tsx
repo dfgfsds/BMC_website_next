@@ -57,6 +57,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+    <Head>
+      <title>Best Laptops & Computer Shop in Chennai | BMC</title>
+      <meta
+        name="description"
+        content="Shop refurbished laptops, gaming computers & accessories online. Best computer shop in Chennai for budget deals, fast delivery & expert support."
+      />
+    </Head>
+
       <Layout>
         {/* <AnimatedCursor /> */}
         {isLoading && <Loading />}

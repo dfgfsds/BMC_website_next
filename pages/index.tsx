@@ -36,7 +36,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
     <meta
   property="og:image"
-  content={`https://www.brilliantmemorycomputers.in${LogoImg.src}`}
+  content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
 />
 
         {/* Twitter Card */}
@@ -48,7 +48,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content={`https://www.brilliantmemorycomputers.in${LogoImg.src}`}
+          content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
         />
 
         {/* Schema JSON-LD */}
@@ -62,7 +62,7 @@ export default function Home() {
                   "@type": "LocalBusiness",
                   "name": "Brilliant Memory Computers",
                   "url": "https://www.brilliantmemorycomputers.in/",
-                  "image": `https://www.brilliantmemorycomputers.in${LogoImg.src}`,
+                  "image": `https://www.brilliantmemorycomputers.in/${LogoImg.src}`,
                   "description":
                     "Best laptop and computer shop in Chennai offering refurbished laptops, gaming computers, accessories, and expert support.",
                   "address": {
