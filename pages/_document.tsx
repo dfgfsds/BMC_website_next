@@ -5,11 +5,11 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
-                <title>Best laptops & Computer Shop in Chennai | BMC</title>
+                {/* <title>Best laptops & Computer Shop in Chennai | BMC</title>
                 <meta
                     name="description"
                     content="Shop refurbished laptops, gaming computers & accessories online. Best computer shop in Chennai for budget deals, fast delivery & expert support."
-                />
+                /> */}
                 <link rel="icon" href="/favicon.ico" />
                 
                 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
