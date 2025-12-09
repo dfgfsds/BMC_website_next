@@ -13,6 +13,7 @@ import LoginModal from "@/components/model/LoginModel";
 import { useCartItem } from "@/context/CartItemContext";
 import Breadcrumb from "@/components/Breadcrumb";
 import { slugConvert } from "@/lib/utils";
+import ShopBriefContent from "@/components/shopbriefSection";
 
 export default function ProductsPage() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -162,6 +163,7 @@ export default function ProductsPage() {
   );
 
   return (
+    <>
     <div className="p-6 max-w-6xl mx-auto">
       <div className="mb-6">
         <Breadcrumb items={breadcrumbItems} />
@@ -293,6 +295,8 @@ export default function ProductsPage() {
             </div>
           )}
 
+             <ShopBriefContent/>
+
         </div>
 
 
@@ -307,6 +311,8 @@ export default function ProductsPage() {
         <LoginModal open={signInmodal} handleClose={() => setSignInModal(false)} vendorId={vendorId} />
       )}
     </div>
+ 
+    </>
   );
 }
 

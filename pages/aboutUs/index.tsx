@@ -7,7 +7,7 @@ import imgabout from "../../public/img/bmc1.webp"
 
 export default function AboutPage() {
     return <>
-          {/* ⭐ SEO HEAD SECTION */}
+          
       <Head>
         <title>Best Laptop Store in Chennai | Brilliant Memory Computers</title>
         <meta
