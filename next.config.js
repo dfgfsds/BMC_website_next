@@ -5,7 +5,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['theme905-computer-shop.myshopify.com', 'example.com', 'ecomapi.ftdigitalsolutions.org','www.primeabgb.com'],
+        unoptimized: true,
+        // domains: ['theme905-computer-shop.myshopify.com', 'example.com', 'ecomapi.ftdigitalsolutions.org','www.primeabgb.com'],
     },
 };
 
