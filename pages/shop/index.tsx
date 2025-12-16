@@ -164,154 +164,158 @@ export default function ProductsPage() {
 
   return (
     <>
-    <div className="p-6 max-w-6xl mx-auto">
-      <div className="mb-6">
-        <Breadcrumb items={breadcrumbItems} />
-        <h1 className="text-3xl font-bold mt-3">All Products</h1>
-        <p className="text-muted-foreground">
-          Discover our collection of cutting-edge computers and essential hardware solutions.
-        </p>
-      </div>
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="w-full lg:w-1/4">
-          <ProductsSidebar
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
+      <div className="p-6 max-w-6xl mx-auto">
+        <div className="mb-6">
+          <Breadcrumb items={breadcrumbItems} />
+          <h1 className="text-3xl font-bold mt-3">All Products</h1>
+          <p className="text-muted-foreground">
+            Discover our collection of cutting-edge computers and essential hardware solutions.
+          </p>
         </div>
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="w-full lg:w-1/4">
+            <ProductsSidebar
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
+          </div>
 
-        <div ref={topRef} className="w-full lg:w-3/4">
+          <div ref={topRef} className="w-full lg:w-3/4">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {isLoading ? (
-              Array.from({ length: itemsPerPage }).map((_, idx) => (
-                <ProductSkeleton key={idx} />
-              ))
-            ) : currentProducts && currentProducts.length > 0 ? (
-              currentProducts.map((product: any) => (
-                <div className="bg-white relative h-[400px] rounded-md group hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-300">
-                  {/* Product Image */}
-                  <div className="relative p-4">
-                    <Image
-                      src={product?.image_urls[0]}
-                      alt={product?.name}
-                      width={280}
-                      height={280}
-                      className="h-52 w-full object-contain mx-auto"
-                    />
-                  </div>
-                  {/* Divider */}
-                  <span className="block w-full h-[1px] bg-blue-100" />
-                  {/* Product Name */}
-                  <h3 className="text-base font-medium text-gray-800 truncate px-4 mt-4 text-center">
-                    <Link
-                      href={`/products/${slugConvert(product.name)}`}
-                      className="hover:text-blue-600 transition"
-                    >
-                      <p className="text-center font-medium truncate">{product.name}</p>
-                    </Link>
-                  </h3>
-                  {/* Price */}
-                  <div className="text-center mt-3">
-                    <p className="text-blue-600 text-xl font-semibold">₹{product?.price}</p>
-                  </div>
-                  {/* Add to Cart or Qty Counter */}
-                  {product?.cartQty > 0 ? (
-                    <div className="hidden group-hover:block group-hover:flex items-center justify-center mt-4 mb-4 space-x-4">
-                      <button
-                        onClick={() =>
-                          handleUpdateCart(product?.cartId, 'decrease', product?.cartQty)
-                        }
-                        disabled={product.cartQty <= 1}
-                        className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
-                      >
-                        −
-                      </button>
-                      <span className="text-blue-700 font-semibold text-lg">{product.cartQty}</span>
-                      <button
-                        onClick={() => handleUpdateCart(product?.cartId, 'increase', '')}
-                        className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
-                      >
-                        +
-                      </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {isLoading ? (
+                Array.from({ length: itemsPerPage }).map((_, idx) => (
+                  <ProductSkeleton key={idx} />
+                ))
+              ) : currentProducts && currentProducts.length > 0 ? (
+                currentProducts.map((product: any) => (
+                  <Link
+                    href={`/shop/${slugConvert(product.name)}`}>
+
+                    <div className="bg-white relative h-[400px] rounded-md group hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-300">
+                      {/* Product Image */}
+                      <div className="relative p-4">
+                        <Image
+                          src={product?.image_urls[0]}
+                          alt={product?.name}
+                          width={280}
+                          height={280}
+                          className="h-52 w-full object-contain mx-auto"
+                        />
+                      </div>
+                      {/* Divider */}
+                      <span className="block w-full h-[1px] bg-blue-100" />
+                      {/* Product Name */}
+                      <h3 className="text-base font-medium text-gray-800 truncate px-4 mt-4 text-center">
+                        <Link
+                          href={`/shop/${slugConvert(product.name)}`}
+                          className="hover:text-blue-600 transition"
+                        >
+                          <p className="text-center font-medium truncate">{product.name}</p>
+                        </Link>
+                      </h3>
+                      {/* Price */}
+                      <div className="text-center mt-3">
+                        <p className="text-blue-600 text-xl font-semibold">₹{product?.price}</p>
+                      </div>
+                      {/* Add to Cart or Qty Counter */}
+                      {product?.cartQty > 0 ? (
+                        <div className="hidden group-hover:block group-hover:flex items-center justify-center mt-4 mb-4 space-x-4">
+                          <button
+                            onClick={() =>
+                              handleUpdateCart(product?.cartId, 'decrease', product?.cartQty)
+                            }
+                            disabled={product.cartQty <= 1}
+                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+                          >
+                            −
+                          </button>
+                          <span className="text-blue-700 font-semibold text-lg">{product.cartQty}</span>
+                          <button
+                            onClick={() => handleUpdateCart(product?.cartId, 'increase', '')}
+                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+                          >
+                            +
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="p-4 pt-2 hidden group-hover:block">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              getUserId ? handleAddCart(product.id, 1) : setSignInModal(true);
+                            }}
+                            className="w-full bg-blue-600 hover:bg-black hover:text-white text-white py-2 rounded-md font-medium shadow-sm transition-all duration-200"
+                          >
+                            <span className='flex justify-center'>Add to cart <span className='ml-2 mt-1 align-middle'><ShoppingCart size={16} /></span> </span>
+                          </button>
+                        </div>
+                      )}
                     </div>
-                  ) : (
-                    <div className="p-4 pt-2 hidden group-hover:block">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          getUserId ? handleAddCart(product.id, 1) : setSignInModal(true);
-                        }}
-                        className="w-full bg-blue-600 hover:bg-black hover:text-white text-white py-2 rounded-md font-medium shadow-sm transition-all duration-200"
-                      >
-                        <span className='flex justify-center'>Add to cart <span className='ml-2 mt-1 align-middle'><ShoppingCart size={16} /></span> </span>
-                      </button>
-                    </div>
-                  )}
+                  </Link>
+                ))
+              ) : (
+                <div className="col-span-full text-center text-gray-500 text-lg font-medium py-10">
+                  No products found.
                 </div>
-              ))
-            ) : (
-              <div className="col-span-full text-center text-gray-500 text-lg font-medium py-10">
-                No products found.
+              )}
+            </div>
+
+
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center gap-2 mt-8">
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="w-8 h-8 rounded-md border border-blue-200 text-blue-600 hover:border-blue-400 disabled:opacity-50"
+                >
+                  &#x276E;
+                </button>
+
+                {getPaginationRange().map((page, idx) =>
+                  page === '...' ? (
+                    <span key={idx} className="px-2 text-gray-400">…</span>
+                  ) : (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page as number)}
+                      className={`w-8 h-8 rounded-md border text-sm font-semibold ${currentPage === page
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'text-gray-500 border-blue-200 hover:border-blue-400'
+                        }`}
+                    >
+                      {page}
+                    </button>
+                  )
+                )}
+
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="w-8 h-8 rounded-md border border-blue-200 text-blue-600 hover:border-blue-400 disabled:opacity-50"
+                >
+                  &#x276F;
+                </button>
               </div>
             )}
+
+            <ShopBriefContent />
+
           </div>
 
 
-          {totalPages > 1 && (
-            <div className="flex justify-center items-center gap-2 mt-8">
-              <button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
-                className="w-8 h-8 rounded-md border border-blue-200 text-blue-600 hover:border-blue-400 disabled:opacity-50"
-              >
-                &#x276E;
-              </button>
-
-              {getPaginationRange().map((page, idx) =>
-                page === '...' ? (
-                  <span key={idx} className="px-2 text-gray-400">…</span>
-                ) : (
-                  <button
-                    key={page}
-                    onClick={() => setCurrentPage(page as number)}
-                    className={`w-8 h-8 rounded-md border text-sm font-semibold ${currentPage === page
-                        ? 'bg-blue-600 text-white border-blue-600'
-                        : 'text-gray-500 border-blue-200 hover:border-blue-400'
-                      }`}
-                  >
-                    {page}
-                  </button>
-                )
-              )}
-
-              <button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                disabled={currentPage === totalPages}
-                className="w-8 h-8 rounded-md border border-blue-200 text-blue-600 hover:border-blue-400 disabled:opacity-50"
-              >
-                &#x276F;
-              </button>
-            </div>
-          )}
-
-             <ShopBriefContent/>
-
         </div>
 
-
+        <ProductModal
+          isOpen={isModalOpen}
+          product={selectedProduct}
+          onClose={() => setModalOpen(false)}
+        />
+        {signInmodal && (
+          <LoginModal open={signInmodal} handleClose={() => setSignInModal(false)} vendorId={vendorId} />
+        )}
       </div>
 
-      <ProductModal
-        isOpen={isModalOpen}
-        product={selectedProduct}
-        onClose={() => setModalOpen(false)}
-      />
-      {signInmodal && (
-        <LoginModal open={signInmodal} handleClose={() => setSignInModal(false)} vendorId={vendorId} />
-      )}
-    </div>
- 
     </>
   );
 }

@@ -147,7 +147,7 @@ const BestSellers = () => {
                                 {/* Product Name */}
                                 <h3 className="text-base font-medium text-gray-800 truncate px-4 mt-4 text-center">
                                     <Link
-                                        href={`/products/${slugConvert(product.name)}`}
+                                        href={`/shop/${slugConvert(product.name)}`}
                                         className="hover:text-blue-600 transition"
                                     >
                                         <p className="text-center font-medium truncate">{product.name}</p>

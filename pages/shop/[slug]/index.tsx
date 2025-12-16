@@ -215,7 +215,7 @@ const SingleProductPage = () => {
                                 key={related.id}
                                 className="bg-white p-4 group relative border border-blue-100 rounded-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
                             >
-                                <Link href={`/products/${slugConvert(related.name)}`}>
+                                <Link href={`/shop/${slugConvert(related.name)}`}>
                                     <Image
                                         src={related.image_urls[0]}
                                         alt={related.name}
@@ -228,7 +228,7 @@ const SingleProductPage = () => {
 
                                 <h3 className="text-lg font-medium text-gray-800 truncate mt-3 text-center">
                                     <Link
-                                        href={`/products/${slugConvert(related.name)}`}
+                                        href={`/shop/${slugConvert(related.name)}`}
                                         className="hover:underline hover:text-blue-600 transition-colors"
                                     >
                                         {related.name}
