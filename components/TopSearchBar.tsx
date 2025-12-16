@@ -78,7 +78,7 @@ const TopSearchBar: React.FC<Props> = ({ open, onClose, products,setSearchOpen }
                                 onClick={() => {
                                     setQuery('');
                                     onClose();
-                                    router.push(`/products/${slugConvert(item.name)}`);
+                                    router.push(`/shop/${slugConvert(item.name)}`);
                                 }}
                                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer rounded"
                             >
