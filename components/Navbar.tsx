@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 const navLinks = [
   { name: 'Home', link: '/' },
-  { name: 'Shop', link: '/products' },
+  { name: 'Shop', link: '/shop' },
   { name: 'Categories', link: '/categories' },
-  { name: 'About Us', link: '/aboutUs' },
-  { name: 'Contact Us', link: '/contactUs' },
+  { name: 'About Us', link: '/about-us' },
+  { name: 'Contact Us', link: '/contact-us' },
 ];
 
 function Navbar() {

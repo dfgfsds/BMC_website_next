@@ -25,12 +25,12 @@ const ContactUs = () => {
                     content="Brilliant Memory Computers, contact, laptop sales, PC sales, custom PC build, computer repair, tech support, service center"
                 />
 
-                <link rel="canonical" href="https://www.brilliantmemorycomputers.in/contact-us/" />
+                <link rel="canonical" href="https://www.brilliantmemorycomputers.in/contact-us" />
 
                 {/* Open Graph */}
                 <meta property="og:title" content="Contact Us | Brilliant Memory Computers – Laptop & PC Sales" />
                 <meta property="og:description" content="Get in touch with Brilliant Memory Computers for laptop sales, custom PC builds, computer repair, and tech support. Fast and reliable support." />
-                <meta property="og:url" content="https://www.brilliantmemorycomputers.in/contact-us/" />
+                <meta property="og:url" content="https://www.brilliantmemorycomputers.in/contact-us" />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Brilliant Memory Computers" />
 
@@ -47,7 +47,7 @@ const ContactUs = () => {
                             "@context": "https://schema.org",
                             "@type": "LocalBusiness",
                             "name": "Brilliant Memory Computers",
-                            "url": "https://www.brilliantmemorycomputers.in/contact-us/",
+                            "url": "https://www.brilliantmemorycomputers.in/contact-us",
                           "image": `https://www.brilliantmemorycomputers.in${LogoImg.src}`,
                             "description": "Contact Brilliant Memory Computers for laptop sales, custom PC builds, computer repair, and tech support.",
                             "telephone": "+91-7788996684",
