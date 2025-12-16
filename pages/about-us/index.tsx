@@ -1,9 +1,9 @@
 
 import Head from "next/head";
-import AboutUs from '@/components/AboutUs';
 import TrendingTabs from './TrendingTabs';
 import LogoImg from "../../public/img/bmc-logo.png";
 import imgabout from "../../public/img/bmc1.webp"
+import AboutUs from "@/components/AboutUs";
 
 export default function AboutPage() {
     return <>
@@ -74,7 +74,7 @@ export default function AboutPage() {
           }}
         />
       </Head>
-        <AboutUs />
+    <AboutUs/>
         <TrendingTabs />
     </>;
 }
