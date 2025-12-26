@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from './Breadcrumb';
 
-export default function CategoriesPage() {
+export default function     CategoriesPage() {
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
         { name: 'Categories', href: '/categories', isActive: true },

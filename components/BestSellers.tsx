@@ -107,7 +107,7 @@ const BestSellers = () => {
                 Shop Best Sellers
             </h2>
             <div className="flex justify-end">
-                <Link href="/products">
+                <Link href="/shop">
                     <button className="text-sm px-4 py-1.5 mr-6 border border-blue-600 text-blue-600 rounded-md shadow-sm hover:shadow-md hover:bg-blue-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
                         View all
                     </button>
