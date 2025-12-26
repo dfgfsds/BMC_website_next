@@ -1,68 +1,160 @@
-import axios from "axios";
-import { MetadataRoute } from "next";
+import Head from "next/head";
 
-const SITE_URL = "https://www.ftds.in";
-export const baseUrl = 'https://ecomapi.ftdigitalsolutions.org'; 
+import BestSellers from "@/components/BestSellers";
+import Categories from "@/components/CategoriesSlider";
+import HeroSection from "@/components/HeroSection";
+import ReviewCarousel from "@/components/ReviewCarousel";
+import SpecialSection from "@/components/SpecialSection";
+import HomeSeoSection from "@/components/homeseocontent";
+import LogoImg from "../public/img/bmc-logo.png";
 
-function slugConvert(text: string) {
-  return text
-    ?.toString()
-    .toLowerCase()
-    .trim()
-    .replace(/[\s_]+/g, "-")
-    .replace(/[^\w-]+/g, "");
-}
+export default function Home() {
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let blogs: any[] = [];
-  try {
-    const vendorId = 65;
-    const res = await axios.get(`${baseUrl}/blog/?vendor_id=${vendorId}`);
-    blogs = res.data?.blogs || [];
-  } catch (e: unknown) {
-    if (e instanceof Error) console.log("❌ Blog Fetch Failed", e.message);
-    else console.log("❌ Blog Fetch Failed", e);
-  }
+  return (
+    <>
+      <Head>
+        <title>Best Laptops & Computer Shop in Chennai | BMC</title>
+        <meta
+          name="description"
+          content="Shop refurbished laptops, gaming computers & accessories online. Best computer shop in Chennai for budget deals, fast delivery & expert support."
+        />
+        <meta
+          name="keywords"
+          content="laptops in Chennai, refurbished laptops Chennai, gaming computers Chennai, computer shop Chennai, budget laptops, BMC Chennai"
+        />
 
-  const blogUrls = blogs.map((b) => ({
-    url: `${SITE_URL}/blog/${slugConvert(b.title)}`,
-    lastModified: new Date(b.created_at || new Date()),
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
+        {/* Canonical */}
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/" />
 
-  let categories: any[] = [];
-  try {
-    const res = await axios.get(`${baseUrl}/api/categories/`);
-    categories = res.data?.data || res.data || [];
-  } catch (e: unknown) {
-    if (e instanceof Error) console.log("❌ Category Fetch Failed", e.message);
-    else console.log("❌ Category Fetch Failed", e);
-  }
+        {/* Open Graph (FB & LinkedIn) */}
+        <meta property="og:title" content="Best Laptops & Computer Shop in Chennai | BMC" />
+        <meta
+          property="og:description"
+          content="Shop refurbished laptops, gaming computers & accessories online. Best computer shop in Chennai for budget deals, fast delivery & expert support."
+        />
+        <meta property="og:url" content="https://www.brilliantmemorycomputers.in/" />
+        <meta property="og:type" content="website" />
+    <meta
+  property="og:image"
+  content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
+/>
 
-  const categoryUrls = categories.map((c) => ({
-    url: `${SITE_URL}/categories/${slugConvert(c.name)}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Laptops & Computer Shop in Chennai | BMC" />
+        <meta
+          name="twitter:description"
+          content="Shop refurbished laptops, gaming computers & accessories online. Fast delivery, great pricing & expert support."
+        />
+        <meta
+          name="twitter:image"
+          content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
+        />
 
-  const staticUrls: MetadataRoute.Sitemap = [
-    "",
-    "/about",
-    "/contact",
-    "/shop",
-    "/blog",
-    "/categories",
-    "/privacy-policy",
-    "/terms-and-conditions",
-    "/refurbished-laptop-in-chenna",
-  ].map((path) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 1.0,
-  }));
+        {/* Schema JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "LocalBusiness",
+                  "name": "Brilliant Memory Computers",
+                  "url": "https://www.brilliantmemorycomputers.in/",
+                  "image": `https://www.brilliantmemorycomputers.in/${LogoImg.src}`,
+                  "description":
+                    "Best laptop and computer shop in Chennai offering refurbished laptops, gaming computers, accessories, and expert support.",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress":
+                      "Shop No 2, GF 1/L, Blackers Road Gaiety Palace, Anna Salai",
+                    "addressLocality": "Chennai",
+                    "addressRegion": "Tamil Nadu",
+                    "postalCode": "600002",
+                    "addressCountry": "IN"
+                  },
+                  "telephone": "+91-7788996684",
+                  "openingHours": "Mo-Sa 10:00-20:00",
+                  "priceRange": "₹₹",
+                  "sameAs": [
+                    "https://www.facebook.com/brilliantmemorycomputers/",
+                    "https://www.instagram.com/brilliant_memory_computers/",
+                    "https://www.youtube.com/channel/UC_OZsZxKSGvkBb_hEMyLL5A"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "name": "Brilliant Memory Computers",
+                  "url": "https://www.brilliantmemorycomputers.in/",
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target":
+                      "https://www.brilliantmemorycomputers.in/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                  }
+                }
+              ]
+            })
+          }}
+        />
+      </Head>
 
-  return [...staticUrls, ...blogUrls, ...categoryUrls];
+      {/* PAGE CONTENT SECTION */}
+      <HeroSection />
+      <Categories />
+      <BestSellers />
+      <div className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+           Welcome to BMC – Chennai’s Trusted Computer & Laptop Store
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
+            <span className="block mb-4">
+              Looking for Brand new laptops &  Computers in Chennai, the latest gaming computers for high performance? You’ve come to the right place!
+            </span>
+            At Brilliant Memory Computers, we’re proud to be the best computer shop in Chennai, offering refurbished laptops, gaming laptops, and computer accessories at unbeatable prices.
+
+          </p>
+
+          <div className="mt-10 flex justify-center">
+            <div className="w-32 h-1 bg-blue-600 rounded"></div>
+          </div>
+        </div>
+      </div>
+      <ReviewCarousel />
+
+      
+
+      <div className="w-full max-w-3xl mx-auto my-8 px-4">
+        <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-lg">
+          <iframe
+            src="https://www.youtube.com/embed/azYMOjWgMCs?si=hW3TK9AdmXBlT0TW"
+            title="BMC Introduction Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="absolute top-0 left-0 w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+
+      <div className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+             <span className="text-2xl font-bold text-blue-500 mb-10 mt-4 text-center">Brilliant Memory Computers </span> <br/> The Best Laptop & Computer Shop in Chennai
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
+            Searching for the best computer shop in Chennai? Brilliant Memory Computers is your trusted destination for brand-new laptops, custom-built PCs, refurbished systems, and all types of computer accessories. Whether you’re a student, professional, gamer, or business owner, we bring you powerful machines at unbeatable prices.
+          </p>
+
+          <HomeSeoSection />
+        </div>
+
+      </div>
+
+      <SpecialSection />
+    </>
+  );
 }
