@@ -16,7 +16,7 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="flex w-full md:w-auto">
-                        <input
+                        {/* <input
                             type="email"
                             placeholder="Enter your email"
                             className="px-4 py-3 rounded-l-lg border border-gray-200 w-full md:w-96 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
@@ -26,7 +26,7 @@ const Footer = () => {
                             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-r-lg font-medium transition duration-200"
                         >
                             Subscribe
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>
@@ -49,25 +49,47 @@ const Footer = () => {
                     {/* Customer Service */}
                     <div>
                         <h3 className="text-white text-lg font-semibold mb-4">Contact Us</h3>
+
                         <ul className="space-y-4">
+                            {/* Address */}
                             <li className="flex items-start gap-3">
                                 <MapPin className="h-5 w-5 flex-shrink-0 mt-1" />
-                                <span>
-                                    Shop No 2, GF 1/L, Blackers Road
-                                    Gaiety Palace, Anna Salai, Chennai – 600002
+                                <a
+                                    href="#"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-red-500 transition"
+                                >
+                                    Shop No 2, GF 1/L, Blackers Road <br />
+                                    Gaiety Palace, Anna Salai, Chennai – 600002 <br />
                                     (Near Casino Theatre, Next to Ola Electric Store)
-                                </span>
+                                </a>
                             </li>
+
+                            {/* Phone */}
                             <li className="flex items-center gap-3">
                                 <Phone className="h-5 w-5" />
-                                <span>+91-7788996684</span>
+                                <a
+                                    href="tel:+917788996684"
+                                    className="hover:text-red-500 transition"
+                                >
+                                    +91-7788996684
+                                </a>
                             </li>
+
+                            {/* Email */}
                             <li className="flex items-center gap-3">
                                 <Mail className="h-5 w-5" />
-                                <span>Info@brilliantmemorycomputers.in</span>
+                                <a
+                                    href="mailto:info@brilliantmemorycomputers.in"
+                                    className="hover:text-red-500 transition lowercase"
+                                >
+                                    info@brilliantmemorycomputers.in
+                                </a>
                             </li>
                         </ul>
                     </div>
+
 
                     {/* Guarantees */}
                     <div>
