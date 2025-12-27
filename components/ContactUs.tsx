@@ -82,17 +82,24 @@ const ContactUs = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                         {/* Contact Info */}
                         <div className="space-y-10">
-                            <div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">CUSTOMER SERVICE</h3>
-                                <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
-                                    <Phone size={16} className="text-indigo-600 mt-1" />
-                                    <p className="text-gray-400">+91-7788996684</p>
-                                </div>
-                                <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
-                                    <Mail size={16} className="text-indigo-600 mt-1" />
-                                    <p className="text-gray-400">Info@brilliantmemorycomputers.in</p>
-                                </div>
-                            </div>
+                        <div>
+  <h3 className="text-lg font-bold text-gray-900 mb-2">CUSTOMER SERVICE</h3>
+
+  <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
+    <Phone size={16} className="text-indigo-600 mt-1" />
+    <a href="tel:+917788996684" className="text-gray-400 hover:text-indigo-600 transition">
+      +91-7788996684
+    </a>
+  </div>
+
+  <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
+    <Mail size={16} className="text-indigo-600 mt-1" />
+    <a href="mailto:Info@brilliantmemorycomputers.in" className="text-gray-400 hover:text-indigo-600 transition">
+      Info@brilliantmemorycomputers.in
+    </a>
+  </div>
+</div>
+
 
                             <div>
                                 <h3 className="text-lg font-bold text-gray-900 mb-2">STORE LOCATOR</h3>

@@ -127,13 +127,15 @@ export default function HeroSection() {
         {filteredBanners.map((banner: any) => (
           <div key={banner.id}
             className="cursor-pointer"
-            onClick={() => handleBannerClick(banner)}>
+           >
             <img
               className="md:rounded-lg md:object-cover w-full h-[70vh] md:h-auto"
               src={banner.image_url}
               alt={banner.title || 'banner'}
             />
           </div>
+
+          //  onClick={() => handleBannerClick(banner)}
         ))}
       </Slider>
     </div>
