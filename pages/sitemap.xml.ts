@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 
-const baseUrl = 'https://www.brilliantmemorycomputers.in'   // Change your domain
+const baseUrl = 'https://www.brilliantmemorycomputers.in'   
 
 function generateSiteMap() {
   const pages = [
