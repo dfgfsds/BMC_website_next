@@ -16,11 +16,11 @@ export default function Home() {
         <title>Best Laptops & Computer Shop in Chennai | BMC</title>
         <meta
           name="description"
-          content="Shop refurbished laptops, gaming computers & accessories online. Best computer shop in Chennai for budget deals, fast delivery & expert support."
+          content="Best computer shop in Chennai for refurbished laptops, gaming computers and accessories. Affordable prices, fast delivery and expert support."
         />
         <meta
           name="keywords"
-          content="laptops in Chennai, refurbished laptops Chennai, gaming computers Chennai, computer shop Chennai, budget laptops, BMC Chennai"
+          content="laptops in Chennai, refurbished laptops Chennai, gaming computer Chennai, computer shop Chennai, budget laptops, BMC Chennai"
         />
 
         {/* Canonical */}
@@ -30,21 +30,21 @@ export default function Home() {
         <meta property="og:title" content="Best Laptops & Computer Shop in Chennai | BMC" />
         <meta
           property="og:description"
-          content="Shop refurbished laptops, gaming computers & accessories online. Best computer shop in Chennai for budget deals, fast delivery & expert support."
+          content="Best computer shop in Chennai for refurbished laptops, gaming computers and accessories. Affordable prices, fast delivery and expert support."
         />
         <meta property="og:url" content="https://www.brilliantmemorycomputers.in/" />
         <meta property="og:type" content="website" />
-    <meta
-  property="og:image"
-  content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
-/>
+        <meta
+          property="og:image"
+          content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
+        />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Laptops & Computer Shop in Chennai | BMC" />
         <meta
           name="twitter:description"
-          content="Shop refurbished laptops, gaming computers & accessories online. Fast delivery, great pricing & expert support."
+          content="Best computer shop in Chennai for refurbished laptops, gaming computers and accessories. Affordable prices, fast delivery and expert support."
         />
         <meta
           name="twitter:image"
@@ -64,7 +64,7 @@ export default function Home() {
                   "url": "https://www.brilliantmemorycomputers.in/",
                   "image": `https://www.brilliantmemorycomputers.in/${LogoImg.src}`,
                   "description":
-                    "Best laptop and computer shop in Chennai offering refurbished laptops, gaming computers, accessories, and expert support.",
+                    "Best computer shop in Chennai for refurbished laptops, gaming computers and accessories. Affordable prices, fast delivery and expert support.",
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress":
@@ -107,11 +107,11 @@ export default function Home() {
       <div className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
-           Welcome to BMC – Chennai’s Trusted Computer & Laptop Store
+            Welcome to BMC – Chennai’s Trusted Computer & Laptop Store
           </h2>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
             <span className="block mb-4">
-              Looking for Brand new laptops &  Computers in Chennai, the latest gaming computers for high performance? You’ve come to the right place!
+              Looking for Brand new laptops &  Computer in Chennai, the latest gaming computer for high performance? You’ve come to the right place!
             </span>
             At Brilliant Memory Computers, we’re proud to be the best computer shop in Chennai, offering refurbished laptops, gaming laptops, and computer accessories at unbeatable prices.
 
@@ -124,7 +124,7 @@ export default function Home() {
       </div>
       <ReviewCarousel />
 
-      
+
 
       <div className="w-full max-w-3xl mx-auto my-8 px-4">
         <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-lg">
@@ -143,7 +143,7 @@ export default function Home() {
       <div className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
-             <span className="text-2xl font-bold text-blue-500 mb-10 mt-4 text-center">Brilliant Memory Computers </span> <br/> The Best Laptop & Computer Shop in Chennai
+            <span className="text-2xl font-bold text-blue-500 mb-10 mt-4 text-center">Brilliant Memory Computers </span> <br /> The Best Laptop & Computer Shop in Chennai
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
             Searching for the best computer shop in Chennai? Brilliant Memory Computers is your trusted destination for brand-new laptops, custom-built PCs, refurbished systems, and all types of computer accessories. Whether you’re a student, professional, gamer, or business owner, we bring you powerful machines at unbeatable prices.
