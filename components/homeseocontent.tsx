@@ -29,12 +29,12 @@
                             </p>
 
                             <div className="text-gray-700 text-lg text-start space-y-4 leading-relaxed">
-                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4 ">Brand-New Laptops & Desktop Computers</h2>
+                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4 ">Brand-New Laptops & Desktop Computer</h2>
                                 <p>
                                     Explore the latest laptops and desktops from leading brands like Dell, HP, Lenovo, Acer, Asus, and more. Choose from business laptops, student laptops, ultra-thin notebooks, and productivity desktops all under one roof.
                                 </p>
 
-                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4 ">Gaming Laptops & High-Performance Gaming Computers</h2>
+                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4 ">Gaming Laptops & High-Performance Gaming Computer</h2>
                                 <p>Unleash your gaming power with our latest range of:</p>
 
                                 <ul className="list-disc text-start ml-6 space-y-1">
@@ -58,8 +58,8 @@
                                     <li>Optimize performance for editing, gaming, design, software development & more</li>
                                 </ul>
                                 <p>Perfect for creators, gamers, and professionals who need maximum performance.</p>
-                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4">Reliable Refurbished Laptops & Computers</h2>
-                                <p>Brilliant Memory Computers (BMC) provides certified and quality-tested refurbished laptops and refurbished computers at the best prices.</p>
+                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4">Reliable Refurbished Laptops & Computer</h2>
+                                <p>Brilliant Memory Computers (BMC) provides certified and quality-tested refurbished laptops and refurbished computer at the best prices.</p>
                                 <h5>Why choose our refurbished systems?</h5>
                                 <ul className="list-disc ml-6 space-y-1">
                                     <li>100% quality checked</li>
@@ -81,9 +81,9 @@
                                 <p>Everything you need is available at the best computer accessories shop in Chennai.</p>
 
                                 <p className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4">
-                                    Certified Refurbished Laptops and Computers
+                                    Certified Refurbished Laptops and Computer
                                 </p>
-                                <p>Apart from brand-new products, we also offer high-quality refurbished laptops and refurbished computers at affordable prices. Every refurbished system undergoes multiple levels of testing, component replacement, cleaning, and optimization to ensure that it performs like new.</p>
+                                <p>Apart from brand-new products, we also offer high-quality refurbished laptops and refurbished computer at affordable prices. Every refurbished system undergoes multiple levels of testing, component replacement, cleaning, and optimization to ensure that it performs like new.</p>
                                 <p>Our refurbished systems are ideal for students, small businesses, home offices, and individuals who want reliable performance without spending excessively. With warranty support, quality assurance, and affordable pricing, Brilliant Memory Computers has become a trusted destination for refurbished IT products.</p>
 
                                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-start my-4">Why Brilliant Memory Computers Is Chennai’s Most Trusted IT Store</h2>
