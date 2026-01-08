@@ -24,6 +24,7 @@ const ContactUs = () => {
                     name="keywords"
                     content="Brilliant Memory Computers, contact, laptop sales, PC sales, custom PC build, computer repair, tech support, service center"
                 />
+                  <meta name="robots" content="index, follow" />
 
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.in/contact-us" />
 
