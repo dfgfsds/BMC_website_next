@@ -11,7 +11,7 @@ export default function Document() {
                     content="Shop refurbished laptops, gaming computers & accessories online. Best computer shop in Chennai for budget deals, fast delivery & expert support."
                 /> */}
                 <link rel="icon" href="/favicon.ico" />
-                
+
                 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
                 <meta
                     name="google-site-verification"
