@@ -16,22 +16,28 @@ export default function ShopBriefContent() {
                     content="Shop new laptops, custom PCs, refurbished systems, gaming desktops, and accessories at Brilliant Memory Computers — Chennai’s trusted laptop and computer store."
                 />
 
+                {/* Keywords */}
+                <meta
+                    name="keywords"
+                    content="best laptop shop in Chennai, laptop store Chennai, buy laptops Chennai, new laptops Chennai, refurbished laptops Chennai, used laptops Chennai, custom PC builder Chennai, gaming PC Chennai, gaming desktop Chennai, computer shop Chennai, computer store Chennai, desktop computers Chennai, laptop accessories Chennai, PC accessories Chennai, Brilliant Memory Computers, laptop sales Chennai, business laptops Chennai, student laptops Chennai, workstation PC Chennai"
+                />
+
                 {/* Canonical URL */}
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.com/shop" />
-                  <meta name="robots" content="index, follow" />
+                <meta name="robots" content="index, follow" />
 
                 {/* Open Graph */}
                 <meta property="og:title" content="Best Laptop Shop in Chennai | New Laptops, Custom PCs & Refurbished Systems" />
                 <meta property="og:description" content="Shop new laptops, custom PCs, refurbished systems, gaming desktops, and accessories at Chennai’s trusted laptop store." />
                 <meta property="og:url" content="https://www.brilliantmemorycomputers.com/shop" />
                 <meta property="og:type" content="website" />
-                <meta property="og:image" content= {`https://www.brilliantmemorycomputers.in/${LogoImg.src}`} />
+                <meta property="og:image" content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`} />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Best Laptop Shop in Chennai | New Laptops, Custom PCs & Refurbished Systems" />
                 <meta name="twitter:description" content="Shop new laptops, custom PCs, refurbished systems, gaming desktops, and accessories at Chennai’s trusted laptop store." />
-                <meta name="twitter:image" content= {`https://www.brilliantmemorycomputers.in/${LogoImg.src}`} />
+                <meta name="twitter:image" content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`} />
 
                 {/* Local Business Schema */}
                 <script
@@ -187,7 +193,7 @@ export default function ShopBriefContent() {
                                 <span className="block w-24 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></span>
 
                                 <p className="text-gray-700 mt-6 text-lg leading-relaxed max-w-3xl mx-auto">
-                                   Whether you’re looking for the best laptop shop in Chennai, a custom PC builder, or refurbished gaming computers, Brilliant Memory Computers has you covered. Our goal is to provide every customer with the right product, the best service, and a complete technology solution. <br/> Visit Brilliant Memory Computers today and experience the convenience, reliability, and performance of Chennai’s most trusted IT store.
+                                    Whether you’re looking for the best laptop shop in Chennai, a custom PC builder, or refurbished gaming computers, Brilliant Memory Computers has you covered. Our goal is to provide every customer with the right product, the best service, and a complete technology solution. <br /> Visit Brilliant Memory Computers today and experience the convenience, reliability, and performance of Chennai’s most trusted IT store.
                                 </p>
                             </div>
                         </section>
