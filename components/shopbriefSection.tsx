@@ -18,6 +18,7 @@ export default function ShopBriefContent() {
 
                 {/* Canonical URL */}
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.com/shop" />
+                  <meta name="robots" content="index, follow" />
 
                 {/* Open Graph */}
                 <meta property="og:title" content="Best Laptop Shop in Chennai | New Laptops, Custom PCs & Refurbished Systems" />

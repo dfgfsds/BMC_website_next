@@ -18,6 +18,7 @@ export default function Home() {
           name="description"
           content="Best computer shop in Chennai for refurbished laptops, gaming computers and accessories. Affordable prices, fast delivery and expert support."
         />
+        <meta name="robots" content="index, follow" />
         <meta
           name="keywords"
           content="laptops in Chennai, refurbished laptops Chennai, gaming computer Chennai, computer shop Chennai, budget laptops, BMC Chennai"
