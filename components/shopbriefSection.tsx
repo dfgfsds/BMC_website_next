@@ -23,7 +23,7 @@ export default function ShopBriefContent() {
                 />
 
                 {/* Canonical URL */}
-                <link rel="canonical" href="https://www.brilliantmemorycomputers.com/shop" />
+                <link rel="canonical" href="https://www.brilliantmemorycomputers.in/shop" />
                 <meta name="robots" content="index, follow" />
 
                 {/* Open Graph */}
@@ -48,7 +48,7 @@ export default function ShopBriefContent() {
                             "@type": "ElectronicsStore",
                             "name": "Brilliant Memory Computers",
                             "image": `https://www.brilliantmemorycomputers.in/${LogoImg.src}`,
-                            "url": "https://www.brilliantmemorycomputers.com/",
+                            "url": "https://www.brilliantmemorycomputers.in/",
                             "telephone": "+91-7788996684",
                             "address": {
                                 "@type": "PostalAddress",
@@ -215,4 +215,5 @@ export default function ShopBriefContent() {
             </div>
         </>
     );
+    
 }
