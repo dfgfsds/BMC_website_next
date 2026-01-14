@@ -1,6 +1,7 @@
 'use client';
 
 import Head from "next/head";
+import Script from "next/script";
 import { Mail, Phone } from 'lucide-react';
 import Breadcrumb from './Breadcrumb';
 import LogoImg from "../public/img/bmc-logo.png";
@@ -24,7 +25,7 @@ const ContactUs = () => {
                     name="keywords"
                     content="Brilliant Memory Computers, contact, laptop sales, PC sales, custom PC build, computer repair, tech support, service center"
                 />
-                  <meta name="robots" content="index, follow" />
+                <meta name="robots" content="index, follow" />
 
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.in/contact-us" />
 
@@ -49,7 +50,7 @@ const ContactUs = () => {
                             "@type": "LocalBusiness",
                             "name": "Brilliant Memory Computers",
                             "url": "https://www.brilliantmemorycomputers.in/contact-us",
-                          "image": `https://www.brilliantmemorycomputers.in${LogoImg.src}`,
+                            "image": `https://www.brilliantmemorycomputers.in${LogoImg.src}`,
                             "description": "Contact Brilliant Memory Computers for laptop sales, custom PC builds, computer repair, and tech support.",
                             "telephone": "+91-7788996684",
                             "address": {
@@ -83,23 +84,23 @@ const ContactUs = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                         {/* Contact Info */}
                         <div className="space-y-10">
-                        <div>
-  <h3 className="text-lg font-bold text-gray-900 mb-2">CUSTOMER SERVICE</h3>
+                            <div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">CUSTOMER SERVICE</h3>
 
-  <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
-    <Phone size={16} className="text-indigo-600 mt-1" />
-    <a href="tel:+917788996684" className="text-gray-400 hover:text-indigo-600 transition">
-      +91-7788996684
-    </a>
-  </div>
+                                <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
+                                    <Phone size={16} className="text-indigo-600 mt-1" />
+                                    <a href="tel:+917788996684" className="text-gray-400 hover:text-indigo-600 transition">
+                                        +91-7788996684
+                                    </a>
+                                </div>
 
-  <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
-    <Mail size={16} className="text-indigo-600 mt-1" />
-    <a href="mailto:Info@brilliantmemorycomputers.in" className="text-gray-400 hover:text-indigo-600 transition">
-      Info@brilliantmemorycomputers.in
-    </a>
-  </div>
-</div>
+                                <div className="flex items-start gap-3 text-sm text-gray-700 mt-2">
+                                    <Mail size={16} className="text-indigo-600 mt-1" />
+                                    <a href="mailto:Info@brilliantmemorycomputers.in" className="text-gray-400 hover:text-indigo-600 transition">
+                                        Info@brilliantmemorycomputers.in
+                                    </a>
+                                </div>
+                            </div>
 
 
                             <div>
@@ -113,7 +114,7 @@ const ContactUs = () => {
                         {/* Contact Form */}
                         <div className="md:col-span-2 bg-white rounded-lg shadow p-6">
                             <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
-                               We're Here to Help – Fast & Friendly Support
+                                We're Here to Help – Fast & Friendly Support
                             </h2>
                             <p className="text-gray-600 mb-6 max-w-2xl">
                                 At Brilliant Memory Computers, your satisfaction is our priority. Whether you need help choosing the right laptop, want a custom-built PC, or require reliable computer repair and technical support - our team is ready to assist you.
@@ -143,6 +144,20 @@ const ContactUs = () => {
                     </div>
                 </div>
             </section>
+
+                <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"
+        strategy="afterInteractive"
+      />
+
+      <Script id="google-ads-tag" strategy="afterInteractive">
+        {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17447812618');
+    `}
+      </Script>
         </>
     );
 };
