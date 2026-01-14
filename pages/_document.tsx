@@ -34,6 +34,25 @@ export default function Document() {
                 />
                 {/* End Google Tag */}
 
+                {/* google ads code start */}
+                {/* Google Ads Global Site Tag */}
+                <script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"
+                />
+
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'AW-17447812618');
+            `,
+                    }}
+                />
+                {/* Google Ads code end */}
                 {/* Meta Pixel Code */}
                 <script
                     dangerouslySetInnerHTML={{
