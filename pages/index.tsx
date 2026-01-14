@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import Script from "next/script";
 import BestSellers from "@/components/BestSellers";
 import Categories from "@/components/CategoriesSlider";
 import HeroSection from "@/components/HeroSection";
@@ -7,6 +7,7 @@ import ReviewCarousel from "@/components/ReviewCarousel";
 import SpecialSection from "@/components/SpecialSection";
 import HomeSeoSection from "@/components/homeseocontent";
 import LogoImg from "../public/img/bmc-logo.png";
+import FaqSection from "@/components/FaqSection";
 
 export default function Home() {
 
@@ -51,6 +52,8 @@ export default function Home() {
           name="twitter:image"
           content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
         />
+
+
 
         {/* Schema JSON-LD */}
         <script
@@ -156,6 +159,21 @@ export default function Home() {
       </div>
 
       <SpecialSection />
+      < FaqSection />
+
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"
+        strategy="afterInteractive"
+      />
+
+      <Script id="google-ads-tag" strategy="afterInteractive">
+        {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17447812618');
+    `}
+      </Script>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Script from "next/script";
 import Head from "next/head";
 import LogoImg from "../public/img/bmc-logo.png";
 
@@ -213,6 +214,20 @@ export default function ShopBriefContent() {
                     </div>
                 </div>
             </div>
+
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"
+                    strategy="afterInteractive"
+                  />
+            
+                  <Script id="google-ads-tag" strategy="afterInteractive">
+                    {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'AW-17447812618');
+                `}
+                  </Script>
         </>
     );
     
