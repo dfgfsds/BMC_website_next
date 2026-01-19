@@ -1,5 +1,6 @@
 "use client";
 import { usePolicy } from "@/context/PolicyContext";
+import Head from "next/head";
 
 function RefundPolicy() {
   const { policy, isLoading }: any = usePolicy();
@@ -31,7 +32,7 @@ function RefundPolicy() {
   }
 
   const companyData = {
-    "[Insert Date]":"10 June 2025",
+    "[Insert Date]": "10 June 2025",
     "FT Digital Computer": "Brilliant Memory Computers",
     "[your email address]": "Info@brilliantmemorycomputers.in",
     "[your phone number]": "+91-7788996684",
@@ -45,13 +46,22 @@ function RefundPolicy() {
 
 
   return (
-    <div className="bg-white p-5 lg:p-20 shadow-md rounded-lg">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Refund Policy</h1>
-      <div
-        className="text-gray-600"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
-    </div>
+    <>
+      <Head>
+        <title>Refund Policy | BMC | Returns & Refunds</title>
+        <meta
+          name="description"
+          content="Read BMC’s refund policy to understand eligibility, refund timelines, and the process for returns and payments."
+        />
+      </Head>
+      <div className="bg-white p-5 lg:p-20 shadow-md rounded-lg">
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">Refund Policy</h1>
+        <div
+          className="text-gray-600"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      </div>
+    </>
   );
 }
 

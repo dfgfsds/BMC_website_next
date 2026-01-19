@@ -1,5 +1,6 @@
 "use client";
 import { usePolicy } from "@/context/PolicyContext";
+import Head from "next/head";
 
 // Utility function to replace placeholders in HTML string
 function replacePlaceholders(content: string, replacements: Record<string, string>) {
@@ -45,13 +46,22 @@ function PrivacyPolicy() {
   const htmlContent = replacePlaceholders(policy?.data?.privacy_policy || "", replacements);
 
   return (
-    <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Privacy Policy</h1>
-      <div
-        className="text-gray-600"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
-    </div>
+    <>
+      <Head>
+        <title>Privacy Policy | BMC | Data Protection & Security</title>
+        <meta
+          name="description"
+          content="Discover how BMC protects your personal data, ensures privacy, and maintains security across all transactions and interactions."
+        />
+      </Head>
+      <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">Privacy Policy</h1>
+        <div
+          className="text-gray-600"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      </div>
+    </>
   );
 }
 
