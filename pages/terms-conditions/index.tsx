@@ -1,10 +1,11 @@
 "use client";
 import { usePolicy } from "@/context/PolicyContext";
+import Head from "next/head";
 
 function TermsAndConditions() {
   const { policy, isLoading }: any = usePolicy();
 
-    function injectPlaceholders(content: string, replacements: Record<string, string>) {
+  function injectPlaceholders(content: string, replacements: Record<string, string>) {
     let updated = content;
     Object.entries(replacements).forEach(([placeholder, value]) => {
       const regex = new RegExp(placeholder.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'gi'); // escape special characters
@@ -46,13 +47,23 @@ function TermsAndConditions() {
   );
 
   return (
-    <div className="bg-white lg:p-20 p-5 shadow-md rounded-lg">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Terms and Conditions</h1>
-      <div
-        className="text-gray-600"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
-    </div>
+    <>
+
+      <Head>
+        <title>Terms & Conditions | BMC | Legal Information</title>
+        <meta
+          name="description"
+          content="Review BMC’s terms and conditions to understand our policies, user responsibilities, and legal guidelines for using our services."
+        />
+      </Head>
+      <div className="bg-white lg:p-20 p-5 shadow-md rounded-lg">
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">Terms and Conditions</h1>
+        <div
+          className="text-gray-600"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      </div>
+    </>
   );
 }
 

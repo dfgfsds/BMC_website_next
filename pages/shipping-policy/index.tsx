@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import { usePolicy } from "@/context/PolicyContext";
 
 // Utility function to replace placeholders in HTML string
@@ -12,6 +13,7 @@ function replacePlaceholders(content: string, replacements: Record<string, strin
 }
 
 function ShippingPolicy() {
+
   const { policy, isLoading }: any = usePolicy();
 
   // Dynamic content replacements
@@ -46,13 +48,24 @@ function ShippingPolicy() {
   const htmlContent = replacePlaceholders(policy?.data?.shipping_policy || "", replacements);
 
   return (
-    <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
-       <h1 className="text-3xl font-bold mb-4 text-gray-800">Shipping Policy</h1>
-      <div
-        className="text-gray-600"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
-    </div>
+    <>
+      <Head>
+        <title>Shipping Policy | BMC | Delivery Information</title>
+        <meta
+          name="description"
+          content="Learn about BMC’s shipping policy, delivery timelines, charges, and order tracking details to ensure a smooth and reliable delivery experience."
+        />
+      </Head>
+
+      <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">Shipping Policy</h1>
+        <div
+          className="text-gray-600"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      </div>
+    </>
+
   );
 }
 
