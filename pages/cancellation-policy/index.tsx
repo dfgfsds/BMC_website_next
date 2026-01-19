@@ -1,5 +1,6 @@
 "use client";
 import { usePolicy } from "@/context/PolicyContext";
+import Head from "next/head";
 
 // Utility function to replace placeholders in HTML string
 function replacePlaceholders(content: string, replacements: Record<string, string>) {
@@ -45,13 +46,23 @@ function CancellationPolicy() {
   const htmlContent = replacePlaceholders(policy?.data?.refund_and_cancellation_policy || "", replacements);
 
   return (
-    <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Cancellation Policy</h1>
-      <div
-        className="text-gray-600"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
-    </div>
+    <>
+      <Head>
+        <title>Cancellation Policy | BMC | Order Management</title>
+        <meta
+          name="description"
+          content="Understand BMC’s cancellation policy, including order eligibility, timelines, and steps to cancel your purchase easily."
+        />
+      </Head>
+
+      <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">Cancellation Policy</h1>
+        <div
+          className="text-gray-600"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      </div>
+    </>
   );
 }
 
