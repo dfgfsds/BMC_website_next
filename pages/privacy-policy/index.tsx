@@ -53,6 +53,7 @@ function PrivacyPolicy() {
           name="description"
           content="Discover how BMC protects your personal data, ensures privacy, and maintains security across all transactions and interactions."
         />
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/privacy-policy"></link>
       </Head>
       <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
         <h1 className="text-3xl font-bold mb-4 text-gray-800">Privacy Policy</h1>

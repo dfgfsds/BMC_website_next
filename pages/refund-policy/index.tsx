@@ -53,6 +53,7 @@ function RefundPolicy() {
           name="description"
           content="Read BMC’s refund policy to understand eligibility, refund timelines, and the process for returns and payments."
         />
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/refund-policy"></link>
       </Head>
       <div className="bg-white p-5 lg:p-20 shadow-md rounded-lg">
         <h1 className="text-3xl font-bold mb-4 text-gray-800">Refund Policy</h1>
