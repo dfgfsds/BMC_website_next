@@ -53,6 +53,7 @@ function CancellationPolicy() {
           name="description"
           content="Understand BMC’s cancellation policy, including order eligibility, timelines, and steps to cancel your purchase easily."
         />
+            <link rel="canonical" href="https://www.brilliantmemorycomputers.in/cancellation-policy"></link>
       </Head>
 
       <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">

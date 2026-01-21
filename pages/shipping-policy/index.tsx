@@ -55,6 +55,7 @@ function ShippingPolicy() {
           name="description"
           content="Learn about BMC’s shipping policy, delivery timelines, charges, and order tracking details to ensure a smooth and reliable delivery experience."
         />
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/shipping-policy"></link>
       </Head>
 
       <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
