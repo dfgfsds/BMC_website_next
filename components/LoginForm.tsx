@@ -142,6 +142,7 @@ const LoginForm = () => {
                     name="description"
                     content="Log in to your BMC account securely to access your orders, manage your profile, and enjoy a personalized shopping experience."
                 />
+                <link rel="canonical" href="https://www.brilliantmemorycomputers.in/login"></link>
             </Head>
             <div className="min-h-[70vh] flex items-center justify-center bg-white px-4">
                 <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">

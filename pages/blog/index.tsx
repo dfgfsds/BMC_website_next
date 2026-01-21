@@ -49,6 +49,7 @@ export default function BlogsPage() {
           name="description"
           content="Explore the BMC blog for the latest tech news, updates, insights, and expert articles to stay informed and ahead."
         />
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/blog"></link>
       </Head>
       <section className="bg-white py-16 px-6 md:px-20">
         <div className="max-w-7xl mx-auto">
