@@ -56,7 +56,7 @@ function RefundPolicy() {
         <link rel="canonical" href="https://www.brilliantmemorycomputers.in/refund-policy"></link>
       </Head>
       <div className="bg-white p-5 lg:p-20 shadow-md rounded-lg">
-        <h1 className="text-3xl font-bold mb-4 text-gray-800">Refund Policy</h1>
+        <h2 className="text-3xl font-bold mb-4 text-gray-800">Refund Policy</h2>
         <div
           className="text-gray-600"
           dangerouslySetInnerHTML={{ __html: htmlContent }}

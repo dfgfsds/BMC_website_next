@@ -99,7 +99,7 @@ const SignupForm = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">Sign Up</h2>
+        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Sign Up</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name */}
           <div>
