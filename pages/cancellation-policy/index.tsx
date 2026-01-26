@@ -57,7 +57,7 @@ function CancellationPolicy() {
       </Head>
 
       <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
-        <h1 className="text-3xl font-bold mb-4 text-gray-800">Cancellation Policy</h1>
+        <h2 className="text-3xl font-bold mb-4 text-gray-800">Cancellation Policy</h2>
         <div
           className="text-gray-600"
           dangerouslySetInnerHTML={{ __html: htmlContent }}

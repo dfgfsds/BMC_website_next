@@ -58,7 +58,7 @@ function TermsAndConditions() {
         <link rel="canonical" href="https://www.brilliantmemorycomputers.in/terms-conditions"></link>
       </Head>
       <div className="bg-white lg:p-20 p-5 shadow-md rounded-lg">
-        <h1 className="text-3xl font-bold mb-4 text-gray-800">Terms and Conditions</h1>
+        <h2 className="text-3xl font-bold mb-4 text-gray-800">Terms and Conditions</h2>
         <div
           className="text-gray-600"
           dangerouslySetInnerHTML={{ __html: htmlContent }}
