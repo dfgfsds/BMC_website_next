@@ -50,7 +50,7 @@ export default function FaqSection() {
                         </button>
                         {activeIndex === 1 && (
                             <p className="mt-3 text-gray-700">
-                                If you’re searching for a reliable computer shop in Chennai, Brilliant Memory Computers is your trusted destination. We specialize in laptops, desktops, gaming PCs, and computer accessories, providing expert guidance and budget-friendly options for students, professionals, gamers, and businesses.
+                                If you’re searching for a reliable <Link href="/categories/desktops">computer shop in Chennai</Link>, Brilliant Memory Computers is your trusted destination. We specialize in laptops, desktops, gaming PCs, and computer accessories, providing expert guidance and budget-friendly options for students, professionals, gamers, and businesses.
                             </p>
                         )}
                     </div>
@@ -65,7 +65,7 @@ export default function FaqSection() {
                         </button>
                         {activeIndex === 2 && (
                             <p className="mt-3 text-gray-700">
-                                Yes, we are one of the top sellers of refurbished laptops in Chennai. All our refurbished laptops and computers are thoroughly tested, performance-optimized, and come with warranty support. These systems are ideal for students, office users, and work-from-home professionals looking for affordable and reliable devices.
+                                Yes, we are one of the top sellers of <Link href="/categories/laptops">refurbished laptops in Chennai.</Link> All our refurbished laptops and computers are thoroughly tested, performance-optimized, and come with warranty support. These systems are ideal for students, office users, and work-from-home professionals looking for affordable and reliable devices.
                             </p>
                         )}
                     </div>
@@ -137,7 +137,7 @@ export default function FaqSection() {
                         </button>
                         {activeIndex === 7 && (
                             <p className="mt-3 text-gray-700">
-                                Yes, we are also a leading computer accessories shop in Chennai. We supply keyboards, mouse, monitors, SSDs, RAM, graphics cards, gaming accessories, routers, laptop chargers, and more—all at competitive prices.
+                                Yes, we are also a leading <Link href="/shop"> computer accessories shop in Chennai</Link>. We supply keyboards, mouse, monitors, SSDs, RAM, graphics cards, gaming accessories, routers, laptop chargers, and more—all at competitive prices.
                             </p>
                         )}
                     </div>

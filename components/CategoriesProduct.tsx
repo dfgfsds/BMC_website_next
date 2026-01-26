@@ -1,199 +1,233 @@
 'use client';
+
 import { useParams } from 'next/navigation';
-import { useProducts } from '@/context/ProductsContext';
-import { useCategories } from '@/context/CategoriesContext';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, SearchCheck } from 'lucide-react';
-import ProductModal from './model/ProductModal';
 import { useEffect, useState } from 'react';
-import { deleteCartitemsApi, postCartitemApi, updateCartitemsApi } from '@/api-endpoints/CartsApi';
-import { InvalidateQueryFilters, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient, InvalidateQueryFilters } from '@tanstack/react-query';
+
+import { useProducts } from '@/context/ProductsContext';
+import { useCategories } from '@/context/CategoriesContext';
 import { useVendor } from '@/context/VendorContext';
-import LoginModal from './model/LoginModel';
-import Breadcrumb from './Breadcrumb';
 import { useCartItem } from '@/context/CartItemContext';
+
+import {
+  deleteCartitemsApi,
+  postCartitemApi,
+  updateCartitemsApi,
+} from '@/api-endpoints/CartsApi';
+
+import LoginModal from './model/LoginModel';
+import ProductModal from './model/ProductModal';
+import Breadcrumb from './Breadcrumb';
 import { slugConvert } from '@/lib/utils';
 
 export default function CategoriesBasedProduct() {
-    const { id } = useParams();
-    const [getUserId, setUserId] = useState<string | null>(null);
-    const [getCartId, setCartId] = useState<string | null>(null);
-    const [getUserName, setUserName] = useState<string | null>(null);
-    const [signInmodal, setSignInModal] = useState(false);
-    const { products, isLoading }: any = useProducts();
-    const { categories }: any = useCategories();
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const [isModalOpen, setModalOpen] = useState(false);
-    const queryClient = useQueryClient();
-    const { vendorId } = useVendor();
-    const { cartItem }: any = useCartItem();
+  /* ---------------- PARAMS (SAFE) ---------------- */
+  const params = useParams<{ slug?: string }>();
+  const slug = params?.slug;
 
-    useEffect(() => {
-        const storedUserId = localStorage.getItem('userId');
-        const storedCartId = localStorage.getItem('cartId');
-        const storedUserName = localStorage.getItem('userName');
+  /* ---------------- STATE ---------------- */
+  const [getUserId, setUserId] = useState<string | null>(null);
+  const [getCartId, setCartId] = useState<string | null>(null);
+  const [getUserName, setUserName] = useState<string | null>(null);
+  const [signInmodal, setSignInModal] = useState(false);
 
-        setUserId(storedUserId);
-        setCartId(storedCartId);
-        setUserName(storedUserName);
-    }, []);
+  /* ---------------- CONTEXT ---------------- */
+  const { products, isLoading }: any = useProducts();
+  const { categories }: any = useCategories();
+  const { vendorId } = useVendor();
+  const { cartItem }: any = useCartItem();
 
-    // Find the category name by ID
-    const category = categories?.data?.find(
-        (cat: any) => cat.id?.toString() === id
-    );
-    const categoryName = category?.name || 'Category';
+  const queryClient = useQueryClient();
 
-    // Filter products by category ID
-    const filteredProducts = products?.data?.filter(
-        (product: any) => product.category?.toString() === id
-    );
+  /* ---------------- LOCAL STORAGE (HOOK MUST ALWAYS RUN) ---------------- */
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUserId(localStorage.getItem('userId'));
+      setCartId(localStorage.getItem('cartId'));
+      setUserName(localStorage.getItem('userName'));
+    }
+  }, []);
 
-    const handleUpdateCart = async (id: any, type: any, qty: any) => {
-        try {
-            if (qty === 1) {
-                const updateApi = await deleteCartitemsApi(`${id}`)
-                if (updateApi) {
-                    queryClient.invalidateQueries(['getCartitemsData'] as InvalidateQueryFilters);
-                }
-            } else {
-                const response = await updateCartitemsApi(`${id}/${type}/`)
-                if (response) {
-                    queryClient.invalidateQueries(['getCartitemsData'] as InvalidateQueryFilters);
-                }
-            }
+  /* ---------------- FIND CATEGORY ---------------- */
+  const category = categories?.data?.find(
+    (cat: any) => slug && slugConvert(cat.name) === slug
+  );
 
-        } catch (error) {
+  const categoryName = category?.name || 'Category';
 
-        }
+  /* ---------------- FILTER PRODUCTS ---------------- */
+  const filteredProducts = products?.data?.filter(
+    (product: any) => product.category === category?.id
+  );
+
+  /* ---------------- CART HANDLERS ---------------- */
+  const handleUpdateCart = async (
+    cartId: number,
+    type: 'increase' | 'decrease',
+    qty: number
+  ) => {
+    try {
+      if (qty === 1 && type === 'decrease') {
+        await deleteCartitemsApi(`${cartId}`);
+      } else {
+        await updateCartitemsApi(`${cartId}/${type}/`);
+      }
+      queryClient.invalidateQueries([
+        'getCartitemsData',
+      ] as InvalidateQueryFilters);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleAddCart = async (productId: number) => {
+    if (!getUserId) {
+      setSignInModal(true);
+      return;
     }
 
-    const handleAddCart = async (id: any, qty: any) => {
-        const payload = {
-            cart: getCartId,
-            product: id,
-            user: getUserId,
-            vendor: vendorId,
-            quantity: qty,
-            created_by: getUserName ? getUserName : 'user'
-        }
-        try {
-            const response = await postCartitemApi(``, payload)
-            if (response) {
-                queryClient.invalidateQueries(['getCartitemsData'] as InvalidateQueryFilters);
-            }
-        } catch (error) {
+    const payload = {
+      cart: getCartId,
+      product: productId,
+      user: getUserId,
+      vendor: vendorId,
+      quantity: 1,
+      created_by: getUserName || 'user',
+    };
 
-        }
+    try {
+      await postCartitemApi('', payload);
+      queryClient.invalidateQueries([
+        'getCartitemsData',
+      ] as InvalidateQueryFilters);
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    const filteredMatchingProductsArray = filteredProducts?.map((product: any, index: number) => {
-        const matchingCartItem = cartItem?.data?.find((item: any) => item?.product === product?.id);
-        if (matchingCartItem) {
-            return {
-                ...product,
-                Aid: index,
-                cartQty: matchingCartItem?.quantity,
-                cartId: matchingCartItem.id,
-            };
-        }
-        return product;
-    });
-    const breadcrumbItems = [
-        { name: 'Home', href: '/' },
-        { name: `${categoryName}`, href: '/categories' },
-        { name: 'Products', href: '/products', isActive: true },
-    ];
+  /* ---------------- MERGE CART DATA ---------------- */
+  const productsWithCart = filteredProducts?.map((product: any) => {
+    const cartData = cartItem?.data?.find(
+      (item: any) => item.product === product.id
+    );
 
-    return (
-        <div className="max-w-6xl mx-auto px-4 py-10">
-            <Breadcrumb items={breadcrumbItems} />
-            <h1 className="text-3xl font-bold  text-blue-500 mb-6 mt-6 text-center">
-                {categoryName} Products
-            </h1>
+    return {
+      ...product,
+      cartQty: cartData?.quantity || 0,
+      cartId: cartData?.id,
+    };
+  });
 
-            {isLoading ? (
-                <p className="text-center text-gray-500">Loading...</p>
-            ) : filteredMatchingProductsArray?.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                    {filteredMatchingProductsArray.map((product: any) => (
-                        <div key={product?.id} className="px-2 my-2">
-                            <div className="bg-white p-4 group relative border border-blue-100 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 rounded-md">
-                                <Link
-                                    href={`/shop/${slugConvert(product.name)}`}>
-                                    <Image
-                                        src={product?.image_urls[0]}
-                                        alt={product?.name}
-                                        className="h-72 w-full object-contain mb-3"
-                                        width={300}
-                                        height={288}
-                                    />
-                                    <span className="block w-full h-[2px] bg-blue-100 rounded mb-2"></span>
-                                </Link>
-                                <h3 className="text-lg font-medium text-gray-800 truncate mt-3 text-center">
-                                    <Link
-                                        href={`/shop/${slugConvert(product.name)}`}
-                                        className="hover:underline hover:text-blue-600 transition-colors"
-                                    >
-                                        {product.name}
-                                    </Link>
-                                </h3>
+  /* ---------------- BREADCRUMB ---------------- */
+  const breadcrumbItems = [
+    { name: 'Home', href: '/' },
+    { name: categoryName, href: slug ? `/categories/${slug}` : '#' },
+    { name: 'Products', href: '#', isActive: true },
+  ];
 
-                                <div className="mt-2 flex justify-center">
-                                    <p className="text-blue-600 text-xl font-semibold">₹{product?.price}</p>
-                                </div>
+  /* ---------------- UI ---------------- */
+  return (
+    <div className="max-w-6xl mx-auto px-4 py-10">
+      <Breadcrumb items={breadcrumbItems} />
 
-                                {product?.cartQty > 0 ? (
-                                    <div className="flex items-center justify-center mt-4 space-x-4">
-                                        <button
-                                            onClick={() =>
-                                                handleUpdateCart(product?.cartId, 'decrease', product?.cartQty)
-                                            }
-                                            disabled={product.cartQty <= 1}
-                                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
-                                        >
-                                            −
-                                        </button>
-                                        <span className="text-blue-700 font-semibold text-lg">{product.cartQty}</span>
-                                        <button
-                                            onClick={() => handleUpdateCart(product?.cartId, 'increase', '')}
-                                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
-                                        >
-                                            +
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            if (getUserId) {
-                                                handleAddCart(product.id, 1);
-                                            } else {
-                                                setSignInModal(true);
-                                            }
-                                        }}
-                                        className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium shadow-sm transition-all duration-200"
-                                    >
-                                        Add to Cart
-                                    </button>
-                                )}
+      {/* SLUG NOT READY */}
+      {!slug ? (
+        <p className="text-center py-20 text-gray-500">
+          Loading category...
+        </p>
+      ) : (
+        <>
+          <h1 className="text-3xl font-bold text-blue-600 text-center mt-6 mb-8">
+            {categoryName} Products
+          </h1>
 
-                            </div>
-                        </div>
-                    ))}
+          {isLoading ? (
+            <p className="text-center text-gray-500">Loading...</p>
+          ) : productsWithCart?.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {productsWithCart.map((product: any) => (
+                <div
+                  key={product.id}
+                  className="bg-white border rounded-md p-4 hover:shadow-lg transition"
+                >
+                  <Link href={`/shop/${slugConvert(product.name)}`}>
+                    <Image
+                      src={product.image_urls[0]}
+                      alt={product.name}
+                      width={300}
+                      height={300}
+                      className="h-64 w-full object-contain"
+                    />
+                  </Link>
+
+                  <h3 className="text-center font-medium mt-3 truncate">
+                    {product.name}
+                  </h3>
+
+                  <p className="text-center text-blue-600 font-semibold mt-2">
+                    ₹{product.price}
+                  </p>
+
+                  {product.cartQty > 0 ? (
+                    <div className="flex justify-center items-center gap-4 mt-4">
+                      <button
+                        onClick={() =>
+                          handleUpdateCart(
+                            product.cartId,
+                            'decrease',
+                            product.cartQty
+                          )
+                        }
+                        className="px-3 py-1 bg-blue-600 text-white rounded"
+                      >
+                        −
+                      </button>
+
+                      <span>{product.cartQty}</span>
+
+                      <button
+                        onClick={() =>
+                          handleUpdateCart(
+                            product.cartId,
+                            'increase',
+                            product.cartQty
+                          )
+                        }
+                        className="px-3 py-1 bg-blue-600 text-white rounded"
+                      >
+                        +
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => handleAddCart(product.id)}
+                      className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded"
+                    >
+                      Add to Cart
+                    </button>
+                  )}
                 </div>
-            ) : (
-                <p className="text-center text-gray-500">No products found for this category.</p>
-            )}
-            <ProductModal
-                isOpen={isModalOpen}
-                product={selectedProduct}
-                onClose={() => setModalOpen(false)}
-            />
-            {signInmodal && (
-                <LoginModal open={signInmodal} handleClose={() => setSignInModal(false)} vendorId={vendorId} />
-            )}
-        </div>
-    );
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500">
+              No products found for this category.
+            </p>
+          )}
+        </>
+      )}
+
+      {signInmodal && (
+        <LoginModal
+          open={signInmodal}
+          handleClose={() => setSignInModal(false)}
+          vendorId={vendorId}
+        />
+      )}
+
+      <ProductModal />
+    </div>
+  );
 }
