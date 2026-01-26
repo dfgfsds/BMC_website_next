@@ -10,6 +10,7 @@ export default function LoginPage() {
           content="Access your BMC account to manage your profile, view orders, track shipments, and update personal information securely in one place."
         />
         <link rel="canonical" href="https://www.brilliantmemorycomputers.in/profile"></link>
+         <meta name="robots" content="noindex, nofollow"/>
       </Head>
     <Profile />
     </>;

@@ -10,6 +10,7 @@ export default function SignupPage() {
         content=" Create your BMC account to enjoy faster checkout, order tracking, exclusive updates, and a personalized shopping experience."
       />
       <link rel="canonical" href="https://www.brilliantmemorycomputers.in/signup"></link>
+        <meta name="robots" content="noindex, nofollow"/>
     </Head>
     <SignupForm />
   </>;
