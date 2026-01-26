@@ -1,12 +1,13 @@
-import type { MetadataRoute } from 'next'
+import { GetServerSideProps } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastMod = new Date()
+const Sitemap = () => null
 
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const baseUrl = 'https://www.brilliantmemorycomputers.in'
+  const lastMod = new Date().toISOString()
 
   const staticPages = [
-   '/',
+    '',
     '/login',
     '/signup',
     '/cart',
@@ -20,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy-policy',
     '/cancellation-policy',
     '/shipping-policy',
-    '/blog'
+    '/blog',
   ]
 
   const categoryPages = [
@@ -47,19 +48,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'printer',
   ]
 
-  return [
-    // Static pages
-    ...staticPages.map((path) => ({
-      url: `${baseUrl}${path}`,
-      lastModified: lastMod,
-      priority: path === '' ? 1.0 : 0.8,
-    })),
-
-    // Category pages
-    ...categoryPages.map((slug) => ({
-      url: `${baseUrl}/categories/${slug}`,
-      lastModified: lastMod,
-      priority: 0.85,
-    })),
+  const urls = [
+    ...staticPages.map(
+      (path) => `
+      <url>
+        <loc>${baseUrl}${path}</loc>
+        <lastmod>${lastMod}</lastmod>
+        <priority>${path === '' ? '1.0' : '0.8'}</priority>
+      </url>`
+    ),
+    ...categoryPages.map(
+      (slug) => `
+      <url>
+        <loc>${baseUrl}/categories/${slug}</loc>
+        <lastmod>${lastMod}</lastmod>
+        <priority>0.85</priority>
+      </url>`
+    ),
   ]
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${urls.join('')}
+  </urlset>`
+
+  res.setHeader('Content-Type', 'text/xml')
+  res.write(sitemap)
+  res.end()
+
+  return { props: {} }
 }
+
+export default Sitemap
