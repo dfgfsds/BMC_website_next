@@ -10,6 +10,7 @@ export default function CartPage() {
                 content="Review your selected items in the BMC cart, update quantities, apply offers, and proceed securely to checkout."
             />
                  <link rel="canonical" href="https://www.brilliantmemorycomputers.in/cart"></link>
+                   <meta name="robots" content="noindex, nofollow"/>
         </Head>
         <Cart />
 
