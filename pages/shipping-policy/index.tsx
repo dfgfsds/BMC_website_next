@@ -50,12 +50,12 @@ function ShippingPolicy() {
   return (
     <>
       <Head>
-        <title>Shipping Policy | BMC | Delivery Information</title>
+        <title>Shipping Policy | Custom PC & Laptop Delivery in Chennai & Tamil Nadu – Brilliant Memory Computers</title>
         <meta
           name="description"
-          content="Learn about BMC’s shipping policy, delivery timelines, charges, and order tracking details to ensure a smooth and reliable delivery experience."
+          content="Read the Shipping Policy of Brilliant Memory Computers for Custom PC builds, gaming PCs, laptops & accessories. Free shipping across Tamil Nadu with secure delivery and tracking support."
         />
-        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/shipping-policy"></link>
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/shipping-policy" />
       </Head>
 
       <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">

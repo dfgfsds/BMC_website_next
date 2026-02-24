@@ -50,12 +50,12 @@ function TermsAndConditions() {
     <>
 
       <Head>
-        <title>Terms & Conditions | BMC | Legal Information</title>
+        <title>Terms & Conditions | Brilliant Memory Computers Chennai</title>
         <meta
           name="description"
-          content="Review BMC’s terms and conditions to understand our policies, user responsibilities, and legal guidelines for using our services."
+          content="Read the Terms and Conditions for purchasing Custom PCs, gaming systems, laptops and computer accessories from Brilliant Memory Computers in Chennai and across Tamil Nadu."
         />
-        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/terms-conditions"></link>
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/terms-conditions" />
       </Head>
       <div className="bg-white lg:p-20 p-5 shadow-md rounded-lg">
         <h2 className="text-3xl font-bold mb-4 text-gray-800">Terms and Conditions</h2>

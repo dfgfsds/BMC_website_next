@@ -48,12 +48,12 @@ function RefundPolicy() {
   return (
     <>
       <Head>
-        <title>Refund Policy | BMC | Returns & Refunds</title>
+        <title>Refund Policy | Custom PC & Laptop Returns – Brilliant Memory Computers Chennai</title>
         <meta
           name="description"
-          content="Read BMC’s refund policy to understand eligibility, refund timelines, and the process for returns and payments."
+          content="Review the Refund Policy for Custom PC builds, gaming desktops, laptops and accessories purchased from Brilliant Memory Computers Chennai. Clear return and refund guidelines."
         />
-        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/refund-policy"></link>
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/refund-policy" />
       </Head>
       <div className="bg-white p-5 lg:p-20 shadow-md rounded-lg">
         <h2 className="text-3xl font-bold mb-4 text-gray-800">Refund Policy</h2>
