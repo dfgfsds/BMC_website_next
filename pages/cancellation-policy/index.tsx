@@ -48,12 +48,12 @@ function CancellationPolicy() {
   return (
     <>
       <Head>
-        <title>Cancellation Policy | BMC | Order Management</title>
+        <title>Cancellation Policy | Custom PC & Laptop Orders – Brilliant Memory Computers</title>
         <meta
           name="description"
-          content="Understand BMC’s cancellation policy, including order eligibility, timelines, and steps to cancel your purchase easily."
+          content="Understand the Cancellation Policy for Custom PC builds, gaming PCs, laptops and accessories at Brilliant Memory Computers Chennai. Order modification and cancellation guidelines."
         />
-            <link rel="canonical" href="https://www.brilliantmemorycomputers.in/cancellation-policy"></link>
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/cancellation-policy" />
       </Head>
 
       <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">

@@ -8,6 +8,7 @@ const navLinks = [
   { name: 'Home', link: '/' },
   { name: 'Shop', link: '/shop' },
   { name: 'Categories', link: '/categories' },
+  { name: 'Custom PC', link: '/custom-pc-build' },
   { name: 'About Us', link: '/about-us' },
   { name: 'Contact Us', link: '/contact-us' },
 ];
