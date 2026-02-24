@@ -48,12 +48,12 @@ function PrivacyPolicy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy | BMC | Data Protection & Security</title>
+        <title>Privacy Policy | Brilliant Memory Computers Chennai</title>
         <meta
           name="description"
-          content="Discover how BMC protects your personal data, ensures privacy, and maintains security across all transactions and interactions."
+          content="Learn how Brilliant Memory Computers protects customer data, payment information and online transactions for Custom PC builds, laptops and accessories in Chennai."
         />
-        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/privacy-policy"></link>
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/privacy-policy" />
       </Head>
       <div className="bg-white p-5 shadow-md rounded-lg lg:p-20">
         <h2 className="text-3xl font-bold mb-4 text-gray-800">Privacy Policy</h2>
