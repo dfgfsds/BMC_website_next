@@ -85,7 +85,7 @@ const SignupForm = () => {
         if (updateApi) {
           if (typeof window !== 'undefined') {
             localStorage.setItem('cartId', updateApi?.data?.id);
-            window.location.href = '/'; 
+            window.location.href = '/';
           }
         }
       }
@@ -116,7 +116,7 @@ const SignupForm = () => {
             {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
           </div>
 
-          {/* Email */}
+
           <div>
             <label className="block text-sm font-medium">Email</label>
             <input
