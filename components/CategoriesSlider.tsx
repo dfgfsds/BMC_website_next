@@ -7,11 +7,11 @@ import Image from 'next/image';
 import { useCategories } from '@/context/CategoriesContext';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { slugConvert } from '@/lib/utils';
 
 export default function Categories() {
     const { categories } = useCategories();
-    const router = useRouter();
 
     const settings = {
         dots: false,
@@ -41,23 +41,23 @@ export default function Categories() {
     return (
         <section className="py-10 px-4 bg-white">
             <Slider {...settings}>
-                {categories?.data?.map((item: any, index: number) => (
-                    <div key={index} className="px-2">
+                {categories?.data?.map((item: any) => (
+                    <div key={item.id} className="px-2">
                         <div className="bg-[#eef1ff] rounded-lg p-6 flex flex-col md:flex-row items-center justify-between min-h-[300px]">
                             <div className="flex-1 space-y-4 text-center md:text-left">
                                 <h2 className="text-2xl md:text-3xl font-bold text-[#2b2e4a]">{item?.name}</h2>
                                 <p className="text-gray-600">{item?.name}</p>
-                                <button
-                                    onClick={() => router.push(`/categories/${item?.id}`)}
+                                <Link
+                                    href={`/categories/${slugConvert(item.name)}`}
                                     className="p-3 bg-blue-600 hover:bg-blue-700 text-white rounded inline-flex items-center justify-center"
                                 >
                                     <ArrowRight />
-                                </button>
+                                </Link>
                             </div>
                             <div className="w-[200px] h-[200px] mx-auto flex items-center justify-center">
                                 <Image
-                                    src={item?.image}
-                                    alt={item.title}
+                                    src={item?.image || 'https://semantic-ui.com/images/wireframe/image.png'}
+                                    alt={item?.name || 'Category'}
                                     width={180}
                                     height={180}
                                     className="object-contain w-full h-full"
