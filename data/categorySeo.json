@@ -10,7 +10,7 @@
             "type": "website",
             "title": "Buy Laptops Online at Best Price in India | Brilliant Memory Computers",
             "description": "Shop branded laptops for gaming, office and students with warranty and India-wide delivery.",
-            "url": "https://www.brilliantmemorycomputers.in/laptops",
+            "url": "https://www.brilliantmemorycomputers.in/categories/laptops",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Latest laptops available at Brilliant Memory Computers",
@@ -28,13 +28,13 @@
             "title": "Buy Graphics Cards Online (NVIDIA & AMD) | Brilliant Memory Computers",
             "description": "Shop NVIDIA RTX and AMD Radeon graphics cards for gaming, editing and 3D rendering at competitive prices in India.",
             "keywords": "Graphics card Chennai, NVIDIA RTX India, AMD Radeon GPU Chennai, gaming GPU India, RTX graphics card Chennai, GPU for video editing India, Brilliant Memory Computers",
-            "canonical": "https://www.brilliantmemorycomputers.in/graphics-card"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/graphics-card"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Graphics Cards Online (NVIDIA & AMD) | Brilliant Memory Computers",
             "description": "Latest gaming and professional graphics cards at best prices in India.",
-            "url": "https://www.brilliantmemorycomputers.in/graphics-card",
+            "url": "https://www.brilliantmemorycomputers.in/categories/graphics-card",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Gaming graphics cards available at Brilliant Memory Computers",
@@ -52,13 +52,13 @@
             "title": "Buy Intel & AMD Processors Online | Brilliant Memory Computers",
             "description": "Upgrade your PC with the latest Intel and AMD processors for gaming and high performance computing.",
             "keywords": "Intel processor Chennai, AMD Ryzen India, gaming CPU Chennai, PC processor India, Ryzen gaming processor Chennai",
-            "canonical": "https://www.brilliantmemorycomputers.in/processor"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/processor"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Intel & AMD Processors Online | Brilliant Memory Computers",
             "description": "Upgrade your PC with powerful Intel and AMD processors for gaming and high-performance computing.",
-            "url": "https://www.brilliantmemorycomputers.in/processor",
+            "url": "https://www.brilliantmemorycomputers.in/categories/processor",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Intel and AMD processors available at Brilliant Memory Computers",
@@ -76,13 +76,13 @@
             "title": "Buy Motherboards Online | Brilliant Memory Computers",
             "description": "Shop reliable Intel and AMD compatible motherboards for gaming and office builds.",
             "keywords": "Motherboard Chennai, gaming motherboard India, Intel motherboard Chennai, AMD motherboard India.",
-            "canonical": "https://www.brilliantmemorycomputers.in/motherboard"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/motherboard"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Motherboards Online | Brilliant Memory Computers",
             "description": "Reliable Intel and AMD compatible motherboards for gaming and office PCs.",
-            "url": "https://www.brilliantmemorycomputers.in/motherboard",
+            "url": "https://www.brilliantmemorycomputers.in/categories/motherboard",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Gaming and office motherboards available at Brilliant Memory Computers",
@@ -100,13 +100,13 @@
             "title": "Buy RAM for Laptop & Desktop | Brilliant Memory Computers",
             "description": "Upgrade your PC with high-speed DDR4 and DDR5 RAM modules at affordable prices.",
             "keywords": "Laptop RAM Chennai, desktop RAM India, DDR4 RAM Chennai, DDR5 RAM India",
-            "canonical": "https://www.brilliantmemorycomputers.in/ram"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/ram"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy RAM for Laptop & Desktop | Brilliant Memory Computers",
             "description": "Upgrade your PC with high-speed DDR4 and DDR5 RAM modules for better performance.",
-            "url": "https://www.brilliantmemorycomputers.in/ram",
+            "url": "https://www.brilliantmemorycomputers.in/categories/ram",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "High speed DDR4 and DDR5 RAM modules available at Brilliant Memory Computers",
@@ -124,13 +124,13 @@
             "title": "Buy SSD Online – NVMe & SATA | Brilliant Memory Computers",
             "description": "High-speed NVMe and SATA SSD storage drives for faster performance and upgrades.",
             "keywords": "SSD Chennai, NVMe SSD India, SATA SSD Chennai, gaming SSD India",
-            "canonical": "https://www.brilliantmemorycomputers.in/ssd"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/ssd"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy SSD Online – NVMe & SATA | Brilliant Memory Computers",
             "description": "Upgrade your PC with fast NVMe and SATA SSD drives for better speed and storage.",
-            "url": "https://www.brilliantmemorycomputers.in/ssd",
+            "url": "https://www.brilliantmemorycomputers.in/categories/ssd",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "High speed NVMe and SATA SSD drives available at Brilliant Memory Computers",
@@ -148,13 +148,13 @@
             "title": "Buy Hard Disk Drives Online | Brilliant Memory Computers",
             "description": "Reliable internal and external hard drives for storage and backup solutions.",
             "keywords": "Hard disk Chennai, HDD India, internal hard drive Chennai, external HDD India",
-            "canonical": "https://www.brilliantmemorycomputers.in/hdd"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/hdd"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Hard Disk Drives Online | Brilliant Memory Computers",
             "description": "Reliable HDD storage drives for backup and high-capacity storage.",
-            "url": "https://www.brilliantmemorycomputers.in/hdd",
+            "url": "https://www.brilliantmemorycomputers.in/categories/hdd",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Hard disk drives available at Brilliant Memory Computers",
@@ -172,13 +172,13 @@
             "title": "Buy Power Supply (SMPS) for PC | Brilliant Memory Computers",
             "description": "Shop reliable SMPS power supply units for gaming and workstation PCs. High efficiency and stable power for your computer system.",
             "keywords": "SMPS Chennai, gaming PSU India, modular power supply Chennai, PC power supply India, gaming SMPS Chennai",
-            "canonical": "https://www.brilliantmemorycomputers.in/power-supply"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/power-supply"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Power Supply (SMPS) for PC | Brilliant Memory Computers",
             "description": "High efficiency SMPS power supplies for gaming and workstation PCs.",
-            "url": "https://www.brilliantmemorycomputers.in/power-supply",
+            "url": "https://www.brilliantmemorycomputers.in/categories/power-supply",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "PC power supply units available at Brilliant Memory Computers",
@@ -196,13 +196,13 @@
             "title": "Buy PC Cabinet & Computer Cases | Brilliant Memory Computers",
             "description": "Stylish and durable PC cabinets for gaming and professional desktop builds.",
             "keywords": "PC cabinet Chennai, gaming cabinet India, RGB PC case Chennai, computer cabinet India, gaming case Chennai",
-            "canonical": "https://www.brilliantmemorycomputers.in/cabinet"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/cabinet"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy PC Cabinet & Computer Cases | Brilliant Memory Computers",
             "description": "Durable and stylish PC cabinets for gaming and professional builds.",
-            "url": "https://www.brilliantmemorycomputers.in/cabinet",
+            "url": "https://www.brilliantmemorycomputers.in/categories/cabinet",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Gaming PC cabinets available at Brilliant Memory Computers",
@@ -220,13 +220,13 @@
             "title": "Buy CPU Cooling Fans & Liquid Coolers | Brilliant Memory Computers",
             "description": "Advanced cooling solutions including air cooling fans and liquid coolers for high-performance gaming PCs.",
             "keywords": "CPU cooling fan Chennai, liquid cooler India, gaming PC cooling Chennai, PC fan India, RGB cooling fan Chennai",
-            "canonical": "https://www.brilliantmemorycomputers.in/cooling-fan"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/cooling-fan"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy CPU Cooling Fans & Liquid Coolers | Brilliant Memory Computers",
             "description": "Advanced air and liquid cooling systems for gaming and high performance PCs.",
-            "url": "https://www.brilliantmemorycomputers.in/cooling-fan",
+            "url": "https://www.brilliantmemorycomputers.in/categories/cooling-fan",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "CPU cooling fans available at Brilliant Memory Computers",
@@ -244,13 +244,13 @@
             "title": "Buy Computer Monitors Online | Brilliant Memory Computers",
             "description": "Full HD, 2K and 4K monitors for gaming, office and professional use.",
             "keywords": "Computer monitor Chennai, gaming monitor India, 4K monitor Chennai, office monitor India",
-            "canonical": "https://www.brilliantmemorycomputers.in/monitor"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/monitor"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Computer Monitors Online | Brilliant Memory Computers",
             "description": "Shop gaming, office and professional monitors at best prices in India.",
-            "url": "https://www.brilliantmemorycomputers.in/monitor",
+            "url": "https://www.brilliantmemorycomputers.in/categories/monitor",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Computer monitors available at Brilliant Memory Computers",
@@ -268,13 +268,13 @@
             "title": "Buy Computer Keyboards Online | Brilliant Memory Computers",
             "description": "Mechanical, gaming and wireless keyboards at competitive prices.",
             "keywords": "Gaming keyboard Chennai, mechanical keyboard India, wireless keyboard Chennai, RGB keyboard India",
-            "canonical": "https://www.brilliantmemorycomputers.in/keyboard"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/keyboard"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Computer Keyboards Online | Brilliant Memory Computers",
             "description": "Mechanical, gaming and wireless keyboards at competitive prices.",
-            "url": "https://www.brilliantmemorycomputers.in/keyboard",
+            "url": "https://www.brilliantmemorycomputers.in/categories/keyboard",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Computer keyboards available at Brilliant Memory Computers",
@@ -292,13 +292,13 @@
             "title": "Buy Computer Mouse Online | Brilliant Memory Computers",
             "description": "Shop wired and wireless computer mouse for gaming, office and everyday productivity at best prices. ",
             "keywords": "Gaming mouse Chennai, wireless mouse India, computer mouse Chennai, RGB gaming mouse India, optical mouse Chennai",
-            "canonical": "https://www.brilliantmemorycomputers.in/mouse"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/mouse"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Computer Mouse Online | Brilliant Memory Computers",
             "description": "Explore wired and wireless mouse for gaming and office productivity.",
-            "url": "https://www.brilliantmemorycomputers.in/mouse",
+            "url": "https://www.brilliantmemorycomputers.in/categories/mouse",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Computer mouse available at Brilliant Memory Computers",
@@ -316,13 +316,13 @@
             "title": "Buy Keyboard & Mouse Combo | Brilliant Memory Computers",
             "description": "Affordable keyboard and mouse combo sets for home, office and everyday computing.",
             "keywords": "Keyboard mouse combo Chennai, PC combo India, wireless keyboard mouse combo Chennai, office keyboard set India",
-            "canonical": "https://www.brilliantmemorycomputers.in/keyboard-combo"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/keyboard-combo"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Keyboard & Mouse Combo | Brilliant Memory Computers",
             "description": "Affordable keyboard and mouse combo sets for office and home use.",
-            "url": "https://www.brilliantmemorycomputers.in/keyboard-combo",
+            "url": "https://www.brilliantmemorycomputers.in/categories/keyboard-combo",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Keyboard and mouse combo available at Brilliant Memory Computers",
@@ -340,13 +340,13 @@
             "title": "Buy Web Cameras Online | Brilliant Memory Computers",
             "description": "HD webcams for video conferencing, online classes, meetings and streaming.",
             "keywords": "Webcam Chennai, HD web camera India, streaming webcam Chennai, conference webcam India",
-            "canonical": "https://www.brilliantmemorycomputers.in/web-camera"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/web-camera"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Web Cameras Online | Brilliant Memory Computers",
             "description": "High quality HD webcams for video meetings, streaming and online classes.",
-            "url": "https://www.brilliantmemorycomputers.in/web-camera",
+            "url": "https://www.brilliantmemorycomputers.in/categories/web-camera",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Web cameras available at Brilliant Memory Computers",
@@ -364,13 +364,13 @@
             "title": "Buy Computer Speakers Online | Brilliant Memory Computers",
             "description": "High-quality PC speakers for immersive sound while gaming, watching movies and listening to music.",
             "keywords": "Computer speakers Chennai, PC speaker India, multimedia speakers Chennai, desktop speakers India",
-            "canonical": "https://www.brilliantmemorycomputers.in/speaker"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/speaker"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Computer Speakers Online | Brilliant Memory Computers",
             "description": "High quality PC speakers for immersive sound experience.",
-            "url": "https://www.brilliantmemorycomputers.in/speaker",
+            "url": "https://www.brilliantmemorycomputers.in/categories/speaker",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Computer speakers available at Brilliant Memory Computers",
@@ -388,13 +388,13 @@
             "title": "Buy Soundbars Online | Brilliant Memory Computers",
             "description": "Compact and powerful soundbars for enhanced PC audio and home entertainment.",
             "keywords": "Soundbar Chennai, PC soundbar India, home soundbar Chennai, gaming soundbar India",
-            "canonical": "https://www.brilliantmemorycomputers.in/soundbar"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/soundbar"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Soundbars Online | Brilliant Memory Computers",
             "description": "Compact and powerful soundbars for better audio experience.",
-            "url": "https://www.brilliantmemorycomputers.in/soundbar",
+            "url": "https://www.brilliantmemorycomputers.in/categories/soundbar",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Soundbars available at Brilliant Memory Computers",
@@ -412,13 +412,13 @@
             "title": "Buy Wireless Headphones Online | Brilliant Memory Computers",
             "description": "Bluetooth and gaming wireless headphones with premium sound quality and long battery life.",
             "keywords": "Wireless headphone Chennai, Bluetooth headphones India, gaming headset Chennai, wireless gaming headphones India",
-            "canonical": "https://www.brilliantmemorycomputers.in/wireless-headphone"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/wireless-headphone"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Wireless Headphones Online | Brilliant Memory Computers",
             "description": "Premium wireless headphones with powerful sound and long battery life.",
-            "url": "https://www.brilliantmemorycomputers.in/wireless-headphone",
+            "url": "https://www.brilliantmemorycomputers.in/categories/wireless-headphone",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Wireless headphones available at Brilliant Memory Computers",
@@ -436,13 +436,13 @@
             "title": "Buy Printers Online \u2013 Inkjet & Laser | Brilliant Memory Computers",
             "description": "Inkjet and laser printers for home and office printing needs at best prices.",
             "keywords": "Printer Chennai, inkjet printer India, laser printer Chennai, office printer India",
-            "canonical": "https://www.brilliantmemorycomputers.in/printer"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/printer"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Printers Online \u2013 Inkjet & Laser | Brilliant Memory Computers",
             "description": "Reliable printers for home and office printing.",
-            "url": "https://www.brilliantmemorycomputers.in/printer",
+            "url": "https://www.brilliantmemorycomputers.in/categories/printer",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Printers available at Brilliant Memory Computers",
@@ -460,13 +460,13 @@
             "title": "Buy Projectors for Home & Office | Brilliant Memory Computers",
             "description": "HD and smart projectors for presentations, classrooms and home entertainment.",
             "keywords": "Projector Chennai, office projector India, HD projector Chennai, home theater projector India",
-            "canonical": "https://www.brilliantmemorycomputers.in/projector"
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/projector"
         },
         "openGraph": {
             "type": "website",
             "title": "Buy Projectors for Home & Office | Brilliant Memory Computers",
             "description": "HD projectors for presentations and home entertainment.",
-            "url": "https://www.brilliantmemorycomputers.in/projector",
+            "url": "https://www.brilliantmemorycomputers.in/categories/projector",
             "site_name": "Brilliant Memory Computers",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
             "image_alt": "Projectors available at Brilliant Memory Computers",
@@ -476,6 +476,30 @@
             "card": "summary_large_image",
             "title": "Buy Projectors Online | Brilliant Memory Computers",
             "description": "Shop HD and smart projectors for home and office.",
+            "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg"
+        }
+    },
+    "desktop": {
+        "meta": {
+            "title": "Buy Desktop Computers Online | Brilliant Memory Computers",
+            "description": "Shop branded desktop computers for office, home and business use at best prices in India.",
+            "keywords": "Desktop computer Chennai, office desktop India, branded desktop Chennai, business desktop India",
+            "canonical": "https://www.brilliantmemorycomputers.in/categories/desktops"
+        },
+        "openGraph": {
+            "type": "website",
+            "title": "Buy Desktop Computers Online | Brilliant Memory Computers",
+            "description": "Branded desktop PCs for office, home and business use.",
+            "url": "https://www.brilliantmemorycomputers.in/categories/desktops",
+            "site_name": "Brilliant Memory Computers",
+            "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg",
+            "image_alt": "Desktop computers available at Brilliant Memory Computers",
+            "locale": "en_IN"
+        },
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Buy Desktop Computers Online | Brilliant Memory Computers",
+            "description": "Best deals on desktop PCs for home and office use.",
             "image": "https://www.brilliantmemorycomputers.in/img/bmc-banner-1.jpg"
         }
     }
