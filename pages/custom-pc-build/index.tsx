@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import WhyChooseBNComputers from "@/components/WhyChooseBNComputers";
 import PcFaqSection from "@/components/pcFaq";
 
@@ -73,23 +74,36 @@ export default function BuildPC() {
             </Head>
 
             <main className="bg-[#f0f5ff] overflow-hidden">
-                <section className="relative text-gray-800 py-24 px-4 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                <section className="relative text-gray-800 py-24 px-4 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+
+                    {/* Content */}
                     <div className="md:w-1/2 space-y-6 z-10">
                         <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900">
                             Custom PC Build in Chennai – <span className="text-blue-600">Brilliant Memory Computers</span>
                         </h1>
-                        <h2 className="text-xl md:text-2xl font-bold text-gray-700">Build Your Dream PC in Chennai</h2>
-                        <p className=" opacity-90 leading-relaxed text-gray-700">
-                            Looking for a reliable Custom PC Build in Chennai that matches your performance needs and budget? Brilliant Memory Computers is your trusted destination for high-performance, future-ready custom desktop computers.
+
+                        <h2 className="text-xl md:text-2xl font-bold text-gray-700">
+                            Build Your Dream PC in Chennai
+                        </h2>
+
+                        <p className="opacity-90 leading-relaxed text-gray-700">
+                            Looking for a reliable Custom PC Build in Chennai that matches your performance needs and budget?
+                            Brilliant Memory Computers is your trusted destination for high-performance, future-ready custom desktop computers.
                         </p>
-                        <p className=" opacity-90 leading-relaxed text-gray-700">
-                            Whether you need a gaming PC, professional workstation PC or an affordable home/office system, we design and assemble systems tailored exactly to your requirements with genuine components and warranty support.
+
+                        <p className="opacity-90 leading-relaxed text-gray-700">
+                            Whether you need a gaming PC, professional workstation PC or an affordable home/office system,
+                            we design and assemble systems tailored exactly to your requirements with genuine components and warranty support.
                         </p>
-                        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 hover:scale-105 transition shadow-lg">
-                            START BUILD
-                        </button>
+
+                        <Link href="/categories">
+                            <button className="bg-blue-600 mt-4 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 hover:scale-105 transition shadow-lg">
+                                START BUILD
+                            </button>
+                        </Link>
                     </div>
 
+                    {/* Image */}
                     <div className="md:w-1/2 z-10">
                         <Image
                             src="/img/pc-1.png"
@@ -103,6 +117,7 @@ export default function BuildPC() {
                     {/* Glow Shapes */}
                     <div className="absolute -top-20 -right-20 w-80 h-80 bg-blue-300 rounded-full opacity-30 blur-3xl"></div>
                     <div className="absolute bottom-0 -left-20 w-72 h-72 bg-blue-500 rounded-full opacity-30 blur-3xl"></div>
+
                 </section>
 
                 <WhyChooseBNComputers />
@@ -341,9 +356,11 @@ export default function BuildPC() {
                                 </div>
                             ))}
                         </div>
-                        <button className="bg-white text-blue-600 px-10 py-4 rounded-full font-extrabold text-xl hover:bg-gray-100 hover:scale-105 transition shadow-2xl">
-                            CONTACT US NOW
-                        </button>
+                        <Link href='/contact-us'>
+                            <button className="bg-white text-blue-600 px-10 py-4 rounded-full font-extrabold text-xl hover:bg-gray-100 hover:scale-105 transition shadow-2xl">
+                                CONTACT US NOW
+                            </button>
+                        </Link>
                     </div>
                 </section>
 
