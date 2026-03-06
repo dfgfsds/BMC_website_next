@@ -16,6 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     "/categories",
     "/about-us",
     "/contact-us",
+    "/custom-pc-build",
     "/profile",
     "/refund-policy",
     "/terms-conditions",
