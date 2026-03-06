@@ -64,6 +64,7 @@ export default function BuildPC() {
         <>
             <Head>
                 <title>Custom PC Build in Chennai | Gaming & Workstation PCs</title>
+                <meta name="robots" content="index, follow" />
                 <meta name="description" content="Looking for Custom PC Build in Chennai? Get gaming PCs, workstation builds & budget desktop systems with warranty at Brilliant Memory Computers." />
                 <meta name="keywords" content="Custom PC build in Chennai, gaming PC build Chennai, workstation PC build Chennai, budget gaming PC Chennai, custom desktop computer Chennai, high-performance desktop systems, PC builder in Chennai, Intel and AMD gaming PCs, NVIDIA graphics PC Chennai, video editing workstation PC Chennai, affordable gaming PC Chennai, RGB gaming PC Chennai, EMI gaming PC Chennai, Tamil Nadu PC delivery, Brilliant Memory Computers Chennai." />
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.in/custom-pc-build" />
