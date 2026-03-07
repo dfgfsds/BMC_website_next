@@ -17,10 +17,15 @@ const nextConfig = {
         destination: "/shop",
         permanent: true, // 301 redirect
       },
-       {
+      {
         source: "/products",
         destination: "/shop",
         permanent: true, // 301 redirect
+      },
+      {
+        source: "/categories/550",
+        destination: "/categories/laptops",
+        permanent: true,
       },
     ];
   },

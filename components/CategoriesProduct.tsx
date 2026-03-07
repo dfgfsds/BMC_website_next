@@ -22,8 +22,11 @@ import ProductModal from './model/ProductModal';
 import Breadcrumb from './Breadcrumb';
 import { slugConvert } from '@/lib/utils';
 
+import categorySeo from '@/data/categorySeo.json';
+
 export default function CategoriesBasedProduct() {
-    /* ---------------- PARAMS (SAFE) ---------------- */
+
+    /* ---------------- PARAMS ---------------- */
     const params = useParams<{ slug?: string }>();
     const slug = params?.slug;
 
@@ -32,15 +35,17 @@ export default function CategoriesBasedProduct() {
     const [getCartId, setCartId] = useState<string | null>(null);
     const [getUserName, setUserName] = useState<string | null>(null);
     const [signInmodal, setSignInModal] = useState(false);
-    const { products, isLoading }: any = useProducts();
-    const { categories }: any = useCategories();
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isModalOpen, setModalOpen] = useState(false);
-    const queryClient = useQueryClient();
+    const [showFullContent, setShowFullContent] = useState(false);
+
+    const { products, isLoading }: any = useProducts();
+    const { categories }: any = useCategories();
     const { vendorId } = useVendor();
     const { cartItem }: any = useCartItem();
+    const queryClient = useQueryClient();
 
-    /* ---------------- LOCAL STORAGE (HOOK MUST ALWAYS RUN) ---------------- */
+    /* ---------------- LOCAL STORAGE ---------------- */
     useEffect(() => {
         if (typeof window !== 'undefined') {
             setUserId(localStorage.getItem('userId'));
@@ -61,6 +66,17 @@ export default function CategoriesBasedProduct() {
         (product: any) => product.category === category?.id
     );
 
+    /* ---------------- SEO DATA ---------------- */
+    const seoData = slug ? (categorySeo as any)[slug] : null;
+
+    /* ---------------- TEXT TRUNCATE ---------------- */
+    const truncateWords = (text: string, limit: number) => {
+        const words = text.split(' ');
+        return words.length > limit
+            ? words.slice(0, limit).join(' ') + '...'
+            : text;
+    };
+
     /* ---------------- CART HANDLERS ---------------- */
     const handleUpdateCart = async (
         cartId: number,
@@ -73,6 +89,7 @@ export default function CategoriesBasedProduct() {
             } else {
                 await updateCartitemsApi(`${cartId}/${type}/`);
             }
+
             queryClient.invalidateQueries([
                 'getCartitemsData',
             ] as InvalidateQueryFilters);
@@ -82,6 +99,7 @@ export default function CategoriesBasedProduct() {
     };
 
     const handleAddCart = async (productId: number) => {
+
         if (!getUserId) {
             setSignInModal(true);
             return;
@@ -98,9 +116,11 @@ export default function CategoriesBasedProduct() {
 
         try {
             await postCartitemApi('', payload);
+
             queryClient.invalidateQueries([
                 'getCartitemsData',
             ] as InvalidateQueryFilters);
+
         } catch (error) {
             console.error(error);
         }
@@ -108,6 +128,7 @@ export default function CategoriesBasedProduct() {
 
     /* ---------------- MERGE CART DATA ---------------- */
     const productsWithCart = filteredProducts?.map((product: any) => {
+
         const cartData = cartItem?.data?.find(
             (item: any) => item.product === product.id
         );
@@ -129,9 +150,9 @@ export default function CategoriesBasedProduct() {
     /* ---------------- UI ---------------- */
     return (
         <div className="max-w-6xl mx-auto px-4 py-10">
+
             <Breadcrumb items={breadcrumbItems} />
 
-            {/* SLUG NOT READY */}
             {!slug ? (
                 <p className="text-center py-20 text-gray-500">
                     Loading category...
@@ -145,12 +166,16 @@ export default function CategoriesBasedProduct() {
                     {isLoading ? (
                         <p className="text-center text-gray-500">Loading...</p>
                     ) : productsWithCart?.length > 0 ? (
+
                         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6">
+
                             {productsWithCart.map((product: any) => (
+
                                 <div
                                     key={product.id}
                                     className="bg-white border rounded-md p-4 hover:shadow-lg transition"
                                 >
+
                                     <Link href={`/shop/${slugConvert(product.name)}`}>
                                         <Image
                                             src={product.image_urls[0]}
@@ -170,7 +195,9 @@ export default function CategoriesBasedProduct() {
                                     </p>
 
                                     {product.cartQty > 0 ? (
+
                                         <div className="flex justify-center items-center gap-4 mt-4">
+
                                             <button
                                                 onClick={() =>
                                                     handleUpdateCart(
@@ -198,25 +225,72 @@ export default function CategoriesBasedProduct() {
                                             >
                                                 +
                                             </button>
+
                                         </div>
+
                                     ) : (
+
                                         <button
                                             onClick={() => handleAddCart(product.id)}
                                             className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded"
                                         >
                                             Add to Cart
                                         </button>
+
                                     )}
+
                                 </div>
+
                             ))}
+
                         </div>
+
                     ) : (
+
                         <p className="text-center text-gray-500">
                             No products found for this category.
                         </p>
+
                     )}
                 </>
             )}
+
+            {/* ---------------- SEO CONTENT ---------------- */}
+
+            {seoData?.content && (
+
+                <div className="mt-16 bg-gray-50 p-8 rounded-xl">
+
+                    <h2 className="text-2xl font-bold mb-4">
+                        {seoData.content.h1}
+                    </h2>
+
+                    <p className="mb-6">
+                        {showFullContent
+                            ? seoData.content.intro
+                            : truncateWords(seoData.content.intro, 40)}
+                    </p>
+
+                    <div
+                        className={`prose max-w-none ${showFullContent ? '' : 'max-h-60 overflow-hidden'
+                            }`}
+                        dangerouslySetInnerHTML={{
+                            __html: seoData.content.body,
+                        }}
+                    />
+
+                    <button
+                        onClick={() => setShowFullContent(!showFullContent)}
+                        className="mt-4 text-blue-600 font-semibold hover:underline"
+                    >
+                        {showFullContent ? 'Read Less...' : 'Read More...'}
+                    </button>
+
+                </div>
+
+            )}
+
+            {/* ---------------- MODALS ---------------- */}
 
             {signInmodal && (
                 <LoginModal
@@ -226,7 +300,12 @@ export default function CategoriesBasedProduct() {
                 />
             )}
 
-            <ProductModal isOpen={isModalOpen} product={selectedProduct} onClose={() => setModalOpen(false)} />
+            <ProductModal
+                isOpen={isModalOpen}
+                product={selectedProduct}
+                onClose={() => setModalOpen(false)}
+            />
+
         </div>
     );
 }
