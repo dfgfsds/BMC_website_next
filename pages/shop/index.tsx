@@ -1,5 +1,5 @@
 "use client";
-import Head from "next/head";
+
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ProductsSidebar from "@/components/ProductsSidebar";
@@ -165,73 +165,7 @@ export default function ProductsPage() {
 
   return (
     <>
-      <Head>
-        <title>Shop Best Laptops, Desktops & Accessories | BMC India</title>
-        <meta
-          name="description"
-          content="Explore our extensive collection of brand new and refurbished laptops, custom gaming PCs, and computer accessories. Best prices and quality guaranteed at BMC India."
-        />
-        <meta
-          name="keywords"
-          content="Buy Laptops Online, Computer Shop Chennai, Refurbished Laptops India, Gaming PC Build, Computer Accessories, BMC Shop"
-        />
-        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/shop" />
 
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Shop Best Laptops, Desktops & Accessories | BMC India" />
-        <meta
-          property="og:description"
-          content="Brilliant Memory Computers - Your one-stop shop for all computing needs. Laptops, Desktops, and Accessories."
-        />
-        <meta property="og:url" content="https://www.brilliantmemorycomputers.in/shop" />
-        <meta property="og:site_name" content="Brilliant Memory Computers" />
-        <meta property="og:image" content="https://www.brilliantmemorycomputers.in/img/bmc-logo.png" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Shop Best Laptops, Desktops & Accessories | BMC India" />
-        <meta
-          name="twitter:description"
-          content="Explore the best deals on laptops, desktops and accessories at Brilliant Memory Computers."
-        />
-        <meta name="twitter:image" content="https://www.brilliantmemorycomputers.in/img/bmc-logo.png" />
-
-        {/* Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "CollectionPage",
-                  "name": "Shop Best Laptops, Desktops & Accessories | BMC India",
-                  "description": "Explore our extensive collection of brand new and refurbished laptops, custom gaming PCs, and computer accessories.",
-                  "url": "https://www.brilliantmemorycomputers.in/shop"
-                },
-                {
-                  "@type": "BreadcrumbList",
-                  "itemListElement": [
-                    {
-                      "@type": "ListItem",
-                      "position": 1,
-                      "name": "Home",
-                      "item": "https://www.brilliantmemorycomputers.in/"
-                    },
-                    {
-                      "@type": "ListItem",
-                      "position": 2,
-                      "name": "Shop",
-                      "item": "https://www.brilliantmemorycomputers.in/shop"
-                    }
-                  ]
-                }
-              ]
-            })
-          }}
-        />
-      </Head>
       <div className="p-6 max-w-6xl mx-auto">
         <div className="mb-6">
           <Breadcrumb items={breadcrumbItems} />
