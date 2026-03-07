@@ -103,6 +103,7 @@ export default function Page({ slug, seo }) {
             </Head>
 
             <CategoriesBasedProduct />
+
         </>
     );
 }
