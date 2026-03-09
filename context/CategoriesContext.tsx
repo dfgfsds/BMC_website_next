@@ -11,7 +11,6 @@ interface CategoriesContextType {
   error: any; // Error state
 }
 
-
 const CategoriesContext = createContext<CategoriesContextType | undefined>(undefined);
 
 const categoryOrder = [
