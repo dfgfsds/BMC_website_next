@@ -27,6 +27,24 @@ const nextConfig = {
         destination: "/categories/laptops",
         permanent: true,
       },
+      {
+        source: "/categories/276",
+        destination: "/categories/power-supply",
+        permanent: true,
+      },
+      {
+        source: "/products/19451",
+        destination: "/shop",
+        permanent: true,
+      },
+      {
+        source: "/products/19780",
+        destination: "/shop",
+        permanent: true,
+      },
+
+
+
     ];
   },
 };
