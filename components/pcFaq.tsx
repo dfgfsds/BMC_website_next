@@ -40,7 +40,7 @@ export default function PcFaqSection() {
     <section className="py-12 ">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="mb-16 text-center">
+        <div className="mb-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             Frequently Asked Questions
           </h2>
