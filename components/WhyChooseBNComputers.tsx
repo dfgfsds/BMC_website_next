@@ -4,10 +4,11 @@ import Image from "next/image";
 import {
     Cpu,
     ShieldCheck,
-    Wallet,
+    IndianRupee,
     Gamepad2,
     Wrench,
-    CheckCircle,
+    BadgeCheck,
+    Headphones
 } from "lucide-react";
 
 export default function WhyChooseBNComputers() {
@@ -47,30 +48,18 @@ export default function WhyChooseBNComputers() {
 
                         <div className="space-y-4 sm:space-y-5">
                             <Feature icon={<Cpu />} text="Expert configuration guidance" />
-                            <Feature
-                                icon={<ShieldCheck />}
-                                text="Genuine branded components only"
-                            />
-                            <Feature
-                                icon={<Wallet />}
-                                text="Budget-friendly & performance-optimized builds"
-                            />
-                            <Feature
-                                icon={<Gamepad2 />}
-                                text="Gaming, editing, business & office solutions"
-                            />
-                            <Feature
-                                icon={<Wrench />}
-                                text="Professional cable management & airflow optimization"
-                            />
-                            <Feature
-                                icon={<CheckCircle />}
-                                text="Thorough stress testing before delivery"
-                            />
-                            <Feature
-                                icon={<CheckCircle />}
-                                text="Local Chennai support & after-sales service"
-                            />
+
+                            <Feature icon={<ShieldCheck />} text="Genuine branded components only" />
+
+                            <Feature icon={<IndianRupee />} text="Budget-friendly & performance-optimized builds" />
+
+                            <Feature icon={<Gamepad2 />} text="Gaming, editing, business & office solutions" />
+
+                            <Feature icon={<Wrench />} text="Professional cable management & airflow optimization" />
+
+                            <Feature icon={<BadgeCheck />} text="Thorough stress testing before delivery" />
+
+                            <Feature icon={<Headphones />} text="Local Chennai support & after-sales service" />
                         </div>
                     </div>
 
