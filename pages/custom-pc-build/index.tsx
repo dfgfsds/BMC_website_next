@@ -3,6 +3,55 @@ import Image from "next/image";
 import Link from "next/link";
 import WhyChooseBNComputers from "@/components/WhyChooseBNComputers";
 import PcFaqSection from "@/components/pcFaq";
+import {
+    Cpu, CircuitBoard, MemoryStick, HardDrive,
+    MonitorPlay, Zap, Server, Wind
+} from "lucide-react";
+import {
+    Gamepad2,
+    Monitor,
+
+    Video,
+    Box,
+    Code,
+    Briefcase
+} from "lucide-react";
+
+const components = [
+    {
+        num: "01", t: "Processor", d: "Intel / AMD latest gen CPUs",
+        Icon: Cpu, ic: "bg-blue-50 text-blue-600", line: "from-sky-400 to-blue-600"
+    },
+    {
+        num: "02", t: "Motherboard", d: "Gaming / Professional chipset",
+        Icon: CircuitBoard, ic: "bg-violet-50 text-violet-600", line: "from-violet-400 to-violet-700"
+    },
+    {
+        num: "03", t: "RAM", d: "DDR4 / DDR5 high-speed memory",
+        Icon: MemoryStick, ic: "bg-green-50 text-green-600", line: "from-green-400 to-green-600"
+    },
+    {
+        num: "04", t: "Storage", d: "NVMe SSD / SATA / HDD options",
+        Icon: HardDrive, ic: "bg-orange-50 text-orange-500", line: "from-orange-400 to-orange-600"
+    },
+    {
+        num: "05", t: "Graphics Card", d: "NVIDIA / AMD GPUs",
+        Icon: MonitorPlay, ic: "bg-rose-50 text-rose-600", line: "from-rose-400 to-rose-600"
+    },
+    {
+        num: "06", t: "Power Supply", d: "High-efficiency SMPS",
+        Icon: Zap, ic: "bg-yellow-50 text-yellow-500", line: "from-yellow-400 to-yellow-500"
+    },
+    {
+        num: "07", t: "Cabinet", d: "High airflow & premium design",
+        Icon: Server, ic: "bg-indigo-50 text-indigo-600", line: "from-indigo-400 to-indigo-600"
+    },
+    {
+        num: "08", t: "Cooling", d: "Air cooling / Liquid cooling",
+        Icon: Wind, ic: "bg-cyan-50 text-cyan-600", line: "from-cyan-400 to-cyan-600"
+    },
+];
+
 
 export default function BuildPC() {
     const faqSchema = {
@@ -105,54 +154,78 @@ export default function BuildPC() {
                     </div>
 
                     {/* Image */}
+
                     <div className="md:w-1/2 z-10">
                         <Image
                             src="/img/pc-1.png"
                             alt="Custom PC Build in Chennai"
-                            width={600}
-                            height={600}
-                            className="rounded-2xl shadow-2xl hover:scale-105 transition"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                            className="w-full h-auto max-w-md mx-auto md:max-w-full rounded-2xl shadow-2xl hover:scale-105 transition"
                         />
                     </div>
 
+
                     {/* Glow Shapes */}
-                    <div className="absolute -top-20 -right-20 w-80 h-80 bg-blue-300 rounded-full opacity-30 blur-3xl"></div>
-                    <div className="absolute bottom-0 -left-20 w-72 h-72 bg-blue-500 rounded-full opacity-30 blur-3xl"></div>
+                    {/* <div className="absolute -top-20 -right-20 w-80 h-80 bg-blue-300 rounded-full opacity-30 blur-3xl"></div>
+                    <div className="absolute bottom-0 -left-20 w-72 h-72 bg-blue-500 rounded-full opacity-30 blur-3xl"></div> */}
 
                 </section>
 
                 <WhyChooseBNComputers />
 
-                <section className="relative py-16 overflow-hidden bg-white">
-                    <div className="max-w-7xl mx-auto px-4">
-                        <div className="text-center mb-14">
-                            <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900">
-                                Customize Every Component
+                <section className="relative py-16 overflow-hidden bg-gray-50">
+                    {/* Background blobs */}
+                    <div className="absolute -top-40 -right-32 w-96 h-96 bg-blue-100 rounded-full opacity-40 blur-3xl pointer-events-none" />
+                    <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-violet-100 rounded-full opacity-40 blur-3xl pointer-events-none" />
+
+                    <div className="max-w-7xl mx-auto px-4 relative z-10">
+                        {/* Header */}
+                        <div className="text-center mb-12">
+                            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-blue-600 bg-blue-50 border border-blue-200 px-4 py-1.5 rounded-full mb-4">
+                                Build Your Machine
+                            </span>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+                                Customize Every{" "}
+                                <span className="bg-gradient-to-r from-blue-500 to-violet-600 bg-clip-text text-transparent">
+                                    Component
+                                </span>
                             </h2>
-                            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-                                Customize your PC by choosing components based on performance, budget and future upgrade plans:
+                            <p className="text-gray-400 font-light max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                                Choose components based on performance, budget and future upgrade plans.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-                            {[
-                                { t: "Processor", d: "Intel / AMD latest generation CPUs" },
-                                { t: "Motherboard", d: "Gaming / Professional chipset" },
-                                { t: "RAM", d: "DDR4 / DDR5 high-speed memory" },
-                                { t: "Storage", d: "NVMe SSD / SATA SSD / HDD options" },
-                                { t: "Graphics Card", d: "NVIDIA / AMD GPUs" },
-                                { t: "Power Supply", d: "High-efficiency SMPS" },
-                                { t: "Cabinet", d: "High airflow & premium design" },
-                                { t: "Cooling", d: "Air cooling / Liquid cooling solutions" }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-6 hover:shadow-lg hover:border-blue-200 transition">
-                                    <h3 className="font-semibold text-gray-800">{item.t}</h3>
-                                    <p className="text-sm text-gray-500">{item.d}</p>
+                        {/* Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            {components.map((item, i) => (
+                                <div
+                                    key={i}
+                                    className="group relative bg-white border border-gray-100 rounded-2xl p-5 overflow-hidden hover:shadow-lg hover:border-blue-100 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                                >
+                                    {/* Number */}
+                                    <p className="text-xs font-bold tracking-widest text-gray-200 mb-3">
+                                        {item.num}
+                                    </p>
+
+                                    {/* Icon */}
+                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${item.ic} group-hover:scale-110 transition-transform duration-200`}>
+                                        <item.Icon size={24} strokeWidth={1.8} />
+                                    </div>
+
+                                    {/* Text */}
+                                    <h3 className="font-bold text-gray-800 text-sm mb-1">{item.t}</h3>
+                                    <p className="text-xs text-gray-400 font-light leading-relaxed">{item.d}</p>
+
+                                    {/* Bottom accent line */}
+                                    <div className={`absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500 bg-gradient-to-r ${item.line}`} />
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
+
 
                 <section className="py-16 bg-[#f0f5ff]">
                     <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -218,7 +291,7 @@ export default function BuildPC() {
                                 src="/img/pc-3.png"
                                 alt="Custom PC Build in Chennai"
                                 width={600}
-                                height={600}
+                                height={500}
                                 className="rounded-2xl shadow-2xl hover:scale-105 transition"
                             />
                         </div>
@@ -250,7 +323,7 @@ export default function BuildPC() {
                 </section>
 
                 <section className="bg-white">
-                    <div className="bg-[#f0f5ff] rounded-lg shadow-md max-w-7xl mx-auto px-4 py-12">
+                    <div className=" max-w-7xl mx-auto px-4 py-12">
                         <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-900">
                             Best Place for Custom PC Build in Chennai
                         </h2>
@@ -284,43 +357,89 @@ export default function BuildPC() {
                     </div>
                 </section>
 
-                <section className="py-16 bg-white">
-                    <div className="max-w-4xl mx-auto px-4">
-                        <h2 className="text-3xl font-extrabold text-center mb-10 text-gray-900">Custom PC vs Branded Desktop – Which is Better?</h2>
-                        <p className="text-center mb-8 text-gray-600">When choosing between a Custom PC Build in Chennai and a branded desktop, understanding the difference which helps you make a smarter investment in your money.</p>
-                        <div className="overflow-x-auto rounded-2xl shadow-lg border border-gray-200">
-                            <table className="w-full text-left bg-white">
-                                <thead className="bg-blue-600 text-white">
-                                    <tr>
-                                        <th className="p-4 border-b border-blue-500">Custom PC Build in Chennai</th>
-                                        <th className="p-4 border-b border-blue-500">Branded Desktop</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="text-gray-700">
-                                    {[
-                                        { c: "Better price-performance ratio", b: "Limited configuration options" },
-                                        { c: "Fully upgradeable & future-ready", b: "Restricted hardware upgrades" },
-                                        { c: "Choose Intel / AMD & NVIDIA / AMD GPUs", b: "Fixed specifications" },
-                                        { c: "No unnecessary pre-installed software", b: "Comes with unwanted bloatware" },
-                                        { c: "Optimized cooling & airflow", b: "Standard cooling design" },
-                                        { c: "Component-level warranty", b: "Limited service-based warranty" }
-                                    ].map((row, i) => (
-                                        <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-blue-50"}>
-                                            <td className="p-4 border-b">{row.c}</td>
-                                            <td className="p-4 border-b">{row.b}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+                    <div className="max-w-6xl mx-auto px-4">
+
+                        {/* Heading */}
+                        <div className="text-center mb-14">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+                                Custom PC vs Branded Desktop
+                            </h2>
+                            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+                                Understand the difference and choose the best system for your needs and budget.
+                            </p>
                         </div>
+
+                        {/* Cards */}
+                        <div className="grid md:grid-cols-2 gap-8">
+
+                            {/* Custom PC */}
+                            <div className="p-8 rounded-3xl bg-white/70 backdrop-blur-lg border border-blue-100 shadow-xl hover:shadow-2xl transition duration-300">
+                                <h3 className="text-xl font-bold text-blue-600 mb-6">
+                                    Custom PC Build
+                                </h3>
+
+                                <ul className="space-y-4 text-gray-700">
+                                    {[
+                                        "Better price-performance ratio",
+                                        "Fully upgradeable & future-ready",
+                                        "Choose Intel / AMD & NVIDIA / AMD GPUs",
+                                        "No unnecessary pre-installed software",
+                                        "Optimized cooling & airflow",
+                                        "Component-level warranty"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3">
+                                            <span className="mt-1 w-2.5 h-2.5 bg-blue-600 rounded-full"></span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Branded Desktop */}
+                            <div className="p-8 rounded-3xl bg-white/70 backdrop-blur-lg border border-gray-200 shadow-xl hover:shadow-2xl transition duration-300">
+                                <h3 className="text-xl font-bold text-gray-800 mb-6">
+                                    Branded Desktop
+                                </h3>
+
+                                <ul className="space-y-4 text-gray-700">
+                                    {[
+                                        "Limited configuration options",
+                                        "Restricted hardware upgrades",
+                                        "Fixed specifications",
+                                        "Comes with unwanted bloatware",
+                                        "Standard cooling design",
+                                        "Limited service-based warranty"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3">
+                                            <span className="mt-1 w-2.5 h-2.5 bg-gray-400 rounded-full"></span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                        </div>
+
                     </div>
                 </section>
 
-                <section className="bg-[#f0f5ff] py-16">
+                <section className="py-20 bg-white">
                     <div className="max-w-7xl mx-auto px-4">
-                        <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-10 text-gray-900">Custom PC Build in Chennai Price</h2>
-                        <p className="text-center mb-8 text-gray-600">The cost of a Custom PC Build in Chennai depends on performance requirements, components, and usage type.</p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+
+                        {/* Heading */}
+                        <div className="text-center mb-14">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+                                Custom PC Build Price in Chennai
+                            </h2>
+                            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+                                Choose the right configuration based on your needs — from budget to high-performance builds.
+                            </p>
+                        </div>
+
+                        {/* Cards */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
                             {[
                                 { t: "Budget Office PC", p: "₹25,000+" },
                                 { t: "Budget Gaming PC", p: "₹40,000+" },
@@ -328,21 +447,58 @@ export default function BuildPC() {
                                 { t: "High-End Gaming", p: "₹1,00,000+" },
                                 { t: "Workstation PC", p: "Config Based" }
                             ].map((item, i) => (
-                                <div key={i} className="bg-white p-6 rounded-2xl shadow-sm text-center border-b-4 border-blue-600">
-                                    <p className="font-bold text-gray-800 mb-2">{item.t}</p>
-                                    <p className="text-2xl font-extrabold text-blue-600">{item.p}</p>
+                                <div
+                                    key={i}
+                                    className="group relative bg-white border border-gray-200 rounded-2xl p-6 text-center transition duration-300 hover:shadow-xl hover:-translate-y-1"
+                                >
+
+                                    {/* Top subtle line */}
+                                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+
+                                    {/* Title */}
+                                    <p className="text-gray-700 font-medium mb-2 group-hover:text-gray-900 transition">
+                                        {item.t}
+                                    </p>
+
+                                    {/* Price */}
+                                    <p className="text-2xl md:text-3xl font-extrabold text-gray-900">
+                                        {item.p}
+                                    </p>
+
                                 </div>
                             ))}
+
                         </div>
-                        <p className="text-center font-bold text-gray-700 underline decoration-blue-500">We are providing transparent pricing and configuration-based quotations with no hidden charges.</p>
+
+                        {/* Bottom Note */}
+                        <p className="text-center mt-10 text-gray-600">
+                            Transparent pricing with configuration-based quotation.
+                            <span className="font-semibold text-gray-900"> No hidden charges.</span>
+                        </p>
+
                     </div>
                 </section>
 
-                <section className="bg-blue-600 py-16 text-white text-center">
-                    <div className="max-w-7xl mx-auto px-4">
-                        <h2 className="text-3xl md:text-5xl font-extrabold mb-8">Get Your Custom PC Build in Chennai Today</h2>
-                        <p className="text-xl mb-12 opacity-90">Ready to build your dream system? We ensure secure packaging, safe delivery across Tamil Nadu and flexible EMI options.</p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <section className="relative py-24 bg-white overflow-hidden">
+
+                    {/* Soft Background Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-white to-blue-50"></div>
+
+                    <div className="max-w-7xl mx-auto px-4 relative z-10">
+
+                        {/* Heading */}
+                        <div className="text-center max-w-3xl mx-auto mb-16">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                                Get Your Custom PC Build in Chennai Today
+                            </h2>
+                            <p className="text-lg md:text-xl text-gray-600 mt-6">
+                                Build your dream system with expert guidance, genuine components, and safe delivery across Tamil Nadu.
+                            </p>
+                        </div>
+
+                        {/* Feature Cards */}
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 mb-14">
+
                             {[
                                 "Free consultation",
                                 "Performance-based recommendations",
@@ -352,38 +508,18 @@ export default function BuildPC() {
                                 "All Over Tamil Nadu Free Shipping",
                                 "EMI Option Available"
                             ].map((item, i) => (
-                                <div key={i} className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
-                                    <p className="font-bold">{item}</p>
+                                <div
+                                    key={i}
+                                    className="bg-white border border-gray-200 rounded-xl px-4 py-4 text-center text-gray-700 font-medium shadow-sm hover:shadow-md transition"
+                                >
+                                    {item}
                                 </div>
                             ))}
-                        </div>
-                        <Link href='/contact-us'>
-                            <button className="bg-white text-blue-600 px-10 py-4 rounded-full font-extrabold text-xl hover:bg-gray-100 hover:scale-105 transition shadow-2xl">
-                                CONTACT US NOW
-                            </button>
-                        </Link>
-                    </div>
-                </section>
 
-                <section className="bg-white py-16">
-                    <div className="max-w-7xl mx-auto px-4">
-                        <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12 text-gray-900">What Our Customers Say About Our Custom PC Build in Chennai</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {[
-                                { t: "Excellent Custom Gaming PC Build in Chennai with clean cable management and powerful performance. Highly recommended for serious gamers.", a: "Customer, Chennai" },
-                                { t: "Brilliant Memory Computers helped me build a high-performance workstation PC in Chennai for video editing. Genuine components and smooth performance.", a: "Business Client, Chennai" },
-                                { t: "Best place for Custom PC Build in Chennai. Transparent pricing, expert guidance, and reliable warranty support.", a: "Happy Customer" },
-                                { t: "Good customer care and proper response, happy to purchase a customized pc from Brilliant Memory computers.", a: "Happy Customer" },
-                                { t: "Most satisfied purchase pc also its worth of my budget, thankyou BMC", a: "Happy Customer" }
-                            ].map((test, i) => (
-                                <div key={i} className="bg-gray-50 p-6 rounded-2xl border border-gray-100 italic relative">
-                                    <span className="text-4xl text-blue-200 absolute top-2 right-4 leading-none">"</span>
-                                    <p className="text-gray-700 mb-4 z-10 relative">{test.t}</p>
-                                    <p className="text-blue-600 font-bold not-italic">– {test.a}</p>
-                                    <div className="text-yellow-500 mt-2">⭐⭐⭐⭐⭐</div>
-                                </div>
-                            ))}
                         </div>
+
+
+
                     </div>
                 </section>
 
