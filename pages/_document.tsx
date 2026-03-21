@@ -70,6 +70,8 @@ export default function Document() {
           `}}
                 />
 
+                <meta name="p:domain_verify" content="7c93b39c555c6cf820caf0639b708cc1"/>
+
                 {/* End Meta Pixel Code */}
 
             </Head>
