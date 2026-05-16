@@ -143,7 +143,7 @@ const Footer = () => {
                             rel="noopener noreferrer"
                             className="text-blue-400 hover:underline"
                         >
-                            FT Digital Solutions (Agency)
+                            FT Digital Solutions
                         </a>. All rights reserved.
                     </p>
                     <div className="flex space-x-6">
