@@ -8,8 +8,15 @@ import SpecialSection from "@/components/SpecialSection";
 import HomeSeoSection from "@/components/homeseocontent";
 import LogoImg from "../public/img/bmc-logo.png";
 import FaqSection from "@/components/FaqSection";
+import { GetServerSideProps } from "next";
+import Banner1 from "../public/img/bmc-banner-1.jpg";
+import Banner2 from "../public/img/bmc-banner-2.jpg";
+import Banner3 from "../public/img/bmc-banner-3.jpg";
+import mobileBanner1 from "../public/img/bmc-moblie-banner-1.jpg";
+import mobileBanner2 from "../public/img/bmc-moblie-banner-2.jpg";
+import mobileBanner3 from "../public/img/bmc-moblie-banner-3.jpg";
 
-export default function Home() {
+export default function Home({ banners }: { banners: any[] }) {
 
   return (
     <>
@@ -105,7 +112,7 @@ export default function Home() {
       </Head>
 
       {/* PAGE CONTENT SECTION */}
-      <HeroSection />
+      <HeroSection banners={banners} />
       <Categories />
       <BestSellers />
       <div className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
@@ -177,3 +184,56 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const STATIC_BANNERS = [
+    {
+      id: 1,
+      title: 'Banner 1',
+      image_url: Banner1.src,
+      type: 'Web View',
+      target_url: '/',
+    },
+    {
+      id: 2,
+      title: 'Banner 2',
+      image_url: Banner2.src,
+      type: 'Web View',
+      target_url: '/shop',
+    },
+    {
+      id: 3,
+      title: 'Banner 3',
+      image_url: Banner3.src,
+      type: 'Web View',
+      target_url: '/categories',
+    },
+    {
+      id: 4,
+      title: 'Mobile Banner 1',
+      image_url: mobileBanner1.src,
+      type: 'Mobile View',
+      target_url: '/',
+    },
+    {
+      id: 5,
+      title: 'Mobile Banner 2',
+      image_url: mobileBanner2.src,
+      type: 'Mobile View',
+      target_url: '/shop',
+    },
+    {
+      id: 6,
+      title: 'Mobile Banner 3',
+      image_url: mobileBanner3.src,
+      type: 'Mobile View',
+      target_url: '/categories',
+    },
+  ];
+
+  return {
+    props: {
+      banners: STATIC_BANNERS,
+    },
+  };
+};
