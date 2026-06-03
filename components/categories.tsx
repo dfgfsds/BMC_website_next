@@ -24,9 +24,9 @@ export default function CategoriesPage() {
           <h1 className="text-3xl font-bold mb-4 mt-3">
             Shop by Category
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Browse our collection of products organized by category.
-          </p>
+          <h2 className="text-muted-foreground max-w-2xl mx-auto">
+            Explore Premium Laptops, Custom PCs, SSDs, PC Components & Computer Accessories at Best Prices in Chennai.
+          </h2>
         </div>
 
         {/* CATEGORY GRID */}
