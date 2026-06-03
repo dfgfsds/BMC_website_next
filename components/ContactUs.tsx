@@ -2,10 +2,28 @@
 
 import Head from "next/head";
 import Script from "next/script";
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, X } from 'lucide-react';
 import Breadcrumb from './Breadcrumb';
 import LogoImg from "../public/img/bmc-logo.png";
+import { useState } from 'react';
+
 const ContactUs = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [showThankYou, setShowThankYou] = useState(false);
+
+    const handleInputChange = (e:any) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = (e:any) => {
+        e.preventDefault();
+        if (formData.name && formData.email && formData.message) {
+            setShowThankYou(true);
+            setFormData({ name: '', email: '', message: '' });
+            setTimeout(() => setShowThankYou(false), 5000);
+        }
+    };
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
         { name: 'Contact Us', href: '/contact-us', isActive: true },
@@ -19,7 +37,7 @@ const ContactUs = () => {
 
                 <meta
                     name="description"
-                    content="Get in touch with Brilliant Memory Computers for laptop sales, custom PC builds, computer repair, and tech support. Call or message us today for fast assistance."
+                    content="Contact Brilliant Memory Computers Chennai for laptops, desktops, custom PCs and accessories. Call, email or visit our store for expert support and best deals."
                 />
                 <meta
                     name="keywords"
@@ -120,23 +138,50 @@ const ContactUs = () => {
                                 At Brilliant Memory Computers, your satisfaction is our priority. Whether you need help choosing the right laptop, want a custom-built PC, or require reliable computer repair and technical support - our team is ready to assist you.
                             </p>
 
-                            <form className="space-y-5">
+                            <form className="space-y-5" onSubmit={handleSubmit}>
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-800 mb-1">Name</label>
-                                    <input type="text" placeholder="Name" className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" />
+                                    <input 
+                                        type="text" 
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        placeholder="Name" 
+                                        required
+                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" 
+                                    />
                                 </div>
 
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-800 mb-1">Email</label>
-                                    <input type="email" placeholder="Email" className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" />
+                                    <input 
+                                        type="email" 
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        placeholder="Email" 
+                                        required
+                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" 
+                                    />
                                 </div>
 
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-800 mb-1">Message</label>
-                                    <textarea rows={4} placeholder="Message" className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" />
+                                    <textarea 
+                                        rows={4} 
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleInputChange}
+                                        placeholder="Message" 
+                                        required
+                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" 
+                                    />
                                 </div>
 
-                                <button type="submit" className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition">
+                                <button 
+                                    type="submit" 
+                                    className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
+                                >
                                     Submit
                                 </button>
                             </form>
@@ -144,6 +189,33 @@ const ContactUs = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Thank You Popup */}
+            {showThankYou && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+                        <button 
+                            onClick={() => setShowThankYou(false)}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+                        >
+                            <X size={24} />
+                        </button>
+                        <div className="text-center">
+                            <div className="text-5xl mb-4">🎉</div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-2">Thank You!</h2>
+                            <p className="text-gray-600 mb-6">
+                                Your message has been received successfully. Our team will get back to you soon.
+                            </p>
+                            <button 
+                                onClick={() => setShowThankYou(false)}
+                                className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
                 <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"

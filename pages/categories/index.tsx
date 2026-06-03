@@ -14,7 +14,7 @@ export default function CartPage() {
         {/* Meta Description */}
         <meta
           name="description"
-          content="Explore the top computer hardware shop in India – Browse categories for PCs, Laptops, RAM, SSDs, Graphics Cards & more. Discover quality tech products with fast shipping."
+          content="Browse laptop, desktop, custom PC and accessories categories at Brilliant Memory Computers Chennai. Find top brands, best deals and reliable service."
         />
 
         {/* Meta Keywords */}

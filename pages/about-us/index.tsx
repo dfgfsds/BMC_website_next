@@ -12,7 +12,7 @@ export default function AboutPage() {
       <title>Best Laptop Store in Chennai | Brilliant Memory Computers</title>
       <meta
         name="description"
-        content="Best Laptop Store in Chennai: Laptops, desktops, custom PC builds, refurbished gaming PCs, IT accessories & more at Brilliant Memory Computers — Chennai’s trusted tech store."
+        content="Brilliant Memory Computers Chennai offers laptops, desktops, custom PCs and accessories with expert support, affordable pricing and trusted service."
       />
       <meta
         name="keywords"

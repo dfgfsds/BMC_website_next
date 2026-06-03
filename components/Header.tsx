@@ -52,6 +52,7 @@ export default function Header() {
                 <div className="absolute md:left-1/2 transform md:-translate-x-1/2 ">
                     <Link href="/">
                         <Image
+                            priority
                             src={LogoImg}
                             alt="logo"
                             className="w-36 h-auto md:w-52"
