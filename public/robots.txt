@@ -1,7 +1,194 @@
+# =========================================
+
+# ROBOTS.TXT - BRILLIANT MEMORY COMPUTERS
+
+# SEO + AEO + GEO Optimized
+
+# https://www.brilliantmemorycomputers.in
+
+# =========================================
+
 User-agent: *
 Allow: /
-Disallow: /api/
+
+# =========================================
+
+# ALLOW IMPORTANT NEXT.JS ASSETS
+
+# =========================================
+
 Disallow: /_next/
-Disallow: /admin/
+Allow: /_next/static/
+Allow: /_next/image/
+
+# =========================================
+
+# IMPORTANT SEO PAGES
+
+# =========================================
+
+Allow: /shop
+Allow: /categories
+Allow: /about-us
+Allow: /contact-us
+Allow: /custom-pc-build
+Allow: /blog
+
+# =========================================
+
+# CATEGORY PAGES
+
+# =========================================
+
+Allow: /categories/laptops
+Allow: /categories/desktops
+Allow: /categories/processor
+Allow: /categories/motherboard
+Allow: /categories/graphics-card
+Allow: /categories/ram
+Allow: /categories/ssd
+Allow: /categories/hdd
+Allow: /categories/power-supply
+Allow: /categories/cabinet
+Allow: /categories/cooling-fan
+Allow: /categories/monitor
+Allow: /categories/keyboard
+Allow: /categories/mouse
+Allow: /categories/keyboard-combo
+Allow: /categories/printer
+Allow: /categories/projector
+Allow: /categories/speaker
+Allow: /categories/soundbar
+Allow: /categories/web-camera
+Allow: /categories/wireless-headphone
+
+# =========================================
+
+# CUSTOMER ACCOUNT PAGES
+
+# =========================================
+
+Disallow: /login
+Disallow: /signup
+Disallow: /profile
+Disallow: /cart
+Disallow: /checkout
+Disallow: /wishlist
+
+# =========================================
+
+# API & SYSTEM FILES
+
+# =========================================
+
+Disallow: /api/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /tmp/
+Disallow: /backup/
+
+# =========================================
+
+# ADMIN AREA
+
+# =========================================
+
+Disallow: /admin
+Disallow: /administrator
+Disallow: /backend
+
+# =========================================
+
+# SEARCH & FILTER PARAMETERS
+
+# =========================================
+
+Disallow: /search
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?price=
+Disallow: /*?page=
+Disallow: /*?brand=
+Disallow: /*?category=
+Disallow: /*?query=
+
+# =========================================
+
+# LEGAL PAGES
+
+# =========================================
+
+Allow: /privacy-policy
+Allow: /refund-policy
+Allow: /shipping-policy
+Allow: /cancellation-policy
+Allow: /terms-conditions
+
+# =========================================
+
+# AI CRAWLERS (AEO + GEO)
+
+# =========================================
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# =========================================
+
+# LOCAL BUSINESS INFORMATION
+
+# =========================================
+
+# Business Name: Brilliant Memory Computers
+
+# Address: Shop No 2, GF 1/L, Blackers Road
+
+# Gaiety Palace, Anna Salai
+
+# Chennai - 600002, Tamil Nadu, India
+
+# Landmark: Near Casino Theatre
+
+# Next to Ola Electric Store
+
+# Phone: +91-7788996684
+
+# Email: [info@brilliantmemorycomputers.in](mailto:info@brilliantmemorycomputers.in)
+
+# =========================================
+
+# HOST & XML SITEMAP
+
+# =========================================
+
+Host: https://www.brilliantmemorycomputers.in
 
 Sitemap: https://www.brilliantmemorycomputers.in/sitemap.xml
