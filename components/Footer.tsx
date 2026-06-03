@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className="mt-8 bg-gray-50">
             {/* Newsletter Section */}
             <div className="bg-blue-50 py-12 px-6 md:px-12 lg:px-20">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                <div className="max-w~-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="text-center md:text-left">
                         <div className="text-3xl font-bold text-gray-900 mb-3">Stay Updated with Our Latest News</div>
                         <p className="text-gray-600 max-w-md mx-auto md:mx-0">

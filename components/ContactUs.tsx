@@ -37,7 +37,7 @@ const ContactUs = () => {
 
                 <meta
                     name="description"
-                    content="Contact Brilliant Memory Computers Chennai for laptops, desktops, custom PCs and accessories. Call, email or visit our store for expert support and best deals."
+                    content="Contact Brilliant Memory Computers Chennai for laptops, desktops, custom PCs-accessories. Call, email or visit our store for expert support and best deals."
                 />
                 <meta
                     name="keywords"
