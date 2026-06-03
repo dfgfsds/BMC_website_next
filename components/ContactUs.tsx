@@ -11,12 +11,12 @@ const ContactUs = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [showThankYou, setShowThankYou] = useState(false);
 
-    const handleInputChange = (e:any) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e:any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
         if (formData.name && formData.email && formData.message) {
             setShowThankYou(true);
@@ -94,9 +94,13 @@ const ContactUs = () => {
 
             {/* Page Content */}
             <section>
-                <div className="container mx-auto px-4 py-12">
+                <div className="container mx-auto px-6 py-12">
                     <Breadcrumb items={breadcrumbItems} />
                 </div>
+                <h1 className="py-6 px-4 sm:px-8 max-w-7xl text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">
+                    Contact Brilliant Memory Computers – Computer Store, Laptop & PC Shop in Chennai
+                </h1>
+
 
                 <div className='py-12 px-4 sm:px-8 max-w-7xl mx-auto'>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
@@ -141,45 +145,45 @@ const ContactUs = () => {
                             <form className="space-y-5" onSubmit={handleSubmit}>
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-800 mb-1">Name</label>
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleInputChange}
-                                        placeholder="Name" 
+                                        placeholder="Name"
                                         required
-                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" 
+                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400"
                                     />
                                 </div>
 
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-800 mb-1">Email</label>
-                                    <input 
-                                        type="email" 
+                                    <input
+                                        type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        placeholder="Email" 
+                                        placeholder="Email"
                                         required
-                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" 
+                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400"
                                     />
                                 </div>
 
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-800 mb-1">Message</label>
-                                    <textarea 
-                                        rows={4} 
+                                    <textarea
+                                        rows={4}
                                         name="message"
                                         value={formData.message}
                                         onChange={handleInputChange}
-                                        placeholder="Message" 
+                                        placeholder="Message"
                                         required
-                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400" 
+                                        className="w-full border border-gray-200 px-4 py-2 rounded focus:ring focus:ring-blue-400"
                                     />
                                 </div>
 
-                                <button 
-                                    type="submit" 
+                                <button
+                                    type="submit"
                                     className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
                                 >
                                     Submit
@@ -194,7 +198,7 @@ const ContactUs = () => {
             {showThankYou && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
-                        <button 
+                        <button
                             onClick={() => setShowThankYou(false)}
                             className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
                         >
@@ -206,7 +210,7 @@ const ContactUs = () => {
                             <p className="text-gray-600 mb-6">
                                 Your message has been received successfully. Our team will get back to you soon.
                             </p>
-                            <button 
+                            <button
                                 onClick={() => setShowThankYou(false)}
                                 className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
                             >
@@ -217,19 +221,19 @@ const ContactUs = () => {
                 </div>
             )}
 
-                <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"
-        strategy="afterInteractive"
-      />
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"
+                strategy="afterInteractive"
+            />
 
-      <Script id="google-ads-tag" strategy="afterInteractive">
-        {`
+            <Script id="google-ads-tag" strategy="afterInteractive">
+                {`
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-17447812618');
     `}
-      </Script>
+            </Script>
         </>
     );
 };
