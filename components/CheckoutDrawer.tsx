@@ -42,6 +42,7 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
 
     const [userId, setUserId] = useState<string | null>(null);
     const [paymentMethod, setPaymentMethod] = useState("");
+    
 
 
     useEffect(() => {
