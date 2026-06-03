@@ -34,7 +34,7 @@ export default function CancellationPolicy() {
 
         <meta
           name="description"
-          content="Read the cancellation policy of Brilliant Memory Computers Chennai for order cancellations, processing timelines, and conditions for laptops and accessories."
+          content="Read the cancellation policy of Brilliant Memory Computers Chennai for order cancellations, processing timelines, conditions for laptops and accessories."
         />
 
         <meta

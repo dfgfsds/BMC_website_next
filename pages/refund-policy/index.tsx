@@ -32,7 +32,7 @@ export default function RefundPolicy() {
 
         <meta
           name="description"
-          content="Review the refund policy of Brilliant Memory Computers Chennai for laptops, desktops and accessories including returns, replacements and eligibility details."
+          content="Review the refund policy of Brilliant Memory Computers Chennai for laptops, desktops accessories including returns, replacements and eligibility details."
         />
 
         <meta
