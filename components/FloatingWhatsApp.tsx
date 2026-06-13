@@ -10,15 +10,18 @@ const FloatingWhatsApp: React.FC = () => {
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 640);
-        checkMobile(); // initial check
+        checkMobile();
+
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     const phoneNumber = '917788996684';
-    const message = encodeURIComponent('Hello! I am interested in your services.');
 
-    // Check if on productLandingPage slug route
+    const message = encodeURIComponent(
+        `👋 Welcome to Brilliant Memory Computers!\n\nThank you for contacting us. We specialize in Laptop Sales & Service, Desktop Sales & Service, Printer Solutions, CCTV Installation, Networking, Computer Accessories, Chip-Level Repairs, and IT Support Services.\n\nHow can we help you today?\n\n📞 Call: +91 7788996684\n🌐 Website: https://www.brilliantmemorycomputers.in\n\nOur team will get back to you shortly.`
+    );
+
     const isProductPage = pathname?.startsWith('/productLandingPage/');
 
     const bottomClass = isProductPage && isMobile ? 'bottom-20' : 'bottom-5';
@@ -28,7 +31,7 @@ const FloatingWhatsApp: React.FC = () => {
             href={`https://wa.me/${phoneNumber}?text=${message}`}
             target="_blank"
             rel="noopener noreferrer"
-            className={`fixed bottom-20 md:bottom-7 left-5 z-50 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 `}
+            className={`fixed ${bottomClass} left-5 z-50 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300`}
         >
             <FaWhatsapp className="w-6 h-6" />
         </a>
