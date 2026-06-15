@@ -19,7 +19,7 @@ const FloatingWhatsApp: React.FC = () => {
     const phoneNumber = '917788996684';
 
     const message = encodeURIComponent(
-        `👋 Welcome to Brilliant Memory Computers!\n\nThank you for contacting us. We specialize in Laptop Sales & Service, Desktop Sales & Service, Printer Solutions, CCTV Installation, Networking, Computer Accessories, Chip-Level Repairs, and IT Support Services.\n\nHow can we help you today?\n\n📞 Call: +91 7788996684\n🌐 Website: https://www.brilliantmemorycomputers.in\n\nOur team will get back to you shortly.`
+        `Hello! I am interested in your services.`
     );
 
     const isProductPage = pathname?.startsWith('/productLandingPage/');
