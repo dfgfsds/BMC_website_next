@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 import ProductsSidebar from "@/components/ProductsSidebar";
 import { Heart, SearchCheck, ShoppingCart } from "lucide-react";
 import ProductModal from "@/components/model/ProductModal";
@@ -165,6 +166,153 @@ export default function ProductsPage() {
 
   return (
     <>
+      <Head>
+        <title>Shop | Brilliant Memory Computers</title>
+        <meta name="description" content="Buy laptops, gaming PCs, refurbished computers, computer accessories and custom-built PCs from Brilliant Memory Computers in Chennai." />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Brilliant Memory Computers",
+              "alternateName": "BMC",
+              "url": "https://www.brilliantmemorycomputers.in",
+              "logo": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png",
+              "email": "info@brilliantmemorycomputers.in",
+              "telephone": "+91-7788996684",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Shop No 2, GF 1/L, Blackers Road, Gaiety Palace, Anna Salai,chennai-600002",
+                "addressLocality": "Chennai",
+                "postalCode": "600002",
+                "addressRegion": "Tamil Nadu",
+                "addressCountry": "IN"
+              },
+              "sameAs": [
+                "https://www.brilliantmemorycomputers.in",
+                "https://www.instagram.com/brilliant_memory_computers",
+                "https://www.youtube.com/@BrilliantMemoryComputers",
+                "https://x.com/bmc_computer",
+                "https://www.facebook.com/brilliantmemorycomputers/",
+                "https://www.linkedin.com/company/bmc-brilliant-memory-computers/"
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Computer Sales and Custom PC Building",
+              "provider": {
+                "@type": "ComputerStore",
+                "name": "Brilliant Memory Computers"
+              },
+              "areaServed": {
+                "@type": "City",
+                "name": "Chennai"
+              },
+              "description": "Sales of laptops, gaming PCs, refurbished computers, custom-built PCs and computer accessories in Chennai.",
+              "url": "https://www.brilliantmemorycomputers.in/shop"
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.brilliantmemorycomputers.in"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Shop",
+                  "item": "https://www.brilliantmemorycomputers.in/shop"
+                }
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Shop | Brilliant Memory Computers",
+              "url": "https://www.brilliantmemorycomputers.in/shop",
+              "description": "Buy laptops, gaming PCs, refurbished computers, computer accessories and custom-built PCs from Brilliant Memory Computers in Chennai.",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Brilliant Memory Computers"
+              },
+              "inLanguage": "en-IN"
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ComputerStore",
+              "name": "Brilliant Memory Computers",
+              "image": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png",
+              "url": "https://www.brilliantmemorycomputers.in",
+              "telephone": "+91-7788996684",
+              "email": "info@brilliantmemorycomputers.in",
+              "priceRange": "₹₹",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Shop No 2, GF 1/L, Blackers Road, Gaiety Palace, Anna Salai",
+                "addressLocality": "chennai-600002",
+                "addressRegion": "Tamil Nadu",
+                "postalCode": "600002",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "13.0638",
+                "longitude": "80.2642"
+              },
+              "areaServed": "Chennai",
+              "openingHours": "Mo-Su 09:00am-09:00am",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Computer Products",
+                "itemListElement": [
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Laptops"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Gaming PCs"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Refurbished Laptops"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Computer Accessories"
+                  }
+                ]
+              }
+            })
+          }}
+        />
+      </Head>
 
       <div className="p-6 max-w-6xl mx-auto">
         <div className="mb-6">
