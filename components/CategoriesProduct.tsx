@@ -71,9 +71,9 @@ export default function CategoriesBasedProduct() {
 
     /* ---------------- TEXT TRUNCATE ---------------- */
     const truncateWords = (text: string, limit: number) => {
-        const words = text.split(' ');
-        return words.length > limit
-            ? words.slice(0, limit).join(' ') + '...'
+        const words = text?.split(' ');
+        return words?.length > limit
+            ? words?.slice(0, limit)?.join(' ') + '...'
             : text;
     };
 
