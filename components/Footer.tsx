@@ -10,9 +10,14 @@ const Footer = () => {
             <div className="bg-blue-50 py-12 px-6 md:px-12 lg:px-20">
                 <div className="max-w~-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="text-center md:text-left">
-                        <div className="text-3xl font-bold text-gray-900 mb-3">Stay Updated with Our Latest News</div>
+                        <div className="text-3xl font-bold text-gray-900 mb-3">Stay Connected with BMC</div>
                         <p className="text-gray-600 max-w-md mx-auto md:mx-0">
-                            Subscribe to our newsletter for exclusive offers and updates. Unsubscribe anytime via our contact info in the legal notice.
+                            Get the latest updates on laptops, desktops, gaming PCs, computer accessories, new arrivals and special offers in Chennai.
+                        </p>
+
+                          <p className="text-gray-600 max-w-md mx-auto md:mx-0 mt-2">
+                           Subscribe now and never miss a smart tech deal!
+
                         </p>
                     </div>
                     <div className="flex w-full md:w-auto">
@@ -55,7 +60,7 @@ const Footer = () => {
                             <li className="flex items-start gap-3">
                                 <MapPin className="h-5 w-5 flex-shrink-0 mt-1" />
                                 <a
-                                    href="https://maps.app.goo.gl/4gCptTmaozEGZfHx7" 
+                                    href="https://maps.app.goo.gl/4gCptTmaozEGZfHx7"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:text-red-500 transition"
