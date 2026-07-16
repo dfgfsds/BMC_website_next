@@ -12,9 +12,11 @@ import { GetServerSideProps } from "next";
 import Banner1 from "../public/img/bmc-banner-1.jpg";
 import Banner2 from "../public/img/bmc-banner-2.jpg";
 import Banner3 from "../public/img/bmc-banner-3.jpg";
+import Banner4 from "../public/img/bmc-banner-4.webp";
 import mobileBanner1 from "../public/img/bmc-moblie-banner-1.jpg";
 import mobileBanner2 from "../public/img/bmc-moblie-banner-2.jpg";
 import mobileBanner3 from "../public/img/bmc-moblie-banner-3.jpg";
+
 
 export default function Home({ banners }: { banners: any[] }) {
 
@@ -228,6 +230,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       image_url: mobileBanner3.src,
       type: 'Mobile View',
       target_url: '/categories',
+    },
+      {
+      id: 7,
+      title: 'Banner 7',
+      image_url: Banner4.src,
+      type: 'Web View',
+      target_url: '/shop',
     },
   ];
 
