@@ -62,6 +62,7 @@ export default function HeroSection({ banners: initialBanners }: { banners?: any
   const router = useRouter();
   const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  console.log(banners)
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth <= 768);
     checkScreen();
@@ -118,7 +119,7 @@ export default function HeroSection({ banners: initialBanners }: { banners?: any
   if (filteredBanners.length === 0) return null;
 
   return (
-    <div className="relative h-[70vh] md:h-[70vh] overflow-hidden w-full">
+    <div className="relative h-[80vh] md:h-[80vh] overflow-hidden w-full">
       {/* Slider Wrapper */}
       <div className="relative w-full h-full">
         {/* Slides */}
