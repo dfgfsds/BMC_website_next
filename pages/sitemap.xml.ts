@@ -24,6 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     "/cancellation-policy",
     "/shipping-policy",
     "/blog",
+    "/aadi-sale-2026"
   ];
 
   const categoryPages = [
