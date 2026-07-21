@@ -236,7 +236,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       title: 'Banner 7',
       image_url: Banner4.src,
       type: 'Web View',
-      target_url: '/shop',
+      target_url: '/aadi-sale-2026',
     },
   ];
 
