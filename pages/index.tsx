@@ -16,6 +16,7 @@ import Banner4 from "../public/img/bmc-banner-4.webp";
 import mobileBanner1 from "../public/img/bmc-moblie-banner-1.jpg";
 import mobileBanner2 from "../public/img/bmc-moblie-banner-2.jpg";
 import mobileBanner3 from "../public/img/bmc-moblie-banner-3.jpg";
+import mobileBanner4 from "../public/img/bmc-moblie-banner-4.jpeg";
 
 
 export default function Home({ banners }: { banners: any[] }) {
@@ -192,7 +193,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     {
       id: 1,
       title: 'Banner 1',
-      image_url: Banner1.src,
+      // image_url: Banner1.src,
+      image_url: Banner4.src,
       type: 'Web View',
       target_url: '/',
     },
@@ -212,8 +214,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
     {
       id: 4,
-      title: 'Mobile Banner 1',
-      image_url: mobileBanner1.src,
+      title: 'Mobile Banner 4',
+      // image_url: mobileBanner1.src,
+      image_url: mobileBanner4.src,
       type: 'Mobile View',
       target_url: '/',
     },
@@ -231,10 +234,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       type: 'Mobile View',
       target_url: '/categories',
     },
-      {
+     {
       id: 7,
+      title: 'Mobile Banner 1',
+      image_url: mobileBanner1.src,
+      type: 'Mobile View',
+      target_url: '/categories',
+    },
+      {
+      id: 8,
       title: 'Banner 7',
-      image_url: Banner4.src,
+      // image_url: Banner4.src,
+      image_url: Banner1.src,
       type: 'Web View',
       target_url: '/shop',
     },
