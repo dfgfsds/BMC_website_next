@@ -15,8 +15,8 @@ const Footer = () => {
                             Get the latest updates on laptops, desktops, gaming PCs, computer accessories, new arrivals and special offers in Chennai.
                         </p>
 
-                          <p className="text-gray-600 max-w-md mx-auto md:mx-0 mt-2">
-                           Subscribe now and never miss a smart tech deal!
+                        <p className="text-gray-600 max-w-md mx-auto md:mx-0 mt-2">
+                            Subscribe now and never miss a smart tech deal!
 
                         </p>
                     </div>
@@ -38,7 +38,7 @@ const Footer = () => {
 
             {/* Footer Bottom Section */}
             <div className="bg-gray-900 text-gray-200 py-12 px-6 md:px-12 lg:px-16">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                     {/* Your Account */}
                     <div>
                         <h3 className="text-white text-lg font-semibold mb-5">About Us</h3>
@@ -135,6 +135,24 @@ const Footer = () => {
                                 <Link href="/blog" className="hover:text-white transition-colors">Blogs</Link>
                             </li>
                         </ul>
+                    </div>
+
+                    {/* Download App */}
+                    <div>
+                        <h3 className="text-white text-lg font-semibold mb-4">Download Our App</h3>
+                        <p className="text-sm text-gray-400 mb-4">Get the BMC app for a better shopping experience.</p>
+                        <a 
+                            href="https://play.google.com/store/apps/details?id=in.brilliantmemorycomputers.app&hl=en_IN" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-block transition-transform hover:scale-105"
+                        >
+                            <img 
+                                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+                                alt="Get it on Google Play" 
+                                className="w-40 h-auto"
+                            />
+                        </a>
                     </div>
                 </div>
 
