@@ -16,6 +16,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Loading from "@/components/Loading";
 import { useRouter } from "next/router";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import DownloadAppPopup from "@/components/DownloadAppPopup";
 import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -140,6 +141,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <FloatingCallButton />
         <FloatingWhatsApp />
+        <DownloadAppPopup />
       </Layout>
     </>
   );

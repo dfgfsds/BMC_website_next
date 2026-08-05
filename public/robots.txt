@@ -19,6 +19,7 @@ Allow: /about-us
 Allow: /contact-us
 Allow: /custom-pc-build
 Allow: /blog
+Allow: /aadi-sale-2026
 ==================================================
 CATEGORY PAGES
 ==================================================

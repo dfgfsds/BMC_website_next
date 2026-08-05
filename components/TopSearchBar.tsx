@@ -14,10 +14,10 @@ interface Props {
     open: boolean;
     onClose: () => void;
     products: Product[];
-    setSearchOpen:any;
+    setSearchOpen: any;
 }
 
-const TopSearchBar: React.FC<Props> = ({ open, onClose, products,setSearchOpen }) => {
+const TopSearchBar: React.FC<Props> = ({ open, onClose, products, setSearchOpen }) => {
     const [query, setQuery] = useState('');
     const [filtered, setFiltered] = useState<Product[]>([]);
     const router = useRouter();
@@ -94,8 +94,8 @@ const TopSearchBar: React.FC<Props> = ({ open, onClose, products,setSearchOpen }
                 className="absolute top-6 right-6 text-gray-500 hover:text-black"
                 onClick={() => {
                     // onClose
-                  setSearchOpen(false)
-                  setFiltered([])
+                    setSearchOpen(false)
+                    setFiltered([])
                 }}
             >
                 <X size={30} />
