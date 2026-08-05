@@ -12,6 +12,7 @@ import ScrollToTop from "./ScrollToTop";
 import Loading from "./Loading";
 import { PolicyProvider } from "@/context/PolicyContext";
 import BottomNavBar from "./BottomNavBar";
+import { Toaster } from "react-hot-toast";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -39,6 +40,7 @@ export default function Layout({ children }: LayoutProps) {
 
     return (
         <div className="min-h-screen custom-cursor">
+            <Toaster position="top-right" reverseOrder={false} />
             <Suspense fallback={<Loading />}>
                 <QueryClientProvider client={queryClient}>
                     <VendorProvider>

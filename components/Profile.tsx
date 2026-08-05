@@ -11,6 +11,7 @@ import AddressForm from './AddressForm';
 import { patchUserSelectAddressAPi, updateUserAPi } from '@/api-endpoints/authendication';
 import { useUser } from '@/context/UserContext';
 import Image from 'next/image';
+import toast from 'react-hot-toast';
 
 const tabs = ['Orders', 'Wishlist', 'Address', 'Account Info'];
 
@@ -233,7 +234,8 @@ function AddressTab() {
             if (upadetApi) {
                 queryClient.invalidateQueries(['getAddressData'] as InvalidateQueryFilters);
             }
-        } catch (error) {
+        } catch (error: any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message || 'Something went wrong, please try again later.');
             console.error(error);
         }
     };
@@ -415,7 +417,7 @@ function AccountInfoTab() {
             const response = await updateUserAPi(`/${user?.data?.id}`, {
                 ...formData,
                 contact_number: formData.phone,
-                updated_by: user?.data?.name,
+                updated_by: user?.data?.name ? user?.data?.name : 'user',
                 role: 3,
                 vendor: vendorId,
             });
@@ -424,7 +426,8 @@ function AccountInfoTab() {
                 queryClient.invalidateQueries(["gerUserData"] as InvalidateQueryFilters);
                 // Optional: show toast or success message
             }
-        } catch (error) {
+        } catch (error: any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message || 'Something went wrong, please try again later.');
             console.error("Update failed:", error);
         }
     };
