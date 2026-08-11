@@ -114,6 +114,9 @@ const Footer = () => {
                                 <Link href="/" className="hover:text-white transition-colors">Home</Link>
                             </li>
                             <li>
+                                <Link href="/connect" className="hover:text-white transition-colors">Connect</Link>
+                            </li>
+                            <li>
                                 <Link href="/profile" className="hover:text-white transition-colors">My Account</Link>
                             </li>
                             <li>
@@ -141,15 +144,15 @@ const Footer = () => {
                     <div>
                         <h3 className="text-white text-lg font-semibold mb-4">Download Our App</h3>
                         <p className="text-sm text-gray-400 mb-4">Get the BMC app for a better shopping experience.</p>
-                        <a 
-                            href="https://play.google.com/store/apps/details?id=in.brilliantmemorycomputers.app&hl=en_IN" 
-                            target="_blank" 
+                        <a
+                            href="https://play.google.com/store/apps/details?id=in.brilliantmemorycomputers.app&hl=en_IN"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block transition-transform hover:scale-105"
                         >
-                            <img 
-                                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
-                                alt="Get it on Google Play" 
+                            <img
+                                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                                alt="Get it on Google Play"
                                 className="w-40 h-auto"
                             />
                         </a>
