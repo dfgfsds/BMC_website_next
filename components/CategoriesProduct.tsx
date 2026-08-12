@@ -140,7 +140,7 @@ export default function CategoriesBasedProduct() {
         };
     });
 
-    /* ---------------- BREADCRUMB ---------------- */ 
+    /* ---------------- BREADCRUMB ---------------- */
     const breadcrumbItems = [
         { name: 'Home', href: '/' },
         { name: categoryName, href: slug ? `/categories/${slug}` : '#' },
@@ -261,15 +261,15 @@ export default function CategoriesBasedProduct() {
 
                 <div className="mt-16 bg-gray-50 p-8 rounded-xl">
 
-                    <h1 className="text-2xl font-bold mb-4">
+                    <h1 className="text-2xl font-bold mb-4 hidden">
                         {seoData.content.h1}
                     </h1>
 
-                    <p className="mb-6">
+                    {/* <p className="mb-6">
                         {showFullContent
                             ? seoData.content.intro
                             : truncateWords(seoData.content.intro, 40)}
-                    </p>
+                    </p> */}
 
                     <div
                         className={`prose max-w-none ${showFullContent ? '' : 'max-h-60 overflow-hidden'
