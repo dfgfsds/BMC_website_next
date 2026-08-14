@@ -12,7 +12,11 @@ import { useProducts } from "@/context/ProductsContext";
 import SearchBar from "./SearchBar";
 import TopSearchBar from "./TopSearchBar";
 
+import { useVendor } from "@/context/VendorContext";
+import { postDeviceLogoutApi } from "@/api-endpoints/authendication";
+
 export default function Header() {
+    const { vendorId } = useVendor();
     const { user, setUser }: any = useUser();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -34,15 +38,27 @@ export default function Header() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const handleLogout = () => {
-        if (typeof window !== 'undefined') {
-            localStorage.clear();
-            localStorage.removeItem("email");
-            localStorage.removeItem("userName");
+    const handleLogout = async () => {
+        try {
+            const storedUserId = typeof window !== 'undefined' ? localStorage.getItem('userId') : null;
+            const currentUserId = storedUserId || user?.data?.id || user?.id;
+
+            if (currentUserId && vendorId) {
+                await postDeviceLogoutApi({
+                    vendor_id: vendorId,
+                    device_id: typeof window !== 'undefined' ? (localStorage.getItem('deviceId') || navigator.userAgent) : undefined,
+                    user_id: currentUserId,
+                });
+            }
+        } catch (error) {
+            console.error('Logout API error:', error);
+        } finally {
+            if (typeof window !== 'undefined') {
+                localStorage.clear();
+            }
+            setUser(null);
+            window.location.href = '/';
         }
-        window.location.reload()
-        setUser(null);
-        router.push('/');
     };
 
     return (

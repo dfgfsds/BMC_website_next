@@ -7,8 +7,10 @@ import { useVendor } from '@/context/VendorContext';
 import url from '@/api-endpoints/ApiUrls';
 import { getCartApi } from '@/api-endpoints/CartsApi';
 import { useRouter } from 'next/router';
-import { postSendSmsOtpUserApi, postVerifySmsOtpApi } from '@/api-endpoints/authendication';
-import Head from 'next/head';
+import { postSendSmsOtpUserApi, postVerifySmsOtpApi, postLoginWithGoogleApi } from '@/api-endpoints/authendication';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '@/config/firebase';
+import { FcGoogle } from 'react-icons/fc';
 
 const LoginForm = () => {
     const { vendorId } = useVendor();
@@ -25,8 +27,10 @@ const LoginForm = () => {
 
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({ email: '', password: '', mobile: '', otp: '' });
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
         const storedUserId = localStorage.getItem('userId');
         if (storedUserId) router.push('/profile');
         else setUserId(storedUserId);
@@ -133,147 +137,194 @@ const LoginForm = () => {
         }
     };
 
+    const handleGoogleLogin = async () => {
+        setLoading(true);
+        setError('');
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            const idToken = await result.user.getIdToken();
+
+            const res = await postLoginWithGoogleApi({
+                id_token: idToken,
+                vendor_id: vendorId,
+            });
+
+            const loggedInUserId = res?.data?.user_id || res?.data?.id || res?.data?.user?.id;
+            if (loggedInUserId) {
+                localStorage.setItem('userId', loggedInUserId);
+                try {
+                    const cartRes = await getCartApi(`user/${loggedInUserId}`);
+                    if (cartRes?.data?.length > 0) {
+                        localStorage.setItem('cartId', cartRes.data[0]?.id);
+                    }
+                } catch (cartErr) {
+                    console.error('Cart fetch error:', cartErr);
+                }
+                window.location.href = '/profile';
+            } else {
+                setError('Login failed: Invalid response from server');
+            }
+        } catch (err: any) {
+            console.error('Google sign-in error:', err);
+            setError(err?.response?.data?.error || err?.message || 'Google sign-in failed');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (!isMounted) {
+        return null;
+    }
 
     return (
-        <>
-            <Head>
-                <title>Login | BMC | Secure Account Access</title>
-                <meta
-                    name="description"
-                    content="Log in to your BMC account securely to access your orders, manage your profile, and enjoy a personalized shopping experience."
-                />
-                <link rel="canonical" href="https://www.brilliantmemorycomputers.in/login"></link>
-                <meta name="robots" content="noindex, nofollow"/>
-            </Head>
-            <div className="min-h-[70vh] flex items-center justify-center bg-white px-4">
-                <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
-                    {/* Tabs */}
-                    <div className="flex space-x-4 mb-6">
-                        <button
-                            onClick={() => setActiveTab('email')}
-                            className={`px-4 py-2 font-medium border-b-2 transition ${activeTab === 'email'
-                                ? 'border-blue-600 text-blue-600'
-                                : 'text-gray-600 border-transparent'
-                                }`}
-                        >
-                            Email Login
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('otp')}
-                            className={`px-4 py-2 font-medium border-b-2 transition ${activeTab === 'otp'
-                                ? 'border-blue-600 text-blue-600'
-                                : 'text-gray-600 border-transparent'
-                                }`}
-                        >
-                            OTP Login
-                        </button>
-                    </div>
+        <div className="min-h-[70vh] flex items-center justify-center bg-white px-4">
+            <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+                {/* Tabs */}
+                <div className="flex space-x-4 mb-6">
+                    <button
+                        onClick={() => setActiveTab('email')}
+                        className={`px-4 py-2 font-medium border-b-2 transition ${activeTab === 'email'
+                            ? 'border-blue-600 text-blue-600'
+                            : 'text-gray-600 border-transparent'
+                            }`}
+                    >
+                        Email Login
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('otp')}
+                        className={`px-4 py-2 font-medium border-b-2 transition ${activeTab === 'otp'
+                            ? 'border-blue-600 text-blue-600'
+                            : 'text-gray-600 border-transparent'
+                            }`}
+                    >
+                        OTP Login
+                    </button>
+                </div>
 
-                    {activeTab === 'email' && (
-                        <form onSubmit={handleEmailLogin} className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium">Email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.email ? 'border-red-500' : 'border-gray-300'
-                                        }`}
-                                />
-                                {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium">Password</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                    className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.password ? 'border-red-500' : 'border-gray-300'
-                                        }`}
-                                />
-                                {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password}</p>}
-                            </div>
-                            {error && <p className="text-sm text-red-600 text-center">{error}</p>}
+                {activeTab === 'email' && (
+                    <form onSubmit={handleEmailLogin} className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.email ? 'border-red-500' : 'border-gray-300'
+                                    }`}
+                            />
+                            {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Password</label>
+                            <input
+                                type="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.password ? 'border-red-500' : 'border-gray-300'
+                                    }`}
+                            />
+                            {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password}</p>}
+                        </div>
+                        {error && <p className="text-sm text-red-600 text-center">{error}</p>}
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+                        >
+                            {loading ? 'Logging in...' : 'Login'}
+                        </button>
+                    </form>
+                )}
+
+                {activeTab === 'otp' && (
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium">Mobile Number</label>
+                            <input
+                                type="text"
+                                name="mobile"
+                                value={mobile}
+                                onChange={(e) => {
+                                    setMobile(e.target.value);
+                                    setErrors({ ...errors, mobile: '' });
+                                }}
+                                className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.mobile ? 'border-red-500' : 'border-gray-300'
+                                    }`}
+                                placeholder="Enter mobile number"
+                            />
+                            {errors.mobile && <p className="text-sm text-red-500 mt-1">{errors.mobile}</p>}
+                        </div>
+
+                        {!otpSent ? (
                             <button
-                                type="submit"
+                                onClick={handleSendOtp}
                                 disabled={loading}
                                 className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
                             >
-                                {loading ? 'Logging in...' : 'Login'}
+                                {loading ? 'Sending OTP...' : 'Send OTP'}
                             </button>
-                        </form>
-                    )}
-
-                    {activeTab === 'otp' && (
-                        <div className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium">Mobile Number</label>
-                                <input
-                                    type="text"
-                                    name="mobile"
-                                    value={mobile}
-                                    onChange={(e) => {
-                                        setMobile(e.target.value);
-                                        setErrors({ ...errors, mobile: '' });
-                                    }}
-                                    className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.mobile ? 'border-red-500' : 'border-gray-300'
-                                        }`}
-                                    placeholder="Enter mobile number"
-                                />
-                                {errors.mobile && <p className="text-sm text-red-500 mt-1">{errors.mobile}</p>}
-                            </div>
-
-                            {!otpSent ? (
+                        ) : (
+                            <>
+                                <div>
+                                    <label className="block text-sm font-medium">Enter OTP</label>
+                                    <input
+                                        required
+                                        type="text"
+                                        name="otp"
+                                        value={otp}
+                                        onChange={(e) => {
+                                            setOtp(e.target.value);
+                                            setErrors({ ...errors, otp: '' });
+                                        }}
+                                        className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.otp ? 'border-red-500' : 'border-gray-300'
+                                            }`}
+                                        placeholder="Enter the OTP"
+                                    />
+                                    {errors.otp && <p className="text-sm text-red-500 mt-1">{errors.otp}</p>}
+                                </div>
+                                {error && <p className="text-sm text-red-600 text-center">{error}</p>}
                                 <button
-                                    onClick={handleSendOtp}
+                                    onClick={handleVerifyOtp}
                                     disabled={loading}
-                                    className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+                                    className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
                                 >
-                                    {loading ? 'Sending OTP...' : 'Send OTP'}
+                                    {loading ? 'Verifying...' : 'Verify & Login'}
                                 </button>
-                            ) : (
-                                <>
-                                    <div>
-                                        <label className="block text-sm font-medium">Enter OTP</label>
-                                        <input
-                                            required
-                                            type="text"
-                                            name="otp"
-                                            value={otp}
-                                            onChange={(e) => {
-                                                setOtp(e.target.value);
-                                                setErrors({ ...errors, otp: '' });
-                                            }}
-                                            className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.otp ? 'border-red-500' : 'border-gray-300'
-                                                }`}
-                                            placeholder="Enter the OTP"
-                                        />
-                                        {errors.otp && <p className="text-sm text-red-500 mt-1">{errors.otp}</p>}
-                                    </div>
-                                    {error && <p className="text-sm text-red-600 text-center">{error}</p>}
-                                    <button
-                                        onClick={handleVerifyOtp}
-                                        disabled={loading}
-                                        className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
-                                    >
-                                        {loading ? 'Verifying...' : 'Verify & Login'}
-                                    </button>
-                                </>
-                            )}
-                        </div>
-                    )}
+                            </>
+                        )}
+                    </div>
+                )}
 
-                    <p className="text-sm text-center mt-6">
-                        Don&apos;t have an account?{' '}
-                        <Link href="/signup" className="text-blue-600 hover:underline">
-                            Sign up
-                        </Link>
-                    </p>
+                {/* Divider and Google Sign-In */}
+                <div className="relative my-6">
+                    <div className="absolute inset-0 flex items-center">
+                        <div className="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                        <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                    </div>
                 </div>
+
+                <button
+                    type="button"
+                    onClick={handleGoogleLogin}
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-3 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-4 rounded-md shadow-sm transition-all duration-200 cursor-pointer disabled:opacity-50"
+                >
+                    <FcGoogle className="w-5 h-5 text-xl" />
+                    <span>{loading ? 'Signing in...' : 'Continue with Google'}</span>
+                </button>
+
+                <p className="text-sm text-center mt-6">
+                    Don&apos;t have an account?{' '}
+                    <Link href="/signup" className="text-blue-600 hover:underline">
+                        Sign up
+                    </Link>
+                </p>
             </div>
-        </>
+        </div>
     );
 };
 
