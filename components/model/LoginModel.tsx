@@ -5,8 +5,11 @@ import axios from "axios";
 import { Eye, EyeOff, Lock, Mail, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { getCartApi } from "@/api-endpoints/CartsApi";
-import { postSendSmsOtpUserApi, postVerifySmsOtpApi } from "@/api-endpoints/authendication";
+import { postSendSmsOtpUserApi, postVerifySmsOtpApi, postLoginWithGoogleApi } from "@/api-endpoints/authendication";
 import { baseUrl } from "@/api-endpoints/ApiUrls";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "@/config/firebase";
+import { FcGoogle } from "react-icons/fc";
 
 function LoginModal({ open, handleClose, vendorId }: any) {
   if (!open) return null;
@@ -105,6 +108,41 @@ function LoginModal({ open, handleClose, vendorId }: any) {
       setLoading(false);
     }
   };
+
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const idToken = await result.user.getIdToken();
+
+      const res = await postLoginWithGoogleApi({
+        id_token: idToken,
+        vendor_id: vendorId,
+      });
+
+      const loggedInUserId = res?.data?.user_id || res?.data?.id || res?.data?.user?.id;
+      if (loggedInUserId) {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('userId', loggedInUserId);
+        }
+        const cartRes = await getCartApi(`user/${loggedInUserId}`);
+        if (cartRes?.data?.length > 0) {
+          localStorage.setItem('cartId', cartRes.data[0].id);
+        }
+        handleClose();
+        window.location.reload();
+      } else {
+        setError('Login failed: Invalid response from server');
+      }
+    } catch (err: any) {
+      console.error('Google sign-in error:', err);
+      setError(err?.response?.data?.error || err?.message || 'Google sign-in failed');
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <div className="fixed inset-0 bg-black/80 bg-opacity-75 flex justify-center items-center z-50">
@@ -234,6 +272,26 @@ function LoginModal({ open, handleClose, vendorId }: any) {
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           </div>
         )}
+
+        {/* Divider and Google Sign-In */}
+        <div className="relative my-6">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-300"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="px-2 bg-white text-gray-500">Or continue with</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleGoogleLogin}
+          disabled={loading}
+          className="w-full flex items-center justify-center gap-3 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2.5 px-4 rounded-lg shadow-sm transition-all duration-200 cursor-pointer disabled:opacity-50"
+        >
+          <FcGoogle className="w-5 h-5 text-xl" />
+          <span>Continue with Google</span>
+        </button>
 
         <p className="text-sm text-gray-600 text-center mt-6">
           Don’t have an account?{' '}
