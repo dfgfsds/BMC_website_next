@@ -394,6 +394,7 @@ function AccountInfoTab() {
         email: "",
         phone: "",
     });
+    const [phoneError, setPhoneError] = useState("");
 
     useEffect(() => {
         if (user?.data) {
@@ -406,13 +407,35 @@ function AccountInfoTab() {
     }, [user]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData((prev) => ({
-            ...prev,
-            [e.target.id]: e.target.value,
-        }));
+        const { id, value } = e.target;
+        if (id === 'phone') {
+            const val = value.replace(/\D/g, '').slice(0, 10);
+            setFormData((prev) => ({ ...prev, phone: val }));
+            if (val.length === 0) {
+                setPhoneError("Mobile number is required");
+            } else if (val.length < 10) {
+                setPhoneError("Mobile number must be 10 digits");
+            } else {
+                setPhoneError("");
+            }
+        } else {
+            setFormData((prev) => ({
+                ...prev,
+                [id]: value,
+            }));
+        }
     };
 
     const handleUpdate = async () => {
+        if (!formData.phone) {
+            setPhoneError("Mobile number is required");
+            return;
+        }
+        if (formData.phone.length !== 10) {
+            setPhoneError("Mobile number must be 10 digits");
+            return;
+        }
+
         try {
             const response = await updateUserAPi(`/${user?.data?.id}`, {
                 ...formData,
@@ -424,7 +447,7 @@ function AccountInfoTab() {
 
             if (response) {
                 queryClient.invalidateQueries(["gerUserData"] as InvalidateQueryFilters);
-                // Optional: show toast or success message
+                toast.success("Profile updated successfully!");
             }
         } catch (error: any) {
             toast.error(error?.response?.data?.error || error?.response?.data?.message || 'Something went wrong, please try again later.');
@@ -468,8 +491,13 @@ function AccountInfoTab() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="Enter phone number"
-                        className="w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                        maxLength={10}
+                        className={`w-full border p-2 rounded-md focus:outline-none focus:ring-2 ${phoneError
+                            ? 'border-red-500 focus:ring-red-500'
+                            : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                            }`}
                     />
+                    {phoneError && <p className="text-sm text-red-500">{phoneError}</p>}
                 </div>
             </div>
 
