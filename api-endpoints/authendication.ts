@@ -86,4 +86,4 @@ export const postLoginWithGoogleApi = async (payload: { id_token: string; vendor
 // DEVICE LOGOUT API
 export const postDeviceLogoutApi = async (payload: { vendor_id: any; device_id?: string; user_id: any }) => {
   return axios.post(ApiUrls.deviceLogout, payload);
-};
+};
