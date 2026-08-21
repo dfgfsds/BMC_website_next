@@ -1,71 +1,147 @@
-import React, { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import LogoImg from "../public/img/bmc-logo.png";
+import QrImg from "../public/brilliant_memory_computers_google_play_qr.png";
 
 const DownloadAppPopup = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
-        // Show the popup after 5 seconds
-        const hasClosed = sessionStorage.getItem('downloadAppPopupClosed');
-
-        if (!hasClosed) {
-            const timer = setTimeout(() => {
-                setIsOpen(true);
-            }, 5000);
-
-            return () => clearTimeout(timer);
-        }
-    }, []);
-
-    const handleClose = () => {
-        setIsOpen(false);
-        sessionStorage.setItem('downloadAppPopupClosed', 'true');
-    };
-
-    if (!isOpen) return null;
-
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm transition-opacity">
-            <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center animate-in fade-in zoom-in duration-300">
-                <button
-                    onClick={handleClose}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 hover:bg-gray-100 p-1 rounded-full transition-colors"
-                    aria-label="Close"
-                >
-                    <X size={20} />
-                </button>
+        <div
+            style={{
+                position: 'fixed',
+                right: 0,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 1000,
+                display: 'flex',
+                alignItems: 'center',
+            }}
+        >
+            {/* Toggle Arrow Button */}
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Close app QR panel' : 'Open app QR panel'}
+                style={{
+                    width: '36px',
+                    height: '80px',
+                    background: '#1a1a2e',
+                    border: 'none',
+                    borderRadius: '10px 0 0 10px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    boxShadow: '-4px 2px 14px rgba(0,0,0,0.35)',
+                    flexShrink: 0,
+                    transition: 'background 0.2s',
+                    zIndex: 2,
+                    position: 'relative',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = '#0f3460')}
+                onMouseLeave={e => (e.currentTarget.style.background = '#1a1a2e')}
+            >
+                {isOpen ? (
+                    /* Close arrow → pointing right (chevron-right) */
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                ) : (
+                    /* Closed state → "APP QR" vertical + left arrow */
+                    <>
+                        <span
+                            style={{
+                                color: 'white',
+                                fontSize: '8px',
+                                fontWeight: '800',
+                                letterSpacing: '0.5px',
+                                writingMode: 'vertical-rl',
+                                textOrientation: 'mixed',
+                                transform: 'rotate(180deg)',
+                                lineHeight: 1,
+                                fontFamily: 'Inter, sans-serif',
+                            }}
+                        >
+                            APP QR
+                        </span>
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </>
+                )}
+            </button>
 
-                <div className="mb-4 mt-2 flex justify-center">
-                    <Image
-                        priority
-                        src={LogoImg}
-                        alt="logo"
-                        className="w-36 h-auto md:w-52"
-                        width={200}
-                        height={80}
-                    />
-                </div>
-
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Get the BMC App!</h2>
-
-                <p className="text-gray-600 mb-6 text-sm">
-                    Enjoy exclusive offers, faster checkout, and a seamless shopping experience directly on your mobile device.
-                </p>
-
+            {/* QR Panel - slides in/out */}
+            <div
+                style={{
+                    width: '190px',
+                    overflow: 'hidden',
+                    maxWidth: isOpen ? '190px' : '0px',
+                    transition: 'max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                }}
+            >
                 <a
                     href="https://play.google.com/store/apps/details?id=in.brilliantmemorycomputers.app&hl=en_IN"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block transition-transform hover:scale-105"
-                    onClick={handleClose}
+                    style={{
+                        width: '190px',
+                        background: '#ffffff',
+                        boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '18px 14px 14px',
+                        gap: '10px',
+                        textDecoration: 'none',
+                    }}
                 >
-                    <img
-                        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                        alt="Get it on Google Play"
-                        className="w-44 h-auto mx-auto"
+                    <Image
+                        src={QrImg}
+                        alt="Scan to Download BMC App"
+                        width={155}
+                        height={155}
+                        style={{
+                            width: '155px',
+                            height: '155px',
+                            objectFit: 'contain',
+                            display: 'block',
+                        }}
+                        priority
                     />
+                    <span
+                        style={{
+                            fontSize: '11px',
+                            fontWeight: '700',
+                            color: '#1a1a2e',
+                            letterSpacing: '1.5px',
+                            textTransform: 'uppercase',
+                            fontFamily: 'Inter, sans-serif',
+                            whiteSpace: 'nowrap',
+                        }}
+                    >
+                        DOWNLOAD APP
+                    </span>
                 </a>
             </div>
         </div>
