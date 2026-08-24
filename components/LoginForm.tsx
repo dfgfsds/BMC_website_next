@@ -154,6 +154,7 @@ const LoginForm = () => {
                 if (cartRes) {
                     localStorage.setItem('cartId', cartRes.data[0]?.id);
                     setLoading(false);
+                    router.push('/products');
                     window.location.reload();
                 }
             }
@@ -223,7 +224,7 @@ const LoginForm = () => {
                         console.error("Error syncing cart on google login:", cartErr);
                     }
                 }
-
+                router.push('/products');
                 window.location.reload();
             }
         } catch (err: any) {
@@ -452,7 +453,13 @@ const LoginForm = () => {
                                 value={mobile}
                                 onChange={(e) => {
                                     setMobile(e.target.value);
-                                    setErrors({ ...errors, mobile: '' });
+                                    setErrors((prev) => ({ ...prev, mobile: '', otp: '' }));
+                                    if (otpSent) {
+                                        setOtpSent(false);
+                                        setOtp('');
+                                        setToken(null);
+                                    }
+                                    setError('');
                                 }}
                                 className={`mt-1 w-full px-4 py-2 border rounded-md focus:outline-none ${errors.mobile ? 'border-red-500' : 'border-gray-300'
                                     }`}
@@ -501,7 +508,12 @@ const LoginForm = () => {
                                 </button>
                                 <div className="flex justify-between mt-4">
                                     <button
-                                        onClick={() => setOtpSent(false)}
+                                        onClick={() => {
+                                            setOtpSent(false);
+                                            setOtp('');
+                                            setToken(null);
+                                            setError('');
+                                        }}
                                         className="text-sm text-blue-600 hover:underline"
                                     >
                                         Change Number

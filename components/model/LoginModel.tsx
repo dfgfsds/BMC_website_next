@@ -233,7 +233,15 @@ function LoginModal({ open, handleClose, vendorId }: any) {
                 type="text"
                 id="mobile"
                 value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
+                onChange={(e) => {
+                  setMobile(e.target.value);
+                  if (otpSent) {
+                    setOtpSent(false);
+                    setOtp('');
+                    setToken(null);
+                  }
+                  setError('');
+                }}
                 placeholder="Enter mobile number"
                 className="pl-10 pr-4 py-2 block w-full border border-gray-300 rounded-lg shadow-sm focus:border-blue-600 focus:ring-blue-500 focus:outline-none"
               />
