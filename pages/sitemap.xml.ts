@@ -27,31 +27,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     "/aadi-sale-2026"
   ];
 
-  const categoryPages = [
-    "laptops",
-    "hdd",
-    "graphics-card",
-    "motherboard",
-    "processor",
-    "ram",
-    "keyboard",
-    "ssd",
-    "cooling-fan",
-    "power-supply",
-    "cabinet",
-    "mouse",
-    "monitor",
-    "desktops",
-    "soundbar",
-    "web-camera",
-    "speaker",
-    "keyboard-combo",
-    "projector",
-    "wireless-headphone",
-    "printer",
-  ];
-
+  let categoryUrls: string[] = [];
   let blogUrls: string[] = [];
+  let productUrls: string[] = [];
 
   try {
     const vendorId = 65;
@@ -74,6 +52,50 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     console.error("Blog fetch error:", error);
   }
 
+  try {
+    const vendorId = 65;
+    const response = await axios.get(
+      `https://ecomapi.ftdigitalsolutions.org/api/products/?vendor_id=${vendorId}`,
+      { headers: { Origin: baseUrl } }
+    );
+
+    const products = Array.isArray(response.data) 
+      ? response.data.filter((product: any) => product.status === true) 
+      : [];
+
+    productUrls = products.map(
+      (product: any) => `
+      <url>
+        <loc>${baseUrl}/shop/${slugConvert(product.name)}</loc>
+        <lastmod>${new Date(product.created_at || lastMod).toISOString()}</lastmod>
+        <priority>0.9</priority>
+      </url>`
+    );
+  } catch (error) {
+    console.error("Product fetch error:", error);
+  }
+
+  try {
+    const vendorId = 65;
+    const response = await axios.get(
+      `https://ecomapi.ftdigitalsolutions.org/api/categories/?vendor_id=${vendorId}`,
+      { headers: { Origin: baseUrl } }
+    );
+
+    const categories = Array.isArray(response.data) ? response.data : [];
+
+    categoryUrls = categories.map(
+      (category: any) => `
+      <url>
+        <loc>${baseUrl}/categories/${slugConvert(category.name)}</loc>
+        <lastmod>${new Date(category.created_at || lastMod).toISOString()}</lastmod>
+        <priority>0.85</priority>
+      </url>`
+    );
+  } catch (error) {
+    console.error("Category fetch error:", error);
+  }
+
   const urls = [
     ...staticPages.map(
       (path) => `
@@ -84,16 +106,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       </url>`
     ),
 
-    ...categoryPages.map(
-      (slug) => `
-      <url>
-        <loc>${baseUrl}/categories/${slug}</loc>
-        <lastmod>${lastMod}</lastmod>
-        <priority>0.85</priority>
-      </url>`
-    ),
+    ...categoryUrls,
 
     ...blogUrls,
+    ...productUrls,
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -117,6 +133,7 @@ export default Sitemap;
 function slugConvert(title: string) {
   return title
     .toLowerCase()
-    .replace(/ /g, "-")
+    .trim()
+    .replace(/\s+/g, "-")
     .replace(/[^\w-]+/g, "");
 }
