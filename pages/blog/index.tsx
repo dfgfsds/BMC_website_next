@@ -44,12 +44,20 @@ export default function BlogsPage() {
   return (
     <>
       <Head>
-        <title>Blog | BMC | Tech News & Updates</title>
+        <title>Laptop Shop in Chennai | Buying Guides & Expert Tips</title>
         <meta
           name="description"
-          content="Explore the BMC blog for the latest tech news, updates, insights, and expert articles to stay informed and ahead."
+          content="Explore our blog for laptop buying guides, tips, comparisons, and expert advice to help you find the right laptop from a trusted laptop shop in Chennai."
         />
         <link rel="canonical" href="https://www.brilliantmemorycomputers.in/blog"></link>
+        <meta property="og:title" content="Laptop Shop in Chennai | Buying Guides & Expert Tips" />
+        <meta property="og:description" content="Explore our blog for laptop buying guides, tips, comparisons, and expert advice to help you find the right laptop from a trusted laptop shop in Chennai." />
+        <meta property="og:url" content="https://www.brilliantmemorycomputers.in/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Brilliant Memory Computers" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Laptop Shop in Chennai | Buying Guides & Expert Tips" />
+        <meta name="twitter:description" content="Explore our blog for laptop buying guides, tips, comparisons, and expert advice to help you find the right laptop from a trusted laptop shop in Chennai." />
       </Head>
       <section className="bg-white py-16 px-6 md:px-20">
         <div className="max-w-7xl mx-auto">

@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy | Brilliant Memory Computers Chennai</title>
+        <title>best Refurbished Desktop Dealers Chennai | Privacy Policy</title>
 
         <meta charSet="utf-8" />
         <meta
@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
 
         <meta
           name="description"
-          content="Read the privacy policy of Brilliant Memory Computers Chennai to understand how we collect, use, and protect your personal data securely."
+          content="Read our privacy policy to learn how refurbished desktop dealers in Chennai collect, use, protect, and manage your personal information securely."
         />
 
         <meta
@@ -54,11 +54,11 @@ export default function PrivacyPolicy() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Privacy Policy | Brilliant Memory Computers Chennai"
+          content="best Refurbished Desktop Dealers Chennai | Privacy Policy"
         />
         <meta
           property="og:description"
-          content="Learn how Brilliant Memory Computers Chennai collects, uses, and protects your personal information."
+          content="Read our privacy policy to learn how refurbished desktop dealers in Chennai collect, use, protect, and manage your personal information securely."
         />
         <meta
           property="og:url"
@@ -81,11 +81,11 @@ export default function PrivacyPolicy() {
         />
         <meta
           name="twitter:title"
-          content="Privacy Policy | Brilliant Memory Computers Chennai"
+          content="best Refurbished Desktop Dealers Chennai | Privacy Policy"
         />
         <meta
           name="twitter:description"
-          content="Read the privacy policy of Brilliant Memory Computers Chennai and how we protect your data."
+          content="Read our privacy policy to learn how refurbished desktop dealers in Chennai collect, use, protect, and manage your personal information securely."
         />
         <meta
           name="twitter:image"

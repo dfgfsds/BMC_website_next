@@ -23,6 +23,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     "/privacy-policy",
     "/cancellation-policy",
     "/shipping-policy",
+    "/delivery-policy",
     "/blog",
     "/aadi-sale-2026"
   ];

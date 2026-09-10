@@ -23,7 +23,7 @@ export default function TermsConditions() {
     <>
       <Head>
         <title>
-          Terms & Conditions | Brilliant Memory Computers Chennai
+          Branded Laptops & Desktops Store in Chennai | Terms & Conditions
         </title>
 
         <meta charSet="utf-8" />
@@ -34,7 +34,7 @@ export default function TermsConditions() {
 
         <meta
           name="description"
-          content="Read the terms and conditions of Brilliant Memory Computers Chennai for website usage, purchases, and policies for laptops and accessories."
+          content="Review the terms and conditions for buying branded laptops and desktops from our Chennai store, including orders, payments, warranties, returns and usage."
         />
 
         <meta
@@ -56,11 +56,11 @@ export default function TermsConditions() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Terms & Conditions | Brilliant Memory Computers Chennai"
+          content="Branded Laptops & Desktops Store in Chennai | Terms & Conditions"
         />
         <meta
           property="og:description"
-          content="View the terms and conditions of Brilliant Memory Computers Chennai for purchases, services, and website usage."
+          content="Review the terms and conditions for buying branded laptops and desktops from our Chennai store, including orders, payments, warranties, returns and usage."
         />
         <meta
           property="og:url"
@@ -83,11 +83,11 @@ export default function TermsConditions() {
         />
         <meta
           name="twitter:title"
-          content="Terms & Conditions | Brilliant Memory Computers Chennai"
+          content="Branded Laptops & Desktops Store in Chennai | Terms & Conditions"
         />
         <meta
           name="twitter:description"
-          content="Read the terms and conditions of Brilliant Memory Computers Chennai including policies for purchases and services."
+          content="Review the terms and conditions for buying branded laptops and desktops from our Chennai store, including orders, payments, warranties, returns and usage."
         />
         <meta
           name="twitter:image"
