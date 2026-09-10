@@ -97,7 +97,7 @@ export default function ShippingPolicy() {
   return (
     <>
       <Head>
-        <title>Shipping Policy | Brilliant Memory Computers Chennai</title>
+        <title>Best Computer Online Store in Chennai | Shipping Policy</title>
 
         <meta charSet="utf-8" />
         <meta
@@ -107,7 +107,7 @@ export default function ShippingPolicy() {
 
         <meta
           name="description"
-          content="Check the shipping policy of Brilliant Memory Computers Chennai for delivery timelines, order processing, and shipping details for laptops and accessories."
+          content="Learn about shipping from the best computer online store in Chennai, including delivery timelines, charges, service areas and order tracking."
         />
 
         <meta
@@ -129,11 +129,11 @@ export default function ShippingPolicy() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Shipping Policy | Brilliant Memory Computers Chennai"
+          content="Best Computer Online Store in Chennai | Shipping Policy"
         />
         <meta
           property="og:description"
-          content="Check the shipping policy of Brilliant Memory Computers Chennai including delivery timelines, order processing, and shipping details."
+          content="Learn about shipping from the best computer online store in Chennai, including delivery timelines, charges, service areas and order tracking."
         />
         <meta
           property="og:url"
@@ -156,11 +156,11 @@ export default function ShippingPolicy() {
         />
         <meta
           name="twitter:title"
-          content="Shipping Policy | Brilliant Memory Computers Chennai"
+          content="Best Computer Online Store in Chennai | Shipping Policy"
         />
         <meta
           name="twitter:description"
-          content="Learn about shipping timelines, delivery process, and order handling at Brilliant Memory Computers Chennai."
+          content="Learn about shipping from the best computer online store in Chennai, including delivery timelines, charges, service areas and order tracking."
         />
         <meta
           name="twitter:image"

@@ -112,11 +112,19 @@ export default function BuildPC() {
     return (
         <>
             <Head>
-                <title>Custom PC Build in Chennai | Gaming & Workstation PCs</title>
+                <title>Custom PC Build in Chennai | Build Your Dream PC</title>
                 <meta name="robots" content="index, follow" />
-                <meta name="description" content="Looking for Custom PC Build in Chennai? Get gaming PCs, workstation builds & budget desktop systems with warranty at Brilliant Memory Computers." />
+                <meta name="description" content="Get a custom PC build in Chennai tailored to your needs and budget. Choose quality components for gaming, work, editing, and high performance." />
                 <meta name="keywords" content="Custom PC build in Chennai, gaming PC build Chennai, workstation PC build Chennai, budget gaming PC Chennai, custom desktop computer Chennai, high-performance desktop systems, PC builder in Chennai, Intel and AMD gaming PCs, NVIDIA graphics PC Chennai, video editing workstation PC Chennai, affordable gaming PC Chennai, RGB gaming PC Chennai, EMI gaming PC Chennai, Tamil Nadu PC delivery, Brilliant Memory Computers Chennai." />
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.in/custom-pc-build" />
+                <meta property="og:title" content="Custom PC Build in Chennai | Build Your Dream PC" />
+                <meta property="og:description" content="Get a custom PC build in Chennai tailored to your needs and budget. Choose quality components for gaming, work, editing, and high performance." />
+                <meta property="og:url" content="https://www.brilliantmemorycomputers.in/custom-pc-build" />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Brilliant Memory Computers" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Custom PC Build in Chennai | Build Your Dream PC" />
+                <meta name="twitter:description" content="Get a custom PC build in Chennai tailored to your needs and budget. Choose quality components for gaming, work, editing, and high performance." />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

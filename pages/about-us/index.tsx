@@ -9,10 +9,10 @@ export default function AboutPage() {
   return <>
 
     <Head>
-      <title>Best Laptop Store in Chennai | Brilliant Memory Computers</title>
+      <title>Affordable Refurbished Computers Chennai | Best Deals</title>
       <meta
         name="description"
-        content="Brilliant Memory Computers Chennai offers laptops, desktops, custom PCs and accessories with expert support, affordable pricing and trusted service."
+        content="Find affordable refurbished computers in Chennai with dependable performance. Choose quality-checked PCs from trusted brands at great prices."
       />
       <meta
         name="keywords"
@@ -23,10 +23,10 @@ export default function AboutPage() {
       <link rel="canonical" href="https://www.brilliantmemorycomputers.in/about-us" />
 
       {/* Open Graph */}
-      <meta property="og:title" content="Best Laptop Store in Chennai | Brilliant Memory Computers" />
+      <meta property="og:title" content="Affordable Refurbished Computers Chennai | Best Deals" />
       <meta
         property="og:description"
-        content="Your trusted laptop & PC store for new laptops, refurbished systems, gaming PCs, IT accessories & custom PC builds."
+        content="Find affordable refurbished computers in Chennai with dependable performance. Choose quality-checked PCs from trusted brands at great prices."
       />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Brilliant Memory Computers" />
@@ -35,10 +35,10 @@ export default function AboutPage() {
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Best Laptop Store in Chennai | Brilliant Memory Computers" />
+      <meta name="twitter:title" content="Affordable Refurbished Computers Chennai | Best Deals" />
       <meta
         name="twitter:description"
-        content="Chennai's best laptop store for new & refurbished laptops, gaming PCs, and IT accessories."
+        content="Find affordable refurbished computers in Chennai with dependable performance. Choose quality-checked PCs from trusted brands at great prices."
       />
       <meta name="twitter:image" content={`https://www.brilliantmemorycomputers.in/${imgabout.src}`} />
 

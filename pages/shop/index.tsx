@@ -167,8 +167,17 @@ export default function ProductsPage() {
   return (
     <>
       <Head>
-        <title>Shop | Brilliant Memory Computers</title>
-        <meta name="description" content="Buy laptops, gaming PCs, refurbished computers, computer accessories and custom-built PCs from Brilliant Memory Computers in Chennai." />
+        <title>Wholesale Computer Dealers Chennai | Best Prices</title>
+        <meta name="description" content="Find trusted wholesale computer dealers in Chennai offering quality computers at competitive prices. Ideal for bulk purchases, offices, and businesses." />
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/shop" />
+        <meta property="og:title" content="Wholesale Computer Dealers Chennai | Best Prices" />
+        <meta property="og:description" content="Find trusted wholesale computer dealers in Chennai offering quality computers at competitive prices. Ideal for bulk purchases, offices, and businesses." />
+        <meta property="og:url" content="https://www.brilliantmemorycomputers.in/shop" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Brilliant Memory Computers" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Wholesale Computer Dealers Chennai | Best Prices" />
+        <meta name="twitter:description" content="Find trusted wholesale computer dealers in Chennai offering quality computers at competitive prices. Ideal for bulk purchases, offices, and businesses." />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -33,11 +33,11 @@ const ContactUs = () => {
         <>
             {/* ⭐ SEO & Schema */}
             <Head>
-                <title>Contact Us | Brilliant Memory Computers – Laptop & PC Sales</title>
+                <title>Retail Laptops & Desktop Computers in Chennai | Contact</title>
 
                 <meta
                     name="description"
-                    content="Contact Brilliant Memory Computers Chennai for laptops, desktops, custom PCs-accessories. Call, email or visit our store for expert support and best deals."
+                    content="Contact us for retail laptops and desktop computers in Chennai. Get expert assistance, product details, pricing, and support for your purchase."
                 />
                 <meta
                     name="keywords"
@@ -48,16 +48,16 @@ const ContactUs = () => {
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.in/contact-us" />
 
                 {/* Open Graph */}
-                <meta property="og:title" content="Contact Us | Brilliant Memory Computers – Laptop & PC Sales" />
-                <meta property="og:description" content="Get in touch with Brilliant Memory Computers for laptop sales, custom PC builds, computer repair, and tech support. Fast and reliable support." />
+                <meta property="og:title" content="Retail Laptops & Desktop Computers in Chennai | Contact" />
+                <meta property="og:description" content="Contact us for retail laptops and desktop computers in Chennai. Get expert assistance, product details, pricing, and support for your purchase." />
                 <meta property="og:url" content="https://www.brilliantmemorycomputers.in/contact-us" />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Brilliant Memory Computers" />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary" />
-                <meta name="twitter:title" content="Contact Us | Brilliant Memory Computers – Laptop & PC Sales" />
-                <meta name="twitter:description" content="Contact Brilliant Memory Computers for laptop sales, PC builds, repairs & support. Quick assistance available." />
+                <meta name="twitter:title" content="Retail Laptops & Desktop Computers in Chennai | Contact" />
+                <meta name="twitter:description" content="Contact us for retail laptops and desktop computers in Chennai. Get expert assistance, product details, pricing, and support for your purchase." />
 
                 {/* JSON-LD Schema */}
                 <script
