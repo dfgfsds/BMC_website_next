@@ -34,7 +34,7 @@ export default function Home({ banners }: { banners: any[] }) {
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content="Brilliant Memory Computers" />
         <meta name="application-name" content="Brilliant Memory Computers" />
-        
+
         {/* GEO Tags */}
         <meta name="geo.region" content="IN-TN" />
         <meta name="geo.placename" content="Chennai" />
@@ -383,14 +383,14 @@ export default function Home({ banners }: { banners: any[] }) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const STATIC_BANNERS = [
-    {
-      id: 1,
-      title: 'Banner 1',
-      // image_url: Banner1.src,
-      image_url: Banner4.src,
-      type: 'Web View',
-      target_url: '/',
-    },
+    // {
+    //   id: 1,
+    //   title: 'Banner 1',
+    //   // image_url: Banner1.src,
+    //   image_url: Banner4.src,
+    //   type: 'Web View',
+    //   target_url: '/',
+    // },
     {
       id: 2,
       title: 'Banner 2',
@@ -405,14 +405,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       type: 'Web View',
       target_url: '/categories',
     },
-    {
-      id: 4,
-      title: 'Mobile Banner 4',
-      // image_url: mobileBanner1.src,
-      image_url: mobileBanner4.src,
-      type: 'Mobile View',
-      target_url: '/',
-    },
+    // {
+    //   id: 4,
+    //   title: 'Mobile Banner 4',
+    //   // image_url: mobileBanner1.src,
+    //   image_url: mobileBanner4.src,
+    //   type: 'Mobile View',
+    //   target_url: '/',
+    // },
     {
       id: 5,
       title: 'Mobile Banner 2',
