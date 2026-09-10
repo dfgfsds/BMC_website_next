@@ -9,12 +9,12 @@ export default function CartPage() {
 
       <Head>
         {/* Title */}
-        <title>Computer Categories | Laptops, PCs & Accessories Chennai</title>
+        <title>Accessories Shop in Chennai for Laptops & PCs</title>
 
         {/* Meta Description */}
         <meta
           name="description"
-          content="Browse computer categories including laptops, desktops, gaming PCs, printers, accessories and IT products from Brilliant Memory Computers Chennai."
+          content="Discover premium accessories shop in Chennai for laptops, PCs. Shop quality products from trusted brands, thoughtfully selected for work, home & business."
         />
 
         {/* Meta Keywords */}
@@ -34,8 +34,8 @@ export default function CartPage() {
 
         {/* Open Graph Tags */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Computer Categories | Laptops, PCs & Accessories Chennai" />
-        <meta property="og:description" content="Explore laptops, desktops, gaming PCs, printers, networking products and computer accessories from Brilliant Memory Computers Chennai." />
+        <meta property="og:title" content="Accessories Shop in Chennai for Laptops & PCs" />
+        <meta property="og:description" content="Discover premium accessories shop in Chennai for laptops, PCs. Shop quality products from trusted brands, thoughtfully selected for work, home & business." />
         <meta property="og:url" content="https://www.brilliantmemorycomputers.in/categories" />
         <meta property="og:site_name" content="Brilliant Memory Computers" />
         <meta property="og:image" content="https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png" />
@@ -43,8 +43,8 @@ export default function CartPage() {
 
         {/* Twitter Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Computer Categories | Laptops, PCs & Accessories Chennai" />
-        <meta name="twitter:description" content="Browse laptops, desktops, printers, gaming PCs and IT accessories from Brilliant Memory Computers Chennai." />
+        <meta name="twitter:title" content="Accessories Shop in Chennai for Laptops & PCs" />
+        <meta name="twitter:description" content="Discover premium accessories shop in Chennai for laptops, PCs. Shop quality products from trusted brands, thoughtfully selected for work, home & business." />
         <meta name="twitter:image" content="https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png" />
 
         {/* IMAGE_SRC Tag */}

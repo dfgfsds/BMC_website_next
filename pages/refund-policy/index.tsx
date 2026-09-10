@@ -22,7 +22,7 @@ export default function RefundPolicy() {
   return (
     <>
       <Head>
-        <title>Refund Policy | Brilliant Memory Computers Chennai</title>
+        <title>Refurbished Computers & Laptops Shop in Chennai | Refund Policy</title>
 
         <meta charSet="utf-8" />
         <meta
@@ -32,7 +32,7 @@ export default function RefundPolicy() {
 
         <meta
           name="description"
-          content="Review the refund policy of Brilliant Memory Computers Chennai for laptops, desktops accessories including returns, replacements and eligibility details."
+          content="Review our refund policy for refurbished computers and laptop shop in Chennai. Learn about refund eligibility, returns, timelines, and applicable terms."
         />
 
         <meta
@@ -54,11 +54,11 @@ export default function RefundPolicy() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Refund Policy | Brilliant Memory Computers Chennai"
+          content="Refurbished Computers & Laptops Shop in Chennai | Refund Policy"
         />
         <meta
           property="og:description"
-          content="Understand the refund and return policy of Brilliant Memory Computers Chennai for laptops, desktops and accessories."
+          content="Review our refund policy for refurbished computers and laptop shop in Chennai. Learn about refund eligibility, returns, timelines, and applicable terms."
         />
         <meta
           property="og:url"
@@ -81,11 +81,11 @@ export default function RefundPolicy() {
         />
         <meta
           name="twitter:title"
-          content="Refund Policy | Brilliant Memory Computers Chennai"
+          content="Refurbished Computers & Laptops Shop in Chennai | Refund Policy"
         />
         <meta
           name="twitter:description"
-          content="Read the refund policy of Brilliant Memory Computers Chennai including returns and replacement terms."
+          content="Review our refund policy for refurbished computers and laptop shop in Chennai. Learn about refund eligibility, returns, timelines, and applicable terms."
         />
         <meta
           name="twitter:image"

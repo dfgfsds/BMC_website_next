@@ -283,10 +283,10 @@ export default function Connect() {
         <>
             {/* ⭐ SEO Meta Tags & 5 Structured JSON-LD Schemas */}
             <Head>
-                <title>Connect with Brilliant Memory Computers | Best Computer Store in Chennai</title>
+                <title>Computer Showroom in Chennai | Best Business Deals</title>
                 <meta
                     name="description"
-                    content="Connect with BMC in Chennai. Explore laptops, desktops, computer accessories, wholesale computer supply, retail sales and business IT solutions."
+                    content="Contact our computer showroom in Chennai for laptops, desktops, accessories, pricing, product details and expert assistance with your purchase."
                 />
                 <meta
                     name="keywords"
@@ -296,10 +296,10 @@ export default function Connect() {
                 <link rel="canonical" href="https://www.brilliantmemorycomputers.in/connect" />
 
                 {/* Open Graph */}
-                <meta property="og:title" content="Connect with Brilliant Memory Computers | Wholesale & Retail Computer Store Chennai" />
+                <meta property="og:title" content="Computer Showroom in Chennai | Best Business Deals" />
                 <meta
                     property="og:description"
-                    content="Connect with BMC in Chennai. Explore laptops, desktops, computer accessories, wholesale computer supply, retail sales and business IT solutions."
+                    content="Contact our computer showroom in Chennai for laptops, desktops, accessories, pricing, product details and expert assistance with your purchase."
                 />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="Brilliant Memory Computers" />
@@ -308,10 +308,10 @@ export default function Connect() {
 
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Connect with Brilliant Memory Computers | Wholesale & Retail Computer Store Chennai" />
+                <meta name="twitter:title" content="Computer Showroom in Chennai | Best Business Deals" />
                 <meta
                     name="twitter:description"
-                    content="Connect with BMC in Chennai. Explore laptops, desktops, computer accessories, wholesale computer supply, retail sales and business IT solutions."
+                    content="Contact our computer showroom in Chennai for laptops, desktops, accessories, pricing, product details and expert assistance with your purchase."
                 />
                 <meta name="twitter:image" content={`https://www.brilliantmemorycomputers.in${LogoImg.src}`} />
 

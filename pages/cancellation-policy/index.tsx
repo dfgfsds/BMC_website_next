@@ -23,7 +23,7 @@ export default function CancellationPolicy() {
     <>
       <Head>
         <title>
-          Cancellation Policy | Brilliant Memory Computers Chennai
+          Second Hand Computers in Chennai | Cancellation Policy
         </title>
 
         <meta charSet="utf-8" />
@@ -34,7 +34,7 @@ export default function CancellationPolicy() {
 
         <meta
           name="description"
-          content="Read the cancellation policy of Brilliant Memory Computers Chennai for order cancellations, processing timelines, conditions for laptops and accessories."
+          content="Review our cancellation policy for second hand computers in Chennai. Learn about cancellation terms, eligibility, timelines, and refund procedures."
         />
 
         <meta
@@ -56,11 +56,11 @@ export default function CancellationPolicy() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Cancellation Policy | Brilliant Memory Computers Chennai"
+          content="Second Hand Computers in Chennai | Cancellation Policy"
         />
         <meta
           property="og:description"
-          content="Understand the cancellation policy of Brilliant Memory Computers Chennai for orders, timelines, and conditions."
+          content="Review our cancellation policy for second hand computers in Chennai. Learn about cancellation terms, eligibility, timelines, and refund procedures."
         />
         <meta
           property="og:url"
@@ -83,11 +83,11 @@ export default function CancellationPolicy() {
         />
         <meta
           name="twitter:title"
-          content="Cancellation Policy | Brilliant Memory Computers Chennai"
+          content="Second Hand Computers in Chennai | Cancellation Policy"
         />
         <meta
           name="twitter:description"
-          content="Read the cancellation policy of Brilliant Memory Computers Chennai including order cancellation rules and timelines."
+          content="Review our cancellation policy for second hand computers in Chennai. Learn about cancellation terms, eligibility, timelines, and refund procedures."
         />
         <meta
           name="twitter:image"
