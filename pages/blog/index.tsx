@@ -9,11 +9,14 @@ import { useVendor } from "@/context/VendorContext";
 import { baseUrl } from "@/api-endpoints/ApiUrls";
 import Head from "next/head";
 
+import localBlogs from "../../data/blogs.json";
+
 interface Blog {
   id: number;
   title: string;
-  excerpt: string;
-  image: string;
+  excerpt?: string;
+  description?: string;
+  image?: string;
   banner_url?: string;
   created_at: string;
   author: string;
@@ -30,9 +33,15 @@ export default function BlogsPage() {
         const response = await axios.get(
           `${baseUrl}/blog/?vendor_id=${vendorId}`
         );
-        setBlogs(response.data?.blogs || []);
+        const apiBlogs = response.data?.blogs || [];
+        if (apiBlogs.length > 0) {
+          setBlogs(apiBlogs);
+        } else {
+          setBlogs((localBlogs as unknown as Blog[]) || []);
+        }
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error("Error fetching blogs from API, loading local fallback:", error);
+        setBlogs((localBlogs as unknown as Blog[]) || []);
       } finally {
         setLoading(false);
       }
