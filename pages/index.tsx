@@ -6,7 +6,6 @@ import HeroSection from "@/components/HeroSection";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import SpecialSection from "@/components/SpecialSection";
 import HomeSeoSection from "@/components/homeseocontent";
-import LogoImg from "../public/img/bmc-logo.png";
 import FaqSection from "@/components/FaqSection";
 import { GetServerSideProps } from "next";
 import Banner1 from "../public/img/bmc-banner-1.jpg";
@@ -24,81 +23,101 @@ export default function Home({ banners }: { banners: any[] }) {
   return (
     <>
       <Head>
-        <title>Best Computer Shop in Chennai for Laptops & PCs | BMC</title>
+        <title>Computer Shop in Chennai | Laptops, PCs & More in BMC</title>
         <meta
           name="description"
-          content="Best computer shop in Chennai for new & refurbished laptops, gaming computers and accessories. Shop quality products at affordable prices."
+          content="Looking for the best computer shop in Chennai? Explore laptops, desktops, gaming PCs, custom builds and computer accessories at BMC."
         />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="author" content="Brilliant Memory Computers" />
-        <meta name="application-name" content="Brilliant Memory Computers" />
+        <meta
+          name="keywords"
+          content="computer store in Chennai, laptop store in Chennai, computer shop in Chennai, laptop shop in Chennai, best computer shop in Chennai, best laptop shop in Chennai, computer showroom in Chennai, laptop showroom in Chennai, gaming PC in Chennai, gaming PC build in Chennai, custom PC builder in Chennai, custom PC build in Chennai, refurbished laptops in Chennai, refurbished computers in Chennai, computer accessories in Chennai, PC components in Chennai, desktop computers in Chennai, gaming computers in Chennai, buy laptops online Chennai, buy computers online Chennai, PC builder Chennai, computer dealer Chennai, laptop dealer Chennai, computer wholesale shop in Chennai, IT hardware store Chennai, gaming laptop Chennai, custom gaming PC, refurbished laptop store, desktop shop Chennai, computer peripherals Chennai"
+        />
+
+        {/* Canonical Tag */}
+        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/" />
+
+        {/* Robots Tag */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* OG Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Computer Shop in Chennai | Laptops, PCs & More in BMC" />
+        <meta
+          property="og:description"
+          content="Looking for the best computer shop in Chennai? Explore laptops, desktops, gaming PCs, custom builds and computer accessories at BMC."
+        />
+        <meta property="og:url" content="https://www.brilliantmemorycomputers.in/" />
+        <meta property="og:site_name" content="Brilliant Memory Computers" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:image" content="https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png" />
+        <meta property="og:image:alt" content="Brilliant Memory Computers - Laptops, Computers and Gaming PCs in Chennai" />
+
+        {/* TWITTER Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Computer Shop in Chennai | Laptops, PCs & More in BMC" />
+        <meta
+          name="twitter:description"
+          content="Looking for the best computer shop in Chennai? Explore laptops, desktops, gaming PCs, custom builds and computer accessories at BMC."
+        />
+        <meta name="twitter:image" content="https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png" />
+        <meta name="twitter:image:alt" content="Brilliant Memory Computers - Laptops, Computers and Gaming PCs in Chennai" />
+
+        {/* IMAGE_SRC Tags */}
+        <link rel="image_src" href="https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png" />
 
         {/* GEO Tags */}
         <meta name="geo.region" content="IN-TN" />
         <meta name="geo.placename" content="Chennai" />
-        <meta name="geo.position" content="13.0685569;80.2696705" />
-        <meta name="ICBM" content="13.0685569, 80.2696705" />
-        <meta
-          name="keywords"
-          content="best computer shop in Chennai, computer shop Chennai, Chennai computer shop, computer wholesale shop, computer wholesale shop in Chennai, computer store Chennai, laptop shop in Chennai, refurbished laptops in Chennai, refurbished laptops and computer store, gaming PC build in Chennai, custom PC builds Chennai, PC builders in Chennai, gaming computer shop Chennai, computer accessories shop in Chennai, laptop and desktop store Chennai"
-        />
 
-        {/* Canonical */}
-        <link rel="canonical" href="https://www.brilliantmemorycomputers.in/" />
-
-        {/* Open Graph (FB & LinkedIn) */}
-        <meta property="og:title" content="Best Computer Shop in Chennai for Laptops & PCs | BMC" />
-        <meta
-          property="og:description"
-          content="Best computer shop in Chennai for new & refurbished laptops, gaming computers and accessories. Shop quality products at affordable prices."
-        />
-        <meta property="og:url" content="https://www.brilliantmemorycomputers.in/" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Best Computer Shop in Chennai for Laptops & PCs" />
-        <meta
-          name="twitter:description"
-          content="Best computer shop in Chennai for new & refurbished laptops, gaming computers and accessories. Shop quality products at affordable prices."
-        />
-        <meta
-          name="twitter:image"
-          content={`https://www.brilliantmemorycomputers.in/${LogoImg.src}`}
-        />
-
-
-
-        {/* Schema JSON-LD */}
-        {/* Organization Schema */}
+        {/* SCHEMA: 1. Website Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "@id": "https://www.brilliantmemorycomputers.in/#business",
+              "@type": "WebSite",
+              "@id": "https://www.brilliantmemorycomputers.in/#website",
+              "url": "https://www.brilliantmemorycomputers.in/",
+              "name": "Brilliant Memory Computers",
+              "alternateName": "BMC",
+              "description": "Looking for the best computer shop in Chennai? Explore laptops, desktops, gaming PCs, custom builds and computer accessories at BMC.",
+              "publisher": {
+                "@id": "https://www.brilliantmemorycomputers.in/#localbusiness"
+              },
+              "inLanguage": "en-IN",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://www.brilliantmemorycomputers.in/shop?search={search_term_string}"
+                },
+                "query-input": {
+                  "@type": "PropertyValueSpecification",
+                  "valueRequired": true,
+                  "valueName": "search_term_string"
+                }
+              }
+            })
+          }}
+        />
+
+        {/* SCHEMA: 2. Local Business Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ComputerStore",
+              "@id": "https://www.brilliantmemorycomputers.in/#localbusiness",
               "name": "Brilliant Memory Computers",
               "alternateName": "BMC",
               "url": "https://www.brilliantmemorycomputers.in/",
-              "logo": {
-                "@type": "ImageObject",
-                "@id": "https://www.brilliantmemorycomputers.in/#logo",
-                "url": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png"
-              },
-              "image": {
-                "@type": "ImageObject",
-                "url": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-banner-1.ebb75824.jpg"
-              },
-              "description": "Brilliant Memory Computers is a computer and laptop store in Chennai offering brand-new laptops, gaming PCs, custom PC builds, refurbished computers, components and computer accessories.",
+              "logo": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png",
+              "image": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png",
+              "description": "Looking for the best computer shop in Chennai? Explore laptops, desktops, gaming PCs, custom builds and computer accessories at BMC.",
               "telephone": "+91-7788996684",
               "email": "info@brilliantmemorycomputers.in",
+              "priceRange": "₹₹",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Shop No 2, GF 1/L, Blackers Road Gaiety Palace, Anna Salai",
@@ -107,15 +126,9 @@ export default function Home({ banners }: { banners: any[] }) {
                 "postalCode": "600002",
                 "addressCountry": "IN"
               },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-7788996684",
-                "contactType": "customer service",
-                "areaServed": "IN",
-                "availableLanguage": [
-                  "English",
-                  "Tamil"
-                ]
+              "areaServed": {
+                "@type": "City",
+                "name": "Chennai"
               },
               "sameAs": [
                 "https://www.brilliantmemorycomputers.in",
@@ -129,100 +142,7 @@ export default function Home({ banners }: { banners: any[] }) {
           }}
         />
 
-        {/* Service Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              "@id": "https://www.brilliantmemorycomputers.in/#computer-services",
-              "name": "Computer Sales, Custom PC Builds & IT Hardware Services in Chennai",
-              "url": "https://www.brilliantmemorycomputers.in/",
-              "description": "Brilliant Memory Computers provides laptops, desktop computers, gaming PCs, custom PC builds, refurbished computers, computer components and accessories in Chennai.",
-              "serviceType": [
-                "Laptop Sales",
-                "Desktop Computer Sales",
-                "Gaming PC Builds",
-                "Custom PC Builds",
-                "Refurbished Laptop Sales",
-                "Refurbished Computer Sales",
-                "Computer Components",
-                "Computer Accessories"
-              ],
-              "provider": {
-                "@id": "https://www.brilliantmemorycomputers.in/#business"
-              },
-              "areaServed": {
-                "@type": "City",
-                "name": "Chennai"
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "BMC Computer Products and Services",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Brand-New Laptops and Desktop Computers"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Gaming PCs and Gaming Laptops"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Custom PC Builds in Chennai"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Refurbished Laptops and Computers"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Computer Accessories and Peripherals"
-                    }
-                  }
-                ]
-              }
-            })
-          }}
-        />
-
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "@id": "https://www.brilliantmemorycomputers.in/#breadcrumb",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.brilliantmemorycomputers.in/"
-                }
-              ]
-            })
-          }}
-        />
-
-        {/* WebPage Schema */}
+        {/* SCHEMA: 3. WebPage Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -231,77 +151,22 @@ export default function Home({ banners }: { banners: any[] }) {
               "@type": "WebPage",
               "@id": "https://www.brilliantmemorycomputers.in/#webpage",
               "url": "https://www.brilliantmemorycomputers.in/",
-              "name": "Best Computer Shop in Chennai for Laptops & PCs | BMC",
-              "headline": "The Best Laptop & Computer Shop in Chennai",
-              "description": "Best computer shop in Chennai for new & refurbished laptops, gaming computers and accessories. Shop quality products at affordable prices.",
-              "inLanguage": "en-IN",
+              "name": "Computer Shop in Chennai | Laptops, PCs & More in BMC",
+              "headline": "Brilliant Memory Computers - The Best Laptop & Computer Shop in Chennai",
+              "description": "Looking for the best computer shop in Chennai? Explore laptops, desktops, gaming PCs, custom builds and computer accessories at BMC.",
               "isPartOf": {
                 "@id": "https://www.brilliantmemorycomputers.in/#website"
               },
               "about": {
-                "@id": "https://www.brilliantmemorycomputers.in/#business"
+                "@id": "https://www.brilliantmemorycomputers.in/#localbusiness"
               },
+              "publisher": {
+                "@id": "https://www.brilliantmemorycomputers.in/#localbusiness"
+              },
+              "inLanguage": "en-IN",
               "mainEntity": {
-                "@id": "https://www.brilliantmemorycomputers.in/#business"
-              },
-              "breadcrumb": {
-                "@id": "https://www.brilliantmemorycomputers.in/#breadcrumb"
-              },
-              "primaryImageOfPage": {
-                "@type": "ImageObject",
-                "@id": "https://www.brilliantmemorycomputers.in/#primaryimage",
-                "url": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-banner-1.ebb75824.jpg"
+                "@id": "https://www.brilliantmemorycomputers.in/#localbusiness"
               }
-            })
-          }}
-        />
-
-        {/* Local Business Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ComputerStore",
-              "@id": "https://www.brilliantmemorycomputers.in/#business",
-              "name": "Brilliant Memory Computers",
-              "alternateName": "BMC",
-              "url": "https://www.brilliantmemorycomputers.in/",
-              "description": "Brilliant Memory Computers is a computer shop in Chennai offering laptops, desktop computers, gaming PCs, custom PC builds, refurbished laptops, computer components and accessories.",
-              "image": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-banner-1.ebb75824.jpg",
-              "logo": "https://www.brilliantmemorycomputers.in/_next/static/media/bmc-logo.796edd81.png",
-              "telephone": "+91-7788996684",
-              "email": "info@brilliantmemorycomputers.in",
-              "openingHours": "Mo-Sa 09:00-21:00",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Shop No 2, GF 1/L, Blackers Road Gaiety Palace, Anna Salai",
-                "addressLocality": "Chennai",
-                "addressRegion": "Tamil Nadu",
-                "postalCode": "600002",
-                "addressCountry": "IN"
-              },
-              "areaServed": [
-                {
-                  "@type": "City",
-                  "name": "Chennai"
-                },
-                {
-                  "@type": "State",
-                  "name": "Tamil Nadu"
-                }
-              ],
-              "knowsAbout": [
-                "Laptops",
-                "Desktop Computers",
-                "Gaming PCs",
-                "Custom PC Builds",
-                "Refurbished Laptops",
-                "Computer Components",
-                "Computer Accessories",
-                "Gaming Accessories",
-                "PC Upgrades"
-              ]
             })
           }}
         />
