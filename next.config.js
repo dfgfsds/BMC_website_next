@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+  },
+  modularizeImports: {
+    "lucide-react": {
+      transform: "lucide-react/dist/esm/icons/{{kebabCase member}}",
+    },
+  },
   images: {
     unoptimized: true,
-    // domains: [
-    //   'theme905-computer-shop.myshopify.com',
-    //   'example.com',
-    //   'ecomapi.ftdigitalsolutions.org',
-    //   'www.primeabgb.com',
-    // ],
   },
 
   async headers() {

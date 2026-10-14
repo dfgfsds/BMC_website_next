@@ -16,18 +16,18 @@ export default function FaqSection() {
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Why is Brilliant Memory Computers considered the best computer shop in Chennai?",
+                "name": "Why Choose Brilliant Memory Computers as the Best Computer Shop in Chennai?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Brilliant Memory Computers is considered the best computer shop in Chennai for its wide range of brand-new laptops, custom PC builds, gaming computers, and certified refurbished laptops at competitive prices. With genuine products, expert consultation, warranty support, and after-sales service, BMC continues to serve customers across Chennai with dependable computer solutions."
+                    "text": "Brilliant Memory Computers offers brand-new laptops, custom-built PCs, gaming computers, and certified refurbished laptops at competitive prices. Customers looking for the best computer shop in Chennai can explore suitable options with expert guidance, genuine products, warranty support, and after-sales assistance. BMC helps individuals and businesses find computer solutions that match their needs and budgets."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Where is the most reliable computer shop in Chennai for laptops and PCs?",
+                "name": "Where Is the Most Reliable Computer Shop in Chennai for Laptops and PCs?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "If you’re searching for a reliable computer shop in Chennai, Brilliant Memory Computers is a trusted destination for laptops, desktops, gaming PCs, and computer accessories. We provide expert guidance and budget-friendly options to help students, professionals, gamers, and businesses choose the right system for their needs."
+                    "text": "Brilliant Memory Computers is a trusted computer shop in Chennai, offering laptops, desktops, gaming PCs, and computer accessories. With expert guidance and budget-friendly options, we help students, professionals, gamers, and businesses choose the right systems for their needs."
                 }
             },
             {
@@ -35,31 +35,31 @@ export default function FaqSection() {
                 "name": "Do you sell refurbished laptops in Chennai with warranty?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. We are one of the top sellers of refurbished laptops in Chennai, offering refurbished laptops and computers that are thoroughly tested, performance-optimized, and supported with warranty coverage. These affordable and reliable devices are ideal for students, office users, and work-from-home professionals who need dependable everyday performance."
+                    "text": "Yes. We offer refurbished laptops in Chennai with warranty coverage, along with refurbished computers that undergo thorough testing and performance optimisation. These affordable devices suit students, office users, and work-from-home professionals looking for reliable computers for everyday tasks."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Do you provide custom PC builds in Chennai?",
+                "name": "Do You Provide Custom PC Builds in Chennai?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, we specialize in custom PC builds in Chennai for gaming, professional work, and content creation. Whether you need a gaming PC, workstation, or editing system, our expert PC builders help you choose the right components for your performance needs. From processors and graphics cards to cooling and RGB setups, we build high-performance custom PCs tailored to your requirements."
+                    "text": "Yes, Brilliant Memory Computers specializes in custom PC builds in Chennai for gaming, content creation, and professional work. Our expert PC builders help you select suitable processors, graphics cards, cooling systems, and RGB components to create a high-performance PC that matches your requirements and budget."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Why should I choose BMC over other computer shops in Chennai?",
+                "name": "Why Should I Choose BMC Over Other Computer Shops in Chennai?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Brilliant Memory Computers stands out among computer shops in Chennai for its strong focus on quality, pricing, customer satisfaction, and dependable service. We offer genuine and brand-new computer products, best price guarantee in Chennai, expert technical support, custom PC build specialists, fast delivery and quick service, and reliable warranty and after-sales support. We focus on performance, reliability and long-term value, helping every customer choose the right products and solutions for their computing needs."
+                    "text": "Brilliant Memory Computers stands out among computer shops in Chennai through its product quality, competitive pricing, and customer-focused service.Genuine, brand-new computer products, Competitive prices across Chennai, Expert technical guidance, Custom PC build specialists, Fast delivery and prompt service, Warranty and after-sales support. We help customers choose reliable computer products that match their needs and budget, with a focus on performance and long-term value."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can I build a gaming PC at Brilliant Memory Computers?",
+                "name": "Can I Build a Gaming PC at Brilliant Memory Computers?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Definitely. We are one of the most trusted shops for gaming PC builds in Chennai. We offer high-refresh-rate gaming laptops, powerful gaming desktops, liquid-cooled systems, and high-end GPU configurations designed for smooth gameplay and streaming performance."
+                    "text": "Definitely! Brilliant Memory Computers specializes in gaming PC builds in Chennai, offering high-refresh-rate gaming laptops, powerful gaming desktops, liquid-cooled systems, and high-end GPU configurations for smooth gameplay and streaming. Our team helps you choose a setup that suits your gaming preferences and budget."
                 }
             }
         ]
@@ -88,13 +88,13 @@ export default function FaqSection() {
                     <div className={`border rounded-xl p-5 bg-white shadow-sm ${activeIndex === 0 ? 'border-blue-700 bg-slate-50' : ''}`}>
                         <button onClick={() => toggle(0)} className="w-full flex justify-between text-left">
                             <h5 className={`text-lg font-semibold ${activeIndex === 0 ? 'text-blue-700' : 'text-gray-900'}`}>
-                                Why is Brilliant Memory Computers considered the best computer shop in Chennai?
+                                Why Choose Brilliant Memory Computers as the Best Computer Shop in Chennai?
                             </h5>
                             {activeIndex === 0 ? <HiMinusSm className="text-2xl text-blue-700" /> : <HiPlusSm className="text-2xl" />}
                         </button>
                         {activeIndex === 0 && (
-                            <p className="mt-3 text-gray-700">
-                                Brilliant Memory Computers is considered the best computer shop in Chennai for its wide range of brand-new laptops, custom PC builds, gaming computers, and certified refurbished laptops at competitive prices. With genuine products, expert consultation, warranty support, and after-sales service, BMC continues to serve customers across Chennai with dependable computer solutions.
+                            <p className="mt-3 text-gray-700 leading-relaxed">
+                                Brilliant Memory Computers offers brand-new laptops, custom-built PCs, gaming computers, and certified refurbished laptops at competitive prices. Customers looking for the best computer shop in Chennai can explore suitable options with expert guidance, genuine products, warranty support, and after-sales assistance. BMC helps individuals and businesses find computer solutions that match their needs and budgets.
                             </p>
                         )}
                     </div>
@@ -103,13 +103,13 @@ export default function FaqSection() {
                     <div className={`border rounded-xl p-5 bg-white shadow-sm ${activeIndex === 1 ? 'border-blue-700 bg-slate-50' : ''}`}>
                         <button onClick={() => toggle(1)} className="w-full flex justify-between text-left">
                             <h5 className={`text-lg font-semibold ${activeIndex === 1 ? 'text-blue-700' : 'text-gray-900'}`}>
-                                Where is the most reliable computer shop in Chennai for laptops and PCs?
+                                Where Is the Most Reliable Computer Shop in Chennai for Laptops and PCs?
                             </h5>
                             {activeIndex === 1 ? <HiMinusSm className="text-2xl text-blue-700" /> : <HiPlusSm className="text-2xl" />}
                         </button>
                         {activeIndex === 1 && (
-                            <p className="mt-3 text-gray-700">
-                                If you’re searching for a reliable computer shop in Chennai, Brilliant Memory Computers is a trusted destination for laptops, desktops, gaming PCs, and computer accessories. We provide expert guidance and budget-friendly options to help students, professionals, gamers, and businesses choose the right system for their needs.
+                            <p className="mt-3 text-gray-700 leading-relaxed">
+                                Brilliant Memory Computers is a trusted computer shop in Chennai, offering laptops, desktops, gaming PCs, and computer accessories. With expert guidance and budget-friendly options, we help students, professionals, gamers, and businesses choose the right systems for their needs.
                             </p>
                         )}
                     </div>
@@ -123,8 +123,8 @@ export default function FaqSection() {
                             {activeIndex === 2 ? <HiMinusSm className="text-2xl text-blue-700" /> : <HiPlusSm className="text-2xl" />}
                         </button>
                         {activeIndex === 2 && (
-                            <p className="mt-3 text-gray-700">
-                                Yes. We are one of the top sellers of refurbished laptops in Chennai, offering refurbished laptops and computers that are thoroughly tested, performance-optimized, and supported with warranty coverage. These affordable and reliable devices are ideal for students, office users, and work-from-home professionals who need dependable everyday performance.
+                            <p className="mt-3 text-gray-700 leading-relaxed">
+                                Yes. We offer refurbished laptops in Chennai with warranty coverage, along with refurbished computers that undergo thorough testing and performance optimisation. These affordable devices suit students, office users, and work-from-home professionals looking for reliable computers for everyday tasks.
                             </p>
                         )}
                     </div>
@@ -133,13 +133,13 @@ export default function FaqSection() {
                     <div className={`border rounded-xl p-5 bg-white shadow-sm ${activeIndex === 3 ? 'border-blue-700 bg-slate-50' : ''}`}>
                         <button onClick={() => toggle(3)} className="w-full flex justify-between text-left">
                             <h5 className={`text-lg font-semibold ${activeIndex === 3 ? 'text-blue-700' : 'text-gray-900'}`}>
-                                Do you provide custom PC builds in Chennai?
+                                Do You Provide Custom PC Builds in Chennai?
                             </h5>
                             {activeIndex === 3 ? <HiMinusSm className="text-2xl text-blue-700" /> : <HiPlusSm className="text-2xl" />}
                         </button>
                         {activeIndex === 3 && (
-                            <p className="mt-3 text-gray-700">
-                                Yes, we specialize in custom PC builds in Chennai for gaming, professional work, and content creation. Whether you need a gaming PC, workstation, or editing system, our expert PC builders help you choose the right components for your performance needs. From processors and graphics cards to cooling and RGB setups, we build high-performance custom PCs tailored to your requirements.
+                            <p className="mt-3 text-gray-700 leading-relaxed">
+                                Yes, Brilliant Memory Computers specializes in custom PC builds in Chennai for gaming, content creation, and professional work. Our expert PC builders help you select suitable processors, graphics cards, cooling systems, and RGB components to create a high-performance PC that matches your requirements and budget.
                             </p>
                         )}
                     </div>
@@ -148,22 +148,22 @@ export default function FaqSection() {
                     <div className={`border rounded-xl p-5 bg-white shadow-sm ${activeIndex === 4 ? 'border-blue-700 bg-slate-50' : ''}`}>
                         <button onClick={() => toggle(4)} className="w-full flex justify-between text-left">
                             <h5 className={`text-lg font-semibold ${activeIndex === 4 ? 'text-blue-700' : 'text-gray-900'}`}>
-                                Why should I choose BMC over other computer shops in Chennai?
+                                Why Should I Choose BMC Over Other Computer Shops in Chennai?
                             </h5>
                             {activeIndex === 4 ? <HiMinusSm className="text-2xl text-blue-700" /> : <HiPlusSm className="text-2xl" />}
                         </button>
                         {activeIndex === 4 && (
-                            <div className="mt-3 text-gray-700 space-y-2">
-                                <p>Brilliant Memory Computers stands out among computer shops in Chennai for its strong focus on quality, pricing, customer satisfaction & dependable service.</p>
+                            <div className="mt-3 text-gray-700 space-y-2 leading-relaxed">
+                                <p>Brilliant Memory Computers stands out among computer shops in Chennai through its product quality, competitive pricing, and customer-focused service.</p>
                                 <ul className="list-disc pl-5 space-y-1">
-                                    <li>Genuine and brand-new computer products</li>
-                                    <li>Best price guarantee in Chennai</li>
-                                    <li>Expert technical support</li>
+                                    <li>Genuine, brand-new computer products</li>
+                                    <li>Competitive prices across Chennai</li>
+                                    <li>Expert technical guidance</li>
                                     <li>Custom PC build specialists</li>
-                                    <li>Fast delivery and quick service</li>
-                                    <li>Reliable warranty and after-sales support</li>
+                                    <li>Fast delivery and prompt service</li>
+                                    <li>Warranty and after-sales support</li>
                                 </ul>
-                                <p>We focus on performance, reliability, and long-term value, helping every customer choose the right products and solutions for their computing needs.</p>
+                                <p>We help customers choose reliable computer products that match their needs and budget, with a focus on performance and long-term value.</p>
                             </div>
                         )}
                     </div>
@@ -172,13 +172,13 @@ export default function FaqSection() {
                     <div className={`border rounded-xl p-5 bg-white shadow-sm ${activeIndex === 5 ? 'border-blue-700 bg-slate-50' : ''}`}>
                         <button onClick={() => toggle(5)} className="w-full flex justify-between text-left">
                             <h5 className={`text-lg font-semibold ${activeIndex === 5 ? 'text-blue-700' : 'text-gray-900'}`}>
-                                Can I build a gaming PC at Brilliant Memory Computers?
+                                Can I Build a Gaming PC at Brilliant Memory Computers?
                             </h5>
                             {activeIndex === 5 ? <HiMinusSm className="text-2xl text-blue-700" /> : <HiPlusSm className="text-2xl" />}
                         </button>
                         {activeIndex === 5 && (
-                            <p className="mt-3 text-gray-700">
-                                Definitely. We are one of the most trusted shops for gaming PC builds in Chennai. We offer high-refresh-rate gaming laptops, powerful gaming desktops, liquid-cooled systems & high-end GPU configurations designed for smooth gameplay & streaming performance.
+                            <p className="mt-3 text-gray-700 leading-relaxed">
+                                Definitely! Brilliant Memory Computers specializes in gaming PC builds in Chennai, offering high-refresh-rate gaming laptops, powerful gaming desktops, liquid-cooled systems, and high-end GPU configurations for smooth gameplay and streaming. Our team helps you choose a setup that suits your gaming preferences and budget.
                             </p>
                         )}
                     </div>
