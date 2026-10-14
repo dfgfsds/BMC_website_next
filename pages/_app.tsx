@@ -1,27 +1,18 @@
 import "@/styles/globals.css";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { CategoriesProvider } from "@/context/CategoriesContext";
-import { UserProvider } from "@/context/UserContext";
-import { CartItemProvider } from "@/context/CartItemContext";
-import { ProductsProvider } from "@/context/ProductsContext";
 import Layout from "@/components/Layout";
-import { VendorProvider } from "@/context/VendorContext";
 import type { AppProps } from "next/app";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-import AnimatedCursor from "@/components/AnimatedCursor";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Loading from "@/components/Loading";
 import { useRouter } from "next/router";
-import FloatingCallButton from "@/components/FloatingCallButton";
-import DownloadAppPopup from "@/components/DownloadAppPopup";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 
-export default function App({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => new QueryClient());
+const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsApp"), { ssr: false });
+const FloatingCallButton = dynamic(() => import("@/components/FloatingCallButton"), { ssr: false });
+const DownloadAppPopup = dynamic(() => import("@/components/DownloadAppPopup"), { ssr: false });
 
+export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const applyClickEffect = (e: MouseEvent) => {
       const target = e.target as HTMLElement;

@@ -127,7 +127,6 @@ const DownloadAppPopup = () => {
                             objectFit: 'contain',
                             display: 'block',
                         }}
-                        priority
                     />
                     <span
                         style={{

@@ -1,18 +1,20 @@
-==================================================
-ROBOTS.TXT - BRILLIANT MEMORY COMPUTERS
-SEO + AEO + GEO OPTIMIZED
-https://www.brilliantmemorycomputers.in
-==================================================
+# ==================================================
+# ROBOTS.TXT - BRILLIANT MEMORY COMPUTERS
+# SEO + AEO + GEO OPTIMIZED
+# https://www.brilliantmemorycomputers.in
+# ==================================================
 User-agent: *
 Allow: /
-==================================================
-NEXT.JS ASSETS
-==================================================
+
+# ==================================================
+# NEXT.JS ASSETS
+# ==================================================
 Allow: /_next/static/
 Allow: /_next/image/
-==================================================
-IMPORTANT PUBLIC PAGES
-==================================================
+
+# ==================================================
+# IMPORTANT PUBLIC PAGES
+# ==================================================
 Allow: /shop
 Allow: /categories
 Allow: /about-us
@@ -20,9 +22,10 @@ Allow: /contact-us
 Allow: /custom-pc-build
 Allow: /blog
 Allow: /aadi-sale-2026
-==================================================
-CATEGORY PAGES
-==================================================
+
+# ==================================================
+# CATEGORY PAGES
+# ==================================================
 Allow: /categories/laptops
 Allow: /categories/desktops
 Allow: /categories/processor
@@ -44,30 +47,34 @@ Allow: /categories/speaker
 Allow: /categories/soundbar
 Allow: /categories/web-camera
 Allow: /categories/wireless-headphone
-==================================================
-LEGAL PAGES
-==================================================
+
+# ==================================================
+# LEGAL PAGES
+# ==================================================
 Allow: /privacy-policy
 Allow: /refund-policy
 Allow: /shipping-policy
 Allow: /cancellation-policy
 Allow: /terms-conditions
-==================================================
-BLOCK CUSTOMER ACCOUNT PAGES
-==================================================
+
+# ==================================================
+# BLOCK CUSTOMER ACCOUNT PAGES
+# ==================================================
 Disallow: /login
 Disallow: /signup
 Disallow: /profile
 Disallow: /cart
 Disallow: /checkout
 Disallow: /wishlist
-==================================================
-BLOCK INTERNAL SEARCH
-==================================================
+
+# ==================================================
+# BLOCK INTERNAL SEARCH
+# ==================================================
 Disallow: /search
-==================================================
-BLOCK ADMIN & SYSTEM DIRECTORIES
-==================================================
+
+# ==================================================
+# BLOCK ADMIN & SYSTEM DIRECTORIES
+# ==================================================
 Disallow: /admin
 Disallow: /administrator
 Disallow: /backend
@@ -77,9 +84,10 @@ Disallow: /.env
 Disallow: /node_modules/
 Disallow: /tmp/
 Disallow: /backup/
-==================================================
-ALLOW AI SEARCH & ANSWER ENGINES
-==================================================
+
+# ==================================================
+# ALLOW AI SEARCH & ANSWER ENGINES
+# ==================================================
 User-agent: GPTBot
 Allow: /
 User-agent: ChatGPT-User
@@ -106,18 +114,21 @@ User-agent: Meta-ExternalAgent
 Allow: /
 User-agent: Bytespider
 Allow: /
-==================================================
-OPTIONAL CRAWL RATE CONTROL
-==================================================
+
+# ==================================================
+# OPTIONAL CRAWL RATE CONTROL
+# ==================================================
 User-agent: AhrefsBot
 Crawl-delay: 5
 User-agent: SemrushBot
 Crawl-delay: 5
-==================================================
-XML SITEMAP
-==================================================
+
+# ==================================================
+# XML SITEMAP
+# ==================================================
 Sitemap: https://www.brilliantmemorycomputers.in/sitemap.xml
-==================================================
-HOST
-==================================================
+
+# ==================================================
+# HOST
+# ==================================================
 Host: https://www.brilliantmemorycomputers.in
