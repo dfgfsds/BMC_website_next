@@ -19,7 +19,16 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-    const [queryClient] = useState(() => new QueryClient());
+    const [queryClient] = useState(() => new QueryClient({
+        defaultOptions: {
+            queries: {
+                staleTime: 1000 * 60 * 5, // 5 minutes fresh cache
+                gcTime: 1000 * 60 * 15,
+                refetchOnWindowFocus: false,
+                retry: 1,
+            },
+        },
+    }));
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -44,26 +53,23 @@ export default function Layout({ children }: LayoutProps) {
             <Suspense fallback={<Loading />}>
                 <QueryClientProvider client={queryClient}>
                     <VendorProvider>
-                        <PolicyProvider>
-                            <CategoriesProvider>
-                                <ProductsProvider>
-                                    <UserProvider>
-                                        <CartItemProvider>
-                                            <div className={`fixed w-full z-[999] transition-transform duration-300 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
-                                                <Header />
-                                                <Navbar />
-                                            </div>
-                                            <main className="pt-[130px]">
-                                                {/* <Loading /> */}
-                                                {children}
-                                            </main>
-                                            <BottomNavBar />
-                                            <Footer />
-                                        </CartItemProvider>
-                                    </UserProvider>
-                                </ProductsProvider>
-                            </CategoriesProvider>
-                        </PolicyProvider>
+                        <CategoriesProvider>
+                            <ProductsProvider>
+                                <UserProvider>
+                                    <CartItemProvider>
+                                        <div className={`fixed w-full z-[999] transition-transform duration-300 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
+                                            <Header />
+                                            <Navbar />
+                                        </div>
+                                        <main className="pt-[130px]">
+                                            {children}
+                                        </main>
+                                        <BottomNavBar />
+                                        <Footer />
+                                    </CartItemProvider>
+                                </UserProvider>
+                            </ProductsProvider>
+                        </CategoriesProvider>
                     </VendorProvider>
                 </QueryClientProvider>
             </Suspense>

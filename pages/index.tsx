@@ -8,14 +8,15 @@ import SpecialSection from "@/components/SpecialSection";
 import HomeSeoSection from "@/components/homeseocontent";
 import FaqSection from "@/components/FaqSection";
 import { GetServerSideProps } from "next";
-import Banner1 from "../public/img/bmc-banner-1.jpg";
-import Banner2 from "../public/img/bmc-banner-2.jpg";
-import Banner3 from "../public/img/bmc-banner-3.jpg";
+import Banner1 from "../public/img/bmc-banner-1.webp";
+import Banner2 from "../public/img/bmc-banner-2.webp";
+import Banner3 from "../public/img/bmc-banner-3.webp";
 import Banner4 from "../public/img/bmc-banner-4.webp";
-import mobileBanner1 from "../public/img/bmc-moblie-banner-1.jpg";
-import mobileBanner2 from "../public/img/bmc-moblie-banner-2.jpg";
-import mobileBanner3 from "../public/img/bmc-moblie-banner-3.jpg";
+import mobileBanner1 from "../public/img/bmc-moblie-banner-1.webp";
+import mobileBanner2 from "../public/img/bmc-moblie-banner-2.webp";
+import mobileBanner3 from "../public/img/bmc-moblie-banner-3.webp";
 import mobileBanner4 from "../public/img/bmc-moblie-banner-4.jpeg";
+import { Sparkles } from "lucide-react";
 
 
 export default function Home({ banners }: { banners: any[] }) {
@@ -204,6 +205,7 @@ export default function Home({ banners }: { banners: any[] }) {
             src="https://www.youtube.com/embed/azYMOjWgMCs?si=hW3TK9AdmXBlT0TW"
             title="BMC Introduction Video"
             frameBorder="0"
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
@@ -214,13 +216,26 @@ export default function Home({ banners }: { banners: any[] }) {
 
       <div className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+          {/* <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
             <span className="text-2xl font-bold text-blue-500 mb-10 mt-4 text-center">Brilliant Memory Computers </span> <br /> The Best Laptop & Computer Shop in Chennai
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
             Searching for the best computer shop in Chennai? Brilliant Memory Computers is your trusted destination and a long-term computer wholesale shop in Chennai for brand-new laptops, custom-built PCs, refurbished systems and all types of computer accessories. Whether you’re a student, professional, gamer or business owner, we bring you powerful machines at unbeatable prices.
-          </p>
-
+          </p> */}
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200/60">
+                <Sparkles className="w-3.5 h-3.5" />
+                Chennai's Trusted IT Partner
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 leading-snug">
+              Welcome to BMC – Your Trusted Computer & Laptop Store in Chennai
+            </h2>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              Looking for brand-new laptops and computers in Chennai, a high-performance gaming computer, or a reliable computer wholesale shop for your business needs? Brilliant Memory Computers (BMC) is your destination. We offer refurbished laptops, gaming laptops, computer accessories, and wholesale computer solutions at affordable prices, making us a preferred choice for customers searching for the best computer shop in Chennai.
+            </p>
+          </div>
           <HomeSeoSection />
         </div>
 
@@ -231,10 +246,10 @@ export default function Home({ banners }: { banners: any[] }) {
 
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-17447812618"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
 
-      <Script id="google-ads-tag" strategy="afterInteractive">
+      <Script id="google-ads-tag" strategy="lazyOnload">
         {`
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}

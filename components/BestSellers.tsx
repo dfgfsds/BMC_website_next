@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { ShoppingCart } from 'lucide-react';
-import ProductModal from './model/ProductModal';
+import dynamic from 'next/dynamic';
 import { useProducts } from '@/context/ProductsContext';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,9 +12,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import { deleteCartitemsApi, postCartitemApi, updateCartitemsApi } from '@/api-endpoints/CartsApi';
 import { useVendor } from '@/context/VendorContext';
 import { InvalidateQueryFilters, useQueryClient } from '@tanstack/react-query';
-import LoginModal from './model/LoginModel';
 import { useCartItem } from '@/context/CartItemContext';
 import { slugConvert } from '@/lib/utils';
+
+const ProductModal = dynamic(() => import('./model/ProductModal'), { ssr: false });
+const LoginModal = dynamic(() => import('./model/LoginModel'), { ssr: false });
 
 const BestSellers = () => {
     const [getUserId, setUserId] = useState<string | null>(null);
@@ -139,6 +141,7 @@ const BestSellers = () => {
                                         alt={product?.name}
                                         width={280}
                                         height={280}
+                                        sizes="(max-width: 640px) 280px, (max-width: 1024px) 240px, 280px"
                                         className="h-52 w-full object-contain mx-auto"
                                     />
                                 </div>
@@ -221,3 +224,4 @@ const BestSellers = () => {
 };
 
 export default BestSellers;
+
