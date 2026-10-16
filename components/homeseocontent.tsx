@@ -27,7 +27,7 @@ export default function HomeSeoSection() {
 
 
                     {/* SECTION 2: The Best Laptop & Computer Shop */}
-                    <div className="bg-gradient-to-br from-blue-50/60 via-white to-indigo-50/40 rounded-2xl p-6 sm:p-8 border border-blue-100 shadow-sm">
+                    {/* <div className="bg-gradient-to-br from-blue-50/60 via-white to-indigo-50/40 rounded-2xl p-6 sm:p-8 border border-blue-100 shadow-sm">
                         <div className="flex items-center justify-center gap-2 mb-3">
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200/60">
                                 <Award className="w-3.5 h-3.5" />
@@ -40,7 +40,7 @@ export default function HomeSeoSection() {
                         <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                             Looking for the best computer shop in Chennai? Brilliant Memory Computers is a trusted destination for brand-new laptops, custom-built PCs, refurbished systems, and computer accessories. As an established computer wholesale shop in Chennai, we serve students, professionals, gamers, and businesses with quality products at competitive prices.
                         </p>
-                    </div>
+                    </div> */}
 
                     {/* SECTION 3: Gaming Laptops & High-Performance Gaming Computers */}
                     <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200/80 shadow-sm hover:shadow-md transition-shadow">
