@@ -179,14 +179,14 @@ export default function Home({ banners }: { banners: any[] }) {
       <BestSellers />
       <div className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
-            Welcome to BMC – Chennai’s Trusted Computer & Laptop Store
-          </h2>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+            The Best Laptop & Computer Shop in Chennai
+          </h1>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
             <span className="block mb-4">
-              Looking for brand new laptops & computers in Chennai, the latest gaming computer for high performance or a reliable computer wholesale shop for your PC requirements? You’ve come to the right place!
+              Searching for the best computer shop in Chennai? Brilliant Memory Computers is your trusted destination and a long-term computer wholesale shop in Chennai for brand-new laptops, custom-built PCs, refurbished systems and all types of computer accessories. Whether you’re a student, professional, gamer or business owner, we bring you powerful machines at unbeatable prices.
             </span>
-            At Brilliant Memory Computers, we’re proud to be the best computer shop in Chennai, offering refurbished laptops, gaming laptops, computer accessories and wholesale computer solutions at affordable prices.
+            {/* At Brilliant Memory Computers, we’re proud to be the best computer shop in Chennai, offering refurbished laptops, gaming laptops, computer accessories and wholesale computer solutions at affordable prices. */}
 
           </p>
 
