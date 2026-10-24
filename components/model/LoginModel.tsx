@@ -10,6 +10,7 @@ import { baseUrl } from "@/api-endpoints/ApiUrls";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "@/config/firebase";
 import { FcGoogle } from "react-icons/fc";
+import { syncLocalCartToServer, ensureUserCart, clearLocalCart } from "@/utils/cartStorage";
 
 function LoginModal({ open, handleClose, vendorId }: any) {
   if (!open) return null;
@@ -45,14 +46,17 @@ function LoginModal({ open, handleClose, vendorId }: any) {
       );
 
       if (response) {
+        const uid = response?.data?.user_id;
+        const name = response?.data?.name;
         if (typeof window !== 'undefined') {
-          localStorage.setItem('userId', response?.data?.user_id);
+          localStorage.setItem('userId', uid);
+          if (name) localStorage.setItem('userName', name);
         }
 
-        const updateApi = await getCartApi(`user/${response?.data?.user_id}`);
-        if (updateApi?.data?.length > 0) {
-          localStorage.setItem('cartId', updateApi.data[0].id);
-        }
+        // Ensure user cart is assigned for this vendor and sync any guest items
+        await ensureUserCart(uid, vendorId, name);
+        await syncLocalCartToServer(uid, vendorId, name);
+        clearLocalCart();
 
         handleClose();
         window.location.reload();
@@ -93,12 +97,19 @@ function LoginModal({ open, handleClose, vendorId }: any) {
       });
 
       const userId = res?.data?.user_id;
+      const name = res?.data?.name || res?.data?.user?.name;
       if (userId) {
-        localStorage.setItem('userId', userId);
-        const cartRes = await getCartApi(`user/${userId}`);
-        if (cartRes?.data?.length > 0) {
-          localStorage.setItem('cartId', cartRes.data[0].id);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('userId', userId);
+          if (name) localStorage.setItem('userName', name);
+          if (mobile) localStorage.setItem('contact_number', mobile);
         }
+
+        // Ensure user cart is assigned for this vendor and sync any guest items
+        await ensureUserCart(userId, vendorId, name);
+        await syncLocalCartToServer(userId, vendorId, name);
+        clearLocalCart();
+
         handleClose();
         window.location.reload();
       }
@@ -123,13 +134,18 @@ function LoginModal({ open, handleClose, vendorId }: any) {
 
       const loggedInUserId = res?.data?.user_id || res?.data?.id || res?.data?.user?.id;
       if (loggedInUserId) {
+        const name = res?.data?.name || res?.data?.user?.name || result.user.displayName;
         if (typeof window !== 'undefined') {
-          localStorage.setItem('userId', loggedInUserId);
+          localStorage.setItem('userId', String(loggedInUserId));
+          if (name) localStorage.setItem('userName', name);
+          if (result.user.email) localStorage.setItem('email', result.user.email);
         }
-        const cartRes = await getCartApi(`user/${loggedInUserId}`);
-        if (cartRes?.data?.length > 0) {
-          localStorage.setItem('cartId', cartRes.data[0].id);
-        }
+
+        // Ensure user cart is assigned for this vendor and sync any guest items
+        await ensureUserCart(loggedInUserId, vendorId, name);
+        await syncLocalCartToServer(loggedInUserId, vendorId, name);
+        clearLocalCart();
+
         handleClose();
         window.location.reload();
       } else {
@@ -137,7 +153,11 @@ function LoginModal({ open, handleClose, vendorId }: any) {
       }
     } catch (err: any) {
       console.error('Google sign-in error:', err);
-      setError(err?.response?.data?.error || err?.message || 'Google sign-in failed');
+      if (err?.code === 'auth/popup-closed-by-user' || err?.code === 'auth/cancelled-popup-request') {
+        setError('');
+      } else {
+        setError(err?.response?.data?.error || err?.message || 'Google sign-in failed');
+      }
     } finally {
       setLoading(false);
     }

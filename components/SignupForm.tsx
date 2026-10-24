@@ -6,6 +6,7 @@ import { useVendor } from '@/context/VendorContext';
 import { postCreateUserAPi } from '@/api-endpoints/authendication';
 import { postCartCreateApi } from '@/api-endpoints/CartsApi';
 import { useRouter } from 'next/router';
+import { syncLocalCartToServer } from '@/utils/cartStorage';
 
 const SignupForm = () => {
   const { vendorId } = useVendor()
@@ -85,6 +86,7 @@ const SignupForm = () => {
         if (updateApi) {
           if (typeof window !== 'undefined') {
             localStorage.setItem('cartId', updateApi?.data?.id);
+            await syncLocalCartToServer(response?.data?.user?.id, vendorId, response?.data?.user?.name);
             window.location.href = '/';
           }
         }

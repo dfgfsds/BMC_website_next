@@ -1,10 +1,10 @@
 'use client';
 
-import { patchUserSelectAddressAPi } from '@/api-endpoints/authendication';
+import { patchUserSelectAddressAPi, updateUserAPi } from '@/api-endpoints/authendication';
 import { getAddressApi, getAppliedCouponDataApi, postApplyCouponApi } from '@/api-endpoints/CartsApi';
 import { InvalidateQueryFilters, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { Loader2, MapPin, X } from 'lucide-react';
+import { Loader2, MapPin, Phone, X } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useVendor } from '@/context/VendorContext';
@@ -13,6 +13,7 @@ import { useCartItem } from '@/context/CartItemContext';
 import Image from 'next/image';
 import check from "../public/check.png";
 import { baseUrl } from '@/api-endpoints/ApiUrls';
+import toast from 'react-hot-toast';
 
 interface CheckoutSidebarProps {
     isOpen: boolean;
@@ -30,10 +31,14 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
     const [deliveryInfo, setDeliveryInfo] = useState<any>(null);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showFailureModal, setShowFailureModal] = useState(false);
+    const [showPhoneModal, setShowPhoneModal] = useState(false);
+    const [phoneInput, setPhoneInput] = useState('');
+    const [phoneError, setPhoneError] = useState('');
+    const [phoneUpdating, setPhoneUpdating] = useState(false);
     const queryClient = useQueryClient();
     const router = useRouter();
     const { vendorId } = useVendor()
-    const { user } = useUser();
+    const { user, setUser }: any = useUser();
     const [code, setCode] = useState('');
     const [isChecking, setIsChecking] = useState(false);
     const [error, setError] = useState('');
@@ -42,7 +47,7 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
 
     const [userId, setUserId] = useState<string | null>(null);
     const [paymentMethod, setPaymentMethod] = useState("");
-    
+
 
 
     useEffect(() => {
@@ -125,16 +130,99 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
         }
     };
 
-    const placeOrder = async () => {
+    useEffect(() => {
+        if (user?.data?.contact_number) {
+            setPhoneInput(user.data.contact_number);
+        } else if (typeof window !== 'undefined') {
+            const stored = localStorage.getItem('contact_number');
+            if (stored) setPhoneInput(stored);
+        }
+    }, [user]);
+
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+        setPhoneInput(val);
+        if (val.length === 0) {
+            setPhoneError("Mobile number is required");
+        } else if (val.length < 10) {
+            setPhoneError("Mobile number must be 10 digits");
+        } else {
+            setPhoneError("");
+        }
+    };
+
+    const handleUpdate = async () => {
+        if (!phoneInput) {
+            setPhoneError("Mobile number is required");
+            return;
+        }
+        if (phoneInput.length !== 10) {
+            setPhoneError("Mobile number must be 10 digits");
+            return;
+        }
+
+        setPhoneUpdating(true);
         try {
-            const userId = user?.data?.id;
-            if (!userId) throw new Error("User ID not found");
+            const currentUserId = user?.data?.id || userId || (typeof window !== 'undefined' ? localStorage.getItem('userId') : null);
+            const response = await updateUserAPi(`/${currentUserId}`, {
+                name: user?.data?.name || getUserName || 'user',
+                email: user?.data?.email || (typeof window !== 'undefined' ? localStorage.getItem('email') : ''),
+                contact_number: phoneInput,
+                updated_by: user?.data?.name ? user?.data?.name : 'user',
+                role: 3,
+                vendor: vendorId,
+            });
+
+            if (response) {
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('contact_number', phoneInput);
+                }
+                if (setUser) {
+                    setUser((prev: any) => ({
+                        ...prev,
+                        data: {
+                            ...prev?.data,
+                            contact_number: phoneInput,
+                        },
+                    }));
+                }
+                queryClient.invalidateQueries(["gerUserData"] as InvalidateQueryFilters);
+                queryClient.invalidateQueries({ queryKey: ["getUserData"] });
+                toast.success("Profile updated successfully!");
+                setShowPhoneModal(false);
+                setPhoneError('');
+
+                // Recalling placeOrder with the updated mobile number
+                setTimeout(() => {
+                    placeOrder(phoneInput);
+                }, 300);
+            }
+        } catch (error: any) {
+            toast.error(error?.response?.data?.error || error?.response?.data?.message || 'Something went wrong, please try again later.');
+            console.error("Update failed:", error);
+        } finally {
+            setPhoneUpdating(false);
+        }
+    };
+
+    const placeOrder = async (overridePhone?: string | any) => {
+        try {
+            const currentUserId = user?.data?.id || userId || (typeof window !== 'undefined' ? localStorage.getItem('userId') : null);
+            if (!currentUserId) throw new Error("User ID not found");
             if (!selectedAddressId) throw new Error("No address selected");
 
+            const phone = (typeof overridePhone === 'string' ? overridePhone : null) || user?.data?.contact_number || (typeof window !== 'undefined' ? localStorage.getItem('contact_number') : null);
+
+            // If phone is missing, prompt update modal
+            if (!phone) {
+                setShowPhoneModal(true);
+                return;
+            }
+
             const payload = {
-                user_id: parseInt(userId),
+                user_id: parseInt(String(currentUserId)),
                 vendor_id: vendorId,
-                customer_phone: user?.data?.contact_number,
+                customer_phone: phone,
             };
 
             if (paymentMethod === "cod") {
@@ -169,9 +257,9 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
                         }, 5000);
                     },
                     prefill: {
-                        name: user?.name,
-                        email: user?.email,
-                        contact: user?.contact_number,
+                        name: user?.data?.name || user?.name || getUserName,
+                        email: user?.data?.email || user?.email || (typeof window !== 'undefined' ? localStorage.getItem('email') : ''),
+                        contact: phone,
                     },
                     notes: {
                         address: "Selected Address",
@@ -184,8 +272,14 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
                 const razor = new (window as any).Razorpay(options);
                 razor.open();
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error placing order:", error);
+            const errMsg = error?.response?.data?.message || error?.message || "";
+            // Check if error is due to missing customer_phone
+            if (errMsg.includes("customer_phone") || errMsg.includes("Missing required fields")) {
+                setShowPhoneModal(true);
+                return;
+            }
             setShowFailureModal(true);
             setTimeout(() => {
                 setShowFailureModal(false);
@@ -348,7 +442,7 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
 
                     {/* Place Order Button */}
                     <button
-                        onClick={placeOrder}
+                        onClick={() => placeOrder()}
                         disabled={!selectedAddressId}
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition"
                     >
@@ -383,6 +477,99 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
                     <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
                         <h2 className="text-lg font-bold text-red-600 mb-2">Order Failed</h2>
                         <p className="text-gray-600">You will be redirected back to your cart.</p>
+                    </div>
+                </div>
+            )}
+
+            {/* Update Mobile Number Modal */}
+            {showPhoneModal && (
+                <div className="fixed inset-0 z-[10020] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+                    <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+                        <div className="flex justify-between items-center pb-3 border-b border-gray-100">
+                            <div className="flex items-center gap-2">
+                                <div className="p-2 bg-blue-50 text-blue-600 rounded-full">
+                                    <Phone size={20} />
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900">Update Mobile Number</h3>
+                            </div>
+                            <button
+                                onClick={() => {
+                                    setShowPhoneModal(false);
+                                    setPhoneError('');
+                                }}
+                                className="text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 transition"
+                            >
+                                <X size={20} />
+                            </button>
+                        </div>
+
+                        <p className="text-sm text-gray-600 mt-3 mb-4">
+                            Mobile number is required to proceed with your order. Please enter your 10-digit mobile number.
+                        </p>
+
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                handleUpdate();
+                            }}
+                            className="space-y-4"
+                        >
+                            <div>
+                                <label htmlFor="phoneInput" className="block text-sm font-medium text-gray-700 mb-1">
+                                    Mobile Number
+                                </label>
+                                <div className="relative">
+                                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-medium text-sm">
+                                        +91
+                                    </span>
+                                    <input
+                                        id="phoneInput"
+                                        type="tel"
+                                        maxLength={10}
+                                        value={phoneInput}
+                                        onChange={handlePhoneChange}
+                                        placeholder="Enter 10-digit number"
+                                        autoFocus
+                                        className={`w-full pl-12 pr-4 py-2.5 border rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 transition text-base ${phoneError
+                                            ? 'border-red-500 focus:ring-red-200'
+                                            : 'border-gray-300 focus:border-blue-600 focus:ring-blue-100'
+                                            }`}
+                                    />
+                                </div>
+                                {phoneError && (
+                                    <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1 font-medium">
+                                        {phoneError}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div className="flex gap-3 pt-2">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setShowPhoneModal(false);
+                                        setPhoneError('');
+                                    }}
+                                    className="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    disabled={phoneUpdating}
+                                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg shadow-sm transition flex items-center justify-center gap-2 disabled:opacity-60"
+                                >
+                                    {phoneUpdating ? (
+                                        <>
+                                            <Loader2 className="w-4 h-4 animate-spin" />
+                                            <span>Updating...</span>
+                                        </>
+                                    ) : (
+                                        <span>Save & Place Order</span>
+                                    )}
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}
