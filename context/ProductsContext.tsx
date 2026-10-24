@@ -6,6 +6,7 @@ import { useVendor } from "./VendorContext";
 
 interface ProductsContextType {
   products: { data: any[] };
+  allProducts: { data: any[] };
   isAuthenticated: boolean;
   isLoading: boolean;
 }
@@ -23,25 +24,24 @@ export function ProductsProvider({ children }: { children: ReactNode }) {
     enabled: !!vendorId,
   });
 
-
   const [products, setProducts] = useState<{ data: any }>({ data: [] });
+  const [allProducts, setAllProducts] = useState<{ data: any }>({ data: [] });
 
   React.useEffect(() => {
     if (data) {
+      const rawProducts = Array.isArray(data?.data) ? data.data : [];
+      setAllProducts({ data: rawProducts });
       // filter status === true
-      const activeProducts = Array.isArray(data?.data)
-        ? data?.data?.filter((item: any) => item?.status === true)
-        : [];
+      const activeProducts = rawProducts.filter((item: any) => item?.status === true);
       setProducts({ data: activeProducts });
     }
   }, [data]);
-
-
 
   return (
     <ProductsContext.Provider
       value={{
         products,
+        allProducts,
         isAuthenticated: products.data.length > 0,
         isLoading,
       }}

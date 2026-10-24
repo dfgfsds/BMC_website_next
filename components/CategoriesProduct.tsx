@@ -23,6 +23,7 @@ import Breadcrumb from './Breadcrumb';
 import { slugConvert } from '@/lib/utils';
 
 import categorySeo from '@/data/categorySeo.json';
+import { addToLocalCart, updateLocalCartQty } from '@/utils/cartStorage';
 
 export default function CategoriesBasedProduct() {
 
@@ -83,6 +84,10 @@ export default function CategoriesBasedProduct() {
         type: 'increase' | 'decrease',
         qty: number
     ) => {
+        if (!getUserId) {
+            updateLocalCartQty(cartId, type, qty);
+            return;
+        }
         try {
             if (qty === 1 && type === 'decrease') {
                 await deleteCartitemsApi(`${cartId}`);
@@ -99,9 +104,8 @@ export default function CategoriesBasedProduct() {
     };
 
     const handleAddCart = async (productId: number) => {
-
         if (!getUserId) {
-            setSignInModal(true);
+            addToLocalCart(Number(productId), 1);
             return;
         }
 
@@ -129,14 +133,15 @@ export default function CategoriesBasedProduct() {
     /* ---------------- MERGE CART DATA ---------------- */
     const productsWithCart = filteredProducts?.map((product: any) => {
 
-        const cartData = cartItem?.data?.find(
-            (item: any) => item.product === product.id
-        );
+        const cartData = cartItem?.data?.find((item: any) => {
+            const pId = typeof item?.product === 'object' ? item?.product?.id : item?.product;
+            return Number(pId) === Number(product.id);
+        });
 
         return {
             ...product,
             cartQty: cartData?.quantity || 0,
-            cartId: cartData?.id,
+            cartId: cartData?.id ?? cartData?.product,
         };
     });
 

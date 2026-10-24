@@ -11,6 +11,7 @@ import { postSendSmsOtpUserApi, postVerifySmsOtpApi, postLoginWithGoogleApi, get
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '@/config/firebase';
 import { FcGoogle } from 'react-icons/fc';
+import { getLocalCart, syncLocalCartToServer, ensureUserCart, clearLocalCart } from '@/utils/cartStorage';
 
 const LoginForm = () => {
     const { vendorId } = useVendor();
@@ -93,15 +94,18 @@ const LoginForm = () => {
             });
 
             if (response?.data?.user_id) {
-                localStorage.setItem('userId', response.data.user_id);
+                const uid = response.data.user_id;
+                const name = response.data.name;
+                localStorage.setItem('userId', uid);
+                if (name) localStorage.setItem('userName', name);
 
-                const updateApi = await getCartApi(`user/${response.data.user_id}`);
-                if (updateApi?.data?.length > 0) {
-                    localStorage.setItem('cartId', updateApi.data[0].id);
-                }
+                await ensureUserCart(uid, vendorId, name);
+                const hadLocalItems = getLocalCart().length > 0;
+                await syncLocalCartToServer(uid, vendorId, name);
+                clearLocalCart();
 
-                router.push('/products');
-                window.location.reload();
+                const targetUrl = hadLocalItems ? '/cart' : '/products';
+                window.location.href = targetUrl;
             }
         } catch (err: any) {
             setError(err?.response?.data?.error || 'Something went wrong, please try again later.');
@@ -148,26 +152,21 @@ const LoginForm = () => {
             });
 
             const userId = res?.data?.user_id;
+            const name = res?.data?.name || res?.data?.user?.name;
             if (userId) {
                 localStorage.setItem('userId', userId);
-                const cartRes = await getCartApi(`user/${userId}`);
-                if (cartRes) {
-                    localStorage.setItem('cartId', cartRes.data[0]?.id);
-                    setLoading(false);
-                    router.push('/products');
-                    window.location.reload();
-                }
+                if (name) localStorage.setItem('userName', name);
+                if (mobile) localStorage.setItem('contact_number', mobile);
+
+                await ensureUserCart(userId, vendorId, name);
+                const hadLocalItems = getLocalCart().length > 0;
+                await syncLocalCartToServer(userId, vendorId, name);
+                clearLocalCart();
+
+                setLoading(false);
+                const targetUrl = hadLocalItems ? '/cart' : '/products';
+                window.location.href = targetUrl;
             }
-            // if (response?.data?.user_id) {
-            //   toast.success('Login successful!');
-            //   localStorage.setItem('userId', response.data.user_id);
-
-            //   const cartRes = await getCartApi(`user/${response.data.user_id}`);
-            //   localStorage.setItem('cartId', cartRes?.data[0]?.id);
-
-            //   handleClose();
-            //   window.location.reload();
-            // }
         } catch (err: any) {
             setLoading(false);
             setError(err?.response?.data?.error || 'Invalid OTP');
@@ -204,28 +203,27 @@ const LoginForm = () => {
 
             if (response) {
                 const uid = response?.data?.user_id || response?.data?.user?.id || response?.data?.id;
+                const name = response?.data?.name || response?.data?.user?.name || result.user.displayName;
+                const email = response?.data?.email || response?.data?.user?.email || result.user.email;
                 if (uid) {
                     localStorage.setItem('userId', String(uid));
                 }
-                if (response?.data?.name || response?.data?.user?.name) {
-                    localStorage.setItem('userName', response?.data?.name || response?.data?.user?.name);
+                if (name) {
+                    localStorage.setItem('userName', name);
                 }
-                if (response?.data?.email || response?.data?.user?.email) {
-                    localStorage.setItem('email', response?.data?.email || response?.data?.user?.email);
+                if (email) {
+                    localStorage.setItem('email', email);
                 }
 
                 if (uid) {
-                    try {
-                        const updateApi = await getCartApi(`user/${uid}`);
-                        if (updateApi?.data?.[0]?.id) {
-                            localStorage.setItem('cartId', updateApi.data[0].id);
-                        }
-                    } catch (cartErr) {
-                        console.error("Error syncing cart on google login:", cartErr);
-                    }
+                    await ensureUserCart(uid, vendorId, name);
+                    const hadLocalItems = getLocalCart().length > 0;
+                    await syncLocalCartToServer(uid, vendorId, name);
+                    clearLocalCart();
+
+                    const targetUrl = hadLocalItems ? '/cart' : '/products';
+                    window.location.href = targetUrl;
                 }
-                router.push('/products');
-                window.location.reload();
             }
         } catch (err: any) {
             console.error("Google login error:", err);
