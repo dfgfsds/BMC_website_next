@@ -19,6 +19,7 @@ import { useCartItem } from '@/context/CartItemContext';
 import Breadcrumb from '@/components/Breadcrumb';
 import Link from 'next/link';
 import { slugConvert } from '@/lib/utils';
+import { addToLocalCart, updateLocalCartQty } from '@/utils/cartStorage';
 
 const SingleProductPage = () => {
     const [getUserId, setUserId] = useState<string | null>(null);
@@ -60,12 +61,17 @@ const SingleProductPage = () => {
         if (products?.data && slug) {
             const found = products.data.find((p: any) => slugConvert(p.name) === slug);
             if (found) {
-                const cartMatch = cartItem?.data?.find((item: any) => item?.product === found.id);
+                const cartMatch = cartItem?.data?.find((item: any) => {
+                    const pId = typeof item?.product === 'object' ? item?.product?.id : item?.product;
+                    return Number(pId) === Number(found.id);
+                });
                 if (cartMatch) {
                     setCartData({
-                        cartId: cartMatch.id,
+                        cartId: cartMatch.id ?? cartMatch.product,
                         quantity: cartMatch.quantity
                     });
+                } else {
+                    setCartData(null);
                 }
                 setProduct(found);
             }
@@ -73,6 +79,10 @@ const SingleProductPage = () => {
     }, [products, slug, cartItem]);
 
     const handleUpdateCart = async (id: any, type: any, qty: any) => {
+        if (!getUserId) {
+            updateLocalCartQty(id, type, qty);
+            return;
+        }
         try {
             if (qty === 1 && type === 'decrease') {
                 await deleteCartitemsApi(`${id}`);
@@ -86,6 +96,10 @@ const SingleProductPage = () => {
     };
 
     const handleAddCart = async (id: any, qty: any) => {
+        if (!getUserId) {
+            addToLocalCart(Number(id), Number(qty) || 1);
+            return;
+        }
         const payload = {
             cart: getCartId,
             product: id,
@@ -120,7 +134,10 @@ const SingleProductPage = () => {
     ];
 
     const filteredMatchingProductsArray = relatedProducts?.map((product: any, index: number) => {
-        const matchingCartItem = cartItem?.data?.find((item: any) => item?.product === product?.id);
+        const matchingCartItem = cartItem?.data?.find((item: any) => {
+            const pId = typeof item?.product === 'object' ? item?.product?.id : item?.product;
+            return Number(pId) === Number(product?.id);
+        });
         if (matchingCartItem) {
             return {
                 ...product,
@@ -183,8 +200,7 @@ const SingleProductPage = () => {
                         <div className="flex items-center justify-start mt-4 space-x-4">
                             <button
                                 onClick={() => handleUpdateCart(cartData.cartId, 'decrease', cartData.quantity)}
-                                disabled={cartData.quantity <= 1}
-                                className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+                                className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
                             >
                                 −
                             </button>
@@ -198,7 +214,7 @@ const SingleProductPage = () => {
                         </div>
                     ) : (
                         <button
-                            onClick={() => (getUserId ? handleAddCart(product.id, 1) : setSignInModal(true))}
+                            onClick={() => handleAddCart(product.id, 1)}
                             className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium shadow-sm transition-all duration-200"
                         >
                             Add to Cart
@@ -245,8 +261,7 @@ const SingleProductPage = () => {
                                             onClick={() =>
                                                 handleUpdateCart(related?.cartId, 'decrease', related?.cartQty)
                                             }
-                                            disabled={related.cartQty <= 1}
-                                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+                                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
                                         >
                                             −
                                         </button>
@@ -262,11 +277,7 @@ const SingleProductPage = () => {
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            if (getUserId) {
-                                                handleAddCart(related.id, 1);
-                                            } else {
-                                                setSignInModal(true);
-                                            }
+                                            handleAddCart(related.id, 1);
                                         }}
                                         className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium shadow-sm transition-all duration-200"
                                     >

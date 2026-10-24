@@ -16,6 +16,7 @@ import { useCartItem } from "@/context/CartItemContext";
 import Breadcrumb from "@/components/Breadcrumb";
 import { slugConvert } from "@/lib/utils";
 import ShopBriefContent from "@/components/shopbriefSection";
+import { addToLocalCart, updateLocalCartQty } from "@/utils/cartStorage";
 
 export default function ProductsPage() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -54,9 +55,10 @@ export default function ProductsPage() {
 
 
   const matchingProductsArray = products?.data?.map((product: any, index: number) => {
-    const matchingCartItem = cartItem?.data?.find(
-      (item: any) => item?.product === product?.id
-    );
+    const matchingCartItem = cartItem?.data?.find((item: any) => {
+      const pId = typeof item?.product === 'object' ? item?.product?.id : item?.product;
+      return Number(pId) === Number(product?.id);
+    });
 
     if (matchingCartItem) {
       return {
@@ -71,7 +73,10 @@ export default function ProductsPage() {
   });
 
   const filteredMatchingProductsArray = filteredProducts?.map((product: any, index: number) => {
-    const matchingCartItem = cartItem?.data?.find((item: any) => item?.product === product?.id);
+    const matchingCartItem = cartItem?.data?.find((item: any) => {
+      const pId = typeof item?.product === 'object' ? item?.product?.id : item?.product;
+      return Number(pId) === Number(product?.id);
+    });
     if (matchingCartItem) {
       return {
         ...product,
@@ -86,6 +91,10 @@ export default function ProductsPage() {
   const currentProducts = filteredMatchingProductsArray?.slice(startIndex, endIndex);
 
   const handleAddCart = async (id: any, qty: any) => {
+    if (!getUserId) {
+      addToLocalCart(Number(id), Number(qty) || 1);
+      return;
+    }
     const payload = {
       cart: getCartId,
       product: id,
@@ -105,8 +114,12 @@ export default function ProductsPage() {
   }
 
   const handleUpdateCart = async (id: any, type: any, qty: any) => {
+    if (!getUserId) {
+      updateLocalCartQty(id, type, qty);
+      return;
+    }
     try {
-      if (qty === 1) {
+      if (qty === 1 && type === 'decrease') {
         const updateApi = await deleteCartitemsApi(`${id}`)
         if (updateApi) {
           queryClient.invalidateQueries(['getCartitemsData'] as InvalidateQueryFilters);
@@ -384,8 +397,7 @@ export default function ProductsPage() {
                             onClick={() =>
                               handleUpdateCart(product?.cartId, 'decrease', product?.cartQty)
                             }
-                            disabled={product.cartQty <= 1}
-                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 disabled:opacity-50"
+                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
                           >
                             −
                           </button>
@@ -402,7 +414,7 @@ export default function ProductsPage() {
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              getUserId ? handleAddCart(product.id, 1) : setSignInModal(true);
+                              handleAddCart(product.id, 1);
                             }}
                             className="w-full bg-blue-600 hover:bg-black hover:text-white text-white py-2 rounded-md font-medium shadow-sm transition-all duration-200"
                           >

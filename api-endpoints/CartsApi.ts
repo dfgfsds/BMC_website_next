@@ -10,8 +10,9 @@ export const postCartCreateApi = async (query: any, payload: any) => {
 
 // GET CART APIS 
 export const getCartApi = async (query: any) => {
+    const formattedQuery = query ? (query.endsWith('/') ? query : `${query}/`) : '';
     return axios.get(
-        `${ApiUrls.cartCreate}${query}`
+        `${ApiUrls.cartCreate}${formattedQuery}`
     );
 };
 
@@ -38,8 +39,8 @@ export const updateAddressApi = async (query: any, payload: any) => {
 
 // DELETE ADDRESS APIS 
 export const deleteAddressApi = async (query: any, payload: any) => {
-    return axios.delete(`${ApiUrls.addresses}${query}`, { data: payload }); 
-  };
+    return axios.delete(`${ApiUrls.addresses}${query}`, { data: payload });
+};
 
 
 
@@ -121,7 +122,7 @@ export const getAppliedCouponDataApi = async (query: any) => {
 };
 
 // DELETE COUPON API
-export const deleteCouponApi = async (query: any,payload:any) => {
+export const deleteCouponApi = async (query: any, payload: any) => {
     const formattedQuery = query.endsWith('/') ? query : `${query}/`;
     return axios.delete(`${ApiUrls.coupons}${formattedQuery}`, { data: payload });
 };
@@ -131,18 +132,18 @@ export const deleteCouponApi = async (query: any,payload:any) => {
 // POST PAYMENT API APIS
 export const postPaymentApi = async (query: any, payload: any) => {
     return axios.post(`${ApiUrls.paymentApi}${query}/`, payload);
-  };
+};
 
-  // POST DTDC DELIVERY CHARGE API APIS
+// POST DTDC DELIVERY CHARGE API APIS
 export const postDtdcChargeApi = async (query: any, payload: any) => {
     return axios.post(`${ApiUrls.checkDtdcCharge}${query}`, payload);
-  };
+};
 
-  // POST COD PAYMENT API APIS
+// POST COD PAYMENT API APIS
 export const postCODPaymentApi = async (query: any, payload: any) => {
     return axios.post(`${ApiUrls.codPay}${query}`, payload);
-  };
-  
+};
+
 
 
 
