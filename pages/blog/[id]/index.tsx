@@ -246,7 +246,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         let blogs: Blog[] = response?.data?.blogs || [];
         if (blogs.length === 0) {
             const fallbackRes = await axios
-                .get(`https://test-ecomapi.justvy.in/blog/?vendor_id=${vendorId}`, { timeout: 5000 })
+                .get(`https://test-ecomapi.ftdigitalsolutions.org/blog/?vendor_id=${vendorId}`, { timeout: 5000 })
                 .catch(() => null);
             blogs = fallbackRes?.data?.blogs || [];
         }
